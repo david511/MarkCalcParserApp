@@ -1,0 +1,249 @@
+ 
+ 
+ACCT*4340 Accounting Theory 
+Winter 2019 
+Credit weight 0.5 
+ 
+General Course Information 
+Instructor: Ron Baker 
+Email: ron@uoguelph.ca 
+Office Location: MAC HALL 203 
+Office Hours: Appointment only 
+Department/School: Management 
+  
+Class Schedule: Tues/Thurs 8:30-9:50   
+Class Location MACS, Room 121 
+  
+Final Exam: none 
+Pre-requisites: ACCT 4220 
+Co-requisites: N/A 
+Restrictions: ACCT 4240 
+Course Description 
+This course will draw on accounting research, primarily empirical research. Rather than covering specific 
+GAAP rules, the course will focus on how investors react to GAAP rules, why financial information is 
+important, and how its use/misuse affects investor decision making and management behaviour. The course 
+is thus about accounting, instead of about how to apply accounting standards. 
+The course will introduce students to accounting research and the theories that inform the development of 
+accounting practices and our understanding of the role of accounting in society.  Students will critically 
+examine contemporary issues in accounting including accounting education, earnings management, 
+accounting for sustainability, governance and accounting information as a public good. 
+ 
+ 
+Course Learning Outcomes 
+The learning outcomes of this course are: 
+1. Explain the role of theory in accounting research 
+ 
+2. Identify and explain the more common theories used in accounting research and use the following 
+theories to facilitate our understanding of contemporary accounting issues: 
+a. Agency theory 
+b. Institutional Theory 
+c. Legitimacy Theory 
+d. Stakeholder Theory 
+e. Contingency Theory 
+ 
+3. Identify and explain current issues in accounting, such as 
+a. Sustainability 
+b. Earnings management 
+c. Governance 
+d. Corporate failure 
+e. Measurement 
+f. The development and use of the conceptual framework 
+ 
+4. Critically examine current issues in accounting by drawing upon existing research found in the 
+academic literature 
+ 
+Indicative Content 
+Date Class # Text Article Description 
+Jan 8 1 1   
+Introduction/Contemporary issues in 
+accounting 
+Jan 10 2 1 Demski, 2007; Parker et al., 2011 (pp. 5-9) Accounting as an Academic Discipline 
+Jan 15 3 2 Baker and Wick, 2019; Baker 2011 Accounting Education 
+Jan 17 4 2  Conceptual Framework 
+Jan 22 5 4 Hines, 1989 Conceptual Framework 
+Jan 24 6 4 Sunder, 2015 Measurement 
+Jan 29 7 5 Sterling, 1967 Theories in accounting 
+Jan 31 8 5 Inanga and Schneider, 2005 Theories in accounting 
+Feb 5 9 5   Theories in accounting 
+Feb 7 10 Exam 1    
+Feb 12 11 6 Watts and Zimmerman, 1978 (112-118) Products of financial reporting 
+Feb 14 12 7   Products of financial reporting 
+Feb 26 13 7 Baker et al., 2012 Corporate Governance 
+Feb 28 14 8   Capital markets research 
+Mar 5 15 9 Dechow and Skinner, 2000 Earnings Management 
+Mar 7 16 9   Earnings Management 
+Mar 12 17 Exam 2     
+Mar 14 18 10  Laux and Leuz 2009 Fair Value accounting 
+Mar 19 19 10  Fair Value accounting 
+Mar 21 20 11 Mäkelä et al, 2017  Sustainability  
+Mar 26 21 12 Egan and Tweedie, 2018 Sustainability  
+Mar 28 22 13 Baker and Hayes, 2004 Corporate failure 
+Apr 2 23 Exam 3     
+April 4 24 13   Course Wrap-Up 
+ 
+Articles (Required): 
+Baker, C. R., & Hayes, R. (2004). Reflecting form over substance: the case of Enron Corp. Critical Perspectives on          
+Accounting, 15(6-7), 767-785. 
+ 
+Baker, R. (2011).  An Approach to Course Design for Introductory Financial Accounting, Accounting Educators’ 
+Journal, 11, pp. 63 – 77.  http://www.aejournal.com/ojs/index.php/aej/issue/view/29   
+ 
+Baker, R., Schneider, B., and Anderson, R. (2012).Programme devolution accountability for First Nations: to whom 
+for what?,Int. J. of Business and Globalisation, 8(3), pp.421 – 434. Available at: 
+http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2492613 
+ 
+Baker, R. and Wick, S. (2019).  A narrative on integrating research and theory into undergraduate accounting 
+curriculum, Meditari Accountancy Research, forthcoming.  Available on Courselink. 
+ 
+Dechow, P. and Skinner, D. (2000).  Earnings management: reconciling the views of accounting academic, 
+practitioners and regulators, Accounting Horizons, 14(2), pp. 235-250. 
+ 
+Demski, J. S. (2007). Is accounting an academic discipline?. Accounting horizons, 21(2), 153-157. 
+ 
+Egan, M., & Tweedie, D. (2018). A “green” accountant is difficult to find: Can accountants contribute to sustainability 
+management initiatives?. Accounting, Auditing & Accountability Journal, 31(6), 1749-1773. 
+ 
+Hines, R. D. (1989).  Financial accounting knowledge, conceptual framework projects and the social construction of 
+the accounting profession, Accounting, Auditing and Accountability Journal, 2(2), pp. 72-92. 
+ 
+Inanga, E. L. and Schneider, W. B. (2005).  The failure of accounting research to improve accounting practice: a 
+problem of theory and lack of communication. Critical Perspectives on Accounting, 16(3), pp. 227-248. 
+ 
+Laux, C. and Leuz, C. (2009).  The crisis of fair-value accounting: making sense of the recent debate, Accounting, 
+Organizations & Society, 34(6-7), pp. 826-834. 
+ 
+Mäkelä, H., Gibbon, J., & Costa, E. (2017). Social Enterprise, Accountability and Social Accounting. Social and     
+Environmental Accountability Journal, 37(1), 1-5. 
+ 
+Parker, L.D., Guthrie, J., and Linacre, S. (2011).   The relationship between academic accounting research and 
+professional practice,  Accounting, Auditing & Accountability Journal, 24(1), pp. 5-14. 
+ 
+Sterling, R. (1967).  A Statement of Basic Accounting Theory: A Review Article, Journal of Accounting Research, 
+5(1), pp. 95-112.  
+ 
+Sunder, S. (2015). Risk in accounting. Abacus, 51(4), 536-548. 
+ 
+Watts R. L. and Zimmerman, J. L. (1978). Towards a Positive Theory of the Determination of Accounting 
+Standards, The Accounting Review, 53(1) (Jan., 1978), pp. 112-134. 
+ 
+ 
+Course Assessment 
+Assessment Weight Description 
+Associated 
+Learning Outcomes 
+Due Date/ 
+location 
+Abstract 1: 5% Baker 2011 4 Jan 17/in class 
+Abstract 2: 5% Hines, 1989 4 Jan 29/in class 
+Abstract 3: 5% Baker et al., 2012 4 Feb 28/in class 
+Abstract 4: 5% Laux and Leuz 2009 4 Mar 20/in class 
+Abstract 5: 10% Baker and Hayes 2004 4 Apr 5/in class 
+Term Exam 1: 20%  Ch. 1,2, 4, 5 + articles from 
+classes 1 to 8 
+1,2,3,4 Feb 7/in class 
+Term Exam 2: 25%  Ch. 6,7,8,9 + articles from 
+classes 10 to 16 
+1,2,3,4 Mar 12/in class 
+      
+Term Exam 3: 25% Ch. 10,11,12,13 + articles from 
+classes 18 to 22 
+1,2,3,4 Apr 2/in class 
+Total  100%    
+ 
+Course Resources 
+Required Texts: 
+Contemporary issues in accounting by Rankin, Stanton, McGowan, Ferlauto and Tilling.  Wiley Publishing 
+IBN 978-0-7303-0026-7 
+The text is available as an e-book at the University Bookstore. 
+Other Resources: 
+Articles can be accessed through the University of Guelph library website or the publisher’s website.  All 
+articles are available electronically. 
+Course Policies 
+Grading Policies 
+Three term exams are scheduled for this class.  They are 1 hour and 15 minutes in length and held in your 
+regular classroom during class time.  Each term exam focuses on specific material covered as outlined in the 
+course assessment. 
+Requests regarding re-weighting of marks allocated due to a poor performance on an exam will not be 
+considered.  There is no re-weighting of exams. 
+ 
+IF YOU ARE SICK AT THE TIME OF THE A TERM EXAM YOU ARE REQUIRED TO COMMUNICATE (VIA 
+EMAIL) ANY ILLNESS TO YOUR INSTRUCTOR BEFORE THE EXAM.  The email communication should 
+be sent to your professor before the exam time and should include the following information: full name, 
+student number, course code, section enrolled and your explanation for missing the exam.   All necessary 
+documentation (medical note) supporting your absence must be delivered to your instructor within 5 
+business days of the exam. 
+Also note: issues with marking will only be addressed at the time the exams handed back (in class). 
+http://www.uoguelph.ca/registrar/calendars/undergraduate/current/c08/c08-grds.shtml  
+Please note that these policies are binding unless academic consideration is given to an individual 
+student. 
+Course Policy regarding use of electronic devices and recording of lectures: 
+Electronic recording of classes is expressly forbidden without consent of the instructor.  When recordings are 
+permitted they are solely for the use of the authorized student and may not be reproduced, or transmitted to 
+others, without the express written consent of the instructor. 
+University Policies 
+Academic Consideration 
+When you find yourself unable to meet an in-course requirement because of illness or compassionate reasons, 
+please advise the course instructor in writing, with your name, id#, and e-mail contact. See the academic 
+calendar for information on regulations and procedures for Academic Consideration: 
+http://www.uoguelph.ca/registrar/calendars/undergraduate/current/c08/c08-ac.shtml  
+Academic Misconduct 
+The University of Guelph is committed to upholding the highest standards of academic integrity and it is the 
+responsibility of all members of the University community, faculty, staff, and students to be aware of what 
+constitutes academic misconduct and to do as much as possible to prevent academic offences from occurring.  
+University of Guelph students have the responsibility of abiding by the University's policy on academic 
+misconduct regardless of their location of study; faculty, staff and students have the responsibility of supporting 
+an environment that discourages misconduct. Students need to remain aware that instructors have access to 
+and the right to use electronic and other means of detection. Please note: Whether or not a student intended 
+to commit academic misconduct is not relevant for a finding of guilt. Hurried or careless submission of 
+assignments does not excuse students from responsibility for verifying the academic integrity of their work 
+before submitting it. Students who are in any doubt as to whether an action on their part could be construed 
+as an academic offence should consult with a faculty member or faculty advisor.  
+The Academic Misconduct Policy is detailed in the Undergraduate Calendar: 
+https://www.uoguelph.ca/registrar/calendars/undergraduate/current/c08/c08-amisconduct.shtml  
+Accessibility 
+The University of Guelph is committed to creating a barrier-free environment. Providing services for students 
+is a shared responsibility among students, faculty and administrators. This relationship is based on respect of 
+individual rights, the dignity of the individual and the University community's shared commitment to an open 
+and supportive learning environment. Students requiring service or accommodation, whether due to an 
+identified, ongoing disability or a short-term disability should contact Student Accessibility Services (SAS) as 
+soon as possible. 
+For more information, contact SAS at 519-824-4120 ext. 56208 or email accessibility@uoguelph.ca or see the 
+SAS website at http://www.uoguelph.ca/csd/  
+Course Evaluation Information 
+Please refer to the Course and Instructor Evaluation Website: https://courseeval.uoguelph.ca/ 
+Drop date 
+The last date to drop one-semester courses, without academic penalty, is March 9, 2018. For regulations and 
+procedures for Dropping Courses, see the Academic Calendar: 
+https://www.uoguelph.ca/registrar/calendars/undergraduate/current/c08/c08-drop.shtml  
+Additional Course Information 
+The course consists of readings (textbook and journal articles) and in-class discussions.  Students 
+must complete the required readings prior to class and be prepared to contribute their ideas and 
+opinions in class.  Class time will also be used to review the material, but it is assumed that the 
+readings have been completed so the reviews can be kept to a minimum, leaving more available for 
+discussions. 
+Abstracts 
+These are extended abstracts of assigned readings.  2 to 3 pages in length (single-spaced) they will 
+summarize an article and must include the following sections: 
+1- Issue identification and research question (if application) 
+2- Background 
+3- Methodology 
+4- Overview of results 
+5- Strengths and weaknesses of the article 
+6- Your overall (informed and thoughtful) opinion on the issue addressed in the article. 
+ 
+NOTE: Abstract # 5 is worth 10% of your final grade and should be 5 to 7 pages in length, single-spaced, 
+and include multiple references. 
+ 
+For ALL EXAMS you are permitted a pen/pencil and a non-programmable calculator.  No notes, cell 
+phones, etc. 
+Some policies of note: 
+ No deferred term exams will be held.  Should you require to be excused from a term exam for legitimate 
+reasons (i.e. medical condition), the marks of the term exam will be allocated to the final exam. 
+ 
+ If you are registered with the Centre for Students with Disabilities and will require some form of 
+accommodation in the completion of the required learning activities for this course, please inform your 
+seminar instructor during the first week of classes. 
+ 
+ Keep a copy of all of your graded work until final marks have been recorded.  You may be asked to resubmit 
+your work at any time. 
+ 

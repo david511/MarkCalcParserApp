@@ -1,0 +1,120 @@
+CIS*4010: Cloud Computing
+Winter 2020
+Course Information
+Instructor Office Email
+Dr. Deborah Stacey Reynolds 3301 dastacey@uoguelph.ca
+Lectures
+Tuesday, Thursday 11:30AM to 12:50PM in MCKN 116
+Calendar Description
+This course introduces students to fundamentals of cloud computing and
+software development for cloud platforms. It covers topics such as virtual-
+ization, architecture of cloud systems, programming for the cloud, resource
+management, as well as privacy and security issues.
+Prerequisite(s): CIS*3110
+Topics
+1. Introduction to the Cloud
+2. Storage - Managing Data in the Cloud
+3. Computing in the Cloud
+a) Virtual Machines
+b) Containers
+4. Clouds - AWS and Azure (more information on CourseLink)
+5. Management, Monitoring, Performance
+6. Cloud as Platform
+7. Security
+Required Text
+Cloud Computing for Science and Engineering
+• Available online at https://cloud4scieng.org/
+Method of Evaluation
+• 3 Individual Assignments [2 X 20%, 1 X 25%]
+• Final Team Project [35%]
+• Report [25%]
+• Presentation [10%]
+1
+Evaluation Schedule
+Week 1 Pick teams, get free AWS and Azure accounts
+Week 3 First assignment due
+Week 4 Project proposal due
+Week 6 Second assignment due
+Week 9 Third assignment due
+Week 11 Project report due
+Weeks 11 and 12 Project presentations given in class
+University Statements
+Email Communication
+As per university regulations, all students are required to check their e-mail
+account regularly: e-mail is the official route of communication between the
+University and its students.
+When You Cannot Meet a Course Requirement
+When you find yourself unable to meet an in-course requirement because of ill-
+ness or compassionate reasons please advise the course instructor (or designated
+person, such as a teaching assistant) in writing, with your name, id number, and
+e-mail contact. The grounds for Academic Consideration are detailed in the Un-
+dergraduate and Graduate Calendars.
+• Undergraduate Calendar - Academic Consideration and Appeals
+https://www.uoguelph.ca/registrar/calendars/undergraduate/current/c08/c08-
+ac.shtml
+• Graduate Calendar - Grounds for Academic Consideration
+https://www.uoguelph.ca/registrar/calendars/graduate/current/genreg/index.shtml
+Drop Date
+Students will have until the last day of classes to drop courses without aca-
+demic penalty. The deadline to drop two-semester courses will be the last day
+of classes in the second semester. This applies to all students (undergraduate,
+graduate and diploma) except for Doctor of Veterinary Medicine and Associate
+Diploma in Veterinary Technology (conventional and alternative delivery) stu-
+dents. The regulations and procedures for course registration are available in
+their respective Academic Calendars.
+2
+• Undergraduate Calendar - Dropping Courses
+https://www.uoguelph.ca/registrar/calendars/undergraduate/current/c08/c08-
+drop.shtml
+• Graduate Calendar - Registration Changes
+https://www.uoguelph.ca/registrar/calendars/graduate/current/genreg/genreg-
+reg-regchg.shtml
+Copies of Out-of-class Assignments
+Keep paper and/or other reliable back-up copies of all out-of-class assignments:
+you may be asked to resubmit work at any time.
+Accessibility
+The University promotes the full participation of students who experience dis-
+abilities in their academic programs. To that end, the provision of academic
+accommodation is a shared responsibility between the University and the stu-
+dent. When accommodations are needed, the student is required to first register
+with Student Accessibility Services (SAS). Documentation to substantiate the
+existence of a disability is required; however, interim accommodations may be
+possible while that process is underway. Accommodations are available for both
+permanent and temporary disabilities. It should be noted that common illnesses
+such as a cold or the flu do not constitute a disability. Use of the SAS Exam
+Centre requires students to book their exams at least 7 days in advance and not
+later than the 40th Class Day. Information can be found on the SAS website
+https://www.uoguelph.ca/sas
+Academic Integrity
+The University of Guelph is committed to upholding the highest standards of
+academic integrity, and it is the responsibility of all members of the University
+community-faculty, staff, and students-to be aware of what constitutes academic
+misconduct and to do as much as possible to prevent academic offences from
+occurring. University of Guelph students have the responsibility of abiding
+by the University’s policy on academic misconduct regardless of their location
+of study; faculty, staff, and students have the responsibility of supporting an
+environment that encourages academic integrity. Students need to remain aware
+that instructors have access to and the right to use electronic and other means of
+detection. Please note: Whether or not a student intended to commit academic
+misconduct is not relevant for a finding of guilt. Hurried or careless submission
+of assignments does not excuse students from responsibility for verifying the
+academic integrity of their work before submitting it. Students who are in any
+doubt as to whether an action on their part could be construed as an academic
+offence should consult with a faculty member or faculty advisor.
+3
+• Undergraduate Calendar - Academic Misconduct
+https://www.uoguelph.ca/registrar/calendars/undergraduate/current/c08/c08-
+amisconduct.shtml
+• Graduate Calendar - Academic Misconduct
+https://www.uoguelph.ca/registrar/calendars/graduate/current/genreg/index.shtml
+Recording of Materials
+Presentations that are made in relation to course work - including lectures -
+cannot be recorded or copied without the permission of the presenter, whether
+the instructor, a student, or guest lecturer. Material recorded with permission
+is restricted to use for that course unless further permission is granted.
+Resources
+The Academic Calendars are the source of information about the University
+of Guelph’s procedures, policies, and regulations that apply to undergraduate,
+graduate, and diploma programs.
+• Academic Calendars https://www.uoguelph.ca/academics/calendars
+4

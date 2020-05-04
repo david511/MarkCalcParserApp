@@ -1,0 +1,292 @@
+CIS*3750  - Systems Analysis & Design in Application 
+Winter 2020​ – 0.75 Credits (3-2) - M/W/F 9:30am-10:20am MCKN 029 
+Course Description 
+An introduction to the issues and techniques encountered in the design and construction of 
+software systems. The theory and models of software evolution. Topics include requirements and 
+specifications, prototyping, design principles, object-oriented analysis and design, standards, 
+integration, risk analysis, testing, and debugging. 
+This is a 0.75 credit course, so you should expect to a greater weekly time commitment. From 
+the calendar, “Under the credit system, credit weight reflects student workload rather than contact 
+hours. Students should note that 10 to 12 hours of academic time and effort per week (including 
+classes) are expected for a 0.50 credit course.” Therefore, you should expect to spend 15 to 18 hours 
+per week on this course. See: 
+https://www.uoguelph.ca/registrar/calendars/undergraduate/current/c08/c08-aload.shtml  
+The Academic Calendars are the source of information about the University of Guelph’s 
+procedures, policies, and regulations which apply to undergraduate, graduate, and diploma programs. 
+You can find more information here: 
+https://www.uoguelph.ca/registrar/calendars/undergraduate/2018-2019/c12/c12cis.shtml 
+Learning Outcomes 
+1) Collect and critically evaluate client needs to develop software requirements that are 
+specific, measurable, and categorized. 
+2) Estimate a timeline for software development by identifying dependencies in, establishing a 
+prioritized list of, and estimating production time for the software requirements. 
+3) Improve system design by collecting and synthesizing client feedback provided during 
+prototyping sessions. 
+4) Create design artifacts to succinctly communicate software requirements to teammates and 
+clients. 
+5) Implement and test a systems solution that addresses the client’s needs. 
+Prerequisites & Restrictions 
+Students enrolled in CIS3750 are expected to have the skills and knowledge covered in 
+CIS2750, as well as strong writing skills, the ability to work in teams, and strong communication skills. 
+Prerequisite Software Systems Development and Integration CIS*2750 
+Restrictions Systems Analysis & Design in Applications CIS*3430 
+CIS*3750  - Systems Analysis & Design in Application 
+Winter 2020​ – 0.75 Credits (3-2) - M/W/F 9:30am-10:20am MCKN 029 
+Schedule, Due Dates and Grade Weights 
+Lecture 
+You are expected to attend ​every​ class and ​every​ lab (for your own registered section). Lab 
+attendance is particularly important because your project group will submit work during of some labs. 
+For class, readings will occasionally need to be reviewed before the next class, some of this material 
+and related class instruction will appear in your mid-term and final exams. 
+Lectures Mon/Wed/Fri 09:30 - 10:20AM MCKN, Room 029 
+Lab Section 01 Monday’s 11:30-1:20pm THRN, Room 2420 
+Lab Section 02 Tuesday’s 11:30-1:20pm THRN, Room 2420 
+Lab Section 03 Tuesday’s 8:30-10:20am THRN, Room 2420 
+Course submissions, schedule and weights 
+Contact the instructor as soon as possible if you believe that you cannot meet a deliverable 
+deadline or write an exam. 
+Lab Deliverables  
+ Topic Due Date Grade 
+Weight 
+Checkpoint 1: Lab intro, Design Thinking Fri Jan 17​th​, 1:00pm 5 %  
+Checkpoint 2: Personas, User Epics and User Stories Fri Jan 31​st​, 1:00pm 10 %  
+Checkpoint 3: Requirements and Use Cases Fri Feb 14​th​, 1:00pm 10 % 
+Checkpoint 4: Specs, Schedule & Paper Prototype Demo Fri Feb 28​th​, 1:00pm 10 % 
+Final Submission Project Demonstration 
+Project Report 
+Mon Mar 23​rd ​- ​TBA 
+Mon Mar 27th - TBA 
+15 % 
+10 % 
+Exams Total: 60% 
+ Midterm #1 Wed Feb 5​th​ in class 10 % 
+ Midterm #2 Wed Mar 4​th​ in class 10 % 
+ Final Exam Tues Apr 7​th 
+08:30AM – 10:30AM 
+Location TBA 
+20 % 
+ Total: 40% 
+* The grade for Checkpoint 5 is included with your group’s final project demonstration. 
+  
+CIS*3750  - Systems Analysis & Design in Application 
+Winter 2020​ – 0.75 Credits (3-2) - M/W/F 9:30am-10:20am MCKN 029 
+The “50% Rule” 
+Important​: The project component of this course is worth 60% and the exam component is 
+worth 40%. A failing total in either of these components will result in a final grade equal to the total of 
+the failed component, up to a maximum of 45%. If a passing grade is achieved in neither component, 
+your grade will be equal to the combined total, up to a max of 45%. 
+ 
+For example, if a student achieved a total project grade of 50/60 and a total exam grade of 
+18/40, then their final grade would be 45% (50 + 18 = 68, but 18/40 is < 50%). 
+ 
+If another student achieved a project grade of 29/60 and an exam total of 15/40, then their final 
+grade would be 44% (29 + 15 = 44)  
+ 
+Missing an exam or project components will make it a lot harder to pass the course. 
+Course Website 
+Course material, news, announcements, and grades will be regularly posted to the CIS*3750 
+website which can be found on courselink (​http://courselink.uoguelph.ca​). You are responsible for 
+checking this website regularly for marks and any urgent communications. 
+Lecture Materials 
+Selected notes will be posted on the course website as the instructor and TA's have time to 
+make them available. You are expected to take your own notes during class and lab times. 
+Assignments & Lab Demos 
+Assignment and Lab Demo descriptions and rubrics will be made available on the course 
+website. Assignments and Lab Demos are to be submitted via the course website, and following the 
+rules listed with each assignment/lab demo outline. Failure to follow the strict submission rules will 
+result in a grade of 0 being assigned. 
+  
+CIS*3750  - Systems Analysis & Design in Application 
+Winter 2020​ – 0.75 Credits (3-2) - M/W/F 9:30am-10:20am MCKN 029 
+Textbooks 
+Required Head First Software Development 
+Pilone, and Miles 
+2008 
+Suggested Spring Into Technical Writing for Engineers and Scientists 
+Rosenberg 
+2005 
+Suggested The Mythical Man-Month: Essays on Software Engineering, 2​nd​ ed. 
+Brooks 
+1995 
+Suggested Peopleware: Productive Projects and Teams, 3​rd​ ed. 
+DeMarco, & Lister 
+1987 
+Suggested Managing Humans: Biting and Humorous Tales of a Software Engineering Manager, 3​rd​ ed. 
+Lopp 
+2​n​d ​ed: 
+https://books.scholarsportal.info/uri/ebooks/ebooks2/springer/2013-02-14/1/9781430243151  
+2016 
+Suggested Refactoring: Improving the Design of Existing Code 1​st​ or 2​nd​ ed. 
+http://martinfowler.com  
+Fowler 
+- 
+*​Unfortunately, you’re unlikely to find the suggested titles at either campus bookstore but they 
+are readily available from your favourite online bookseller. I have placed copies on reserve at the 
+library where the title is available in their collection. 
+Instructor’s Office Hours 
+Wed, 10:30-11:30pm, by appointment only, Reynolds Room 2206 
+I can make additional time available for urgent matters 
+  
+CIS*3750  - Systems Analysis & Design in Application 
+Winter 2020​ – 0.75 Credits (3-2) - M/W/F 9:30am-10:20am MCKN 029 
+Roles and Responsibilities 
+• ​Communication & Email Policy Major announcements will be posted to the course website. It is your                 
+responsibility to check the course website regularly. As per university regulations, all students are required               
+to check their mail.uoguelph.ca e-mail account regularly; e-mail is the official route of communication              
+between the University and its students. ​Questions and requests must be directed to             
+cis3750@socs.uoguelph.ca , communications sent through other means will not be given priority. If             
+you have a sensitive request, you should speak to the instructor in person. 
+• ​When You Cannot Meet a Course Requirement ​When you find yourself unable to meet an in-course                 
+requirement because of illness or compassionate reasons, please advise the course instructor in writing,              
+with your name, id#, e-mail contact and a description of how the accommodation you’re requesting will                
+affect your other studies (re scheduling, etc). See the Undergraduate Calendar for information on              
+regulations and procedures for Academic Consideration. 
+• ​Copies of Out-of-Class Assignments ​Keep paper and/or other reliable back-up copies of all out-of-class               
+assignments: you may be asked to resubmit work at any time. 
+•   ​Disputes If you have a dispute with a group member or a TA, you are encouraged to discuss the                  
+matter with the instructor. The instructor will provide conflict resolution if appropriate and more serious               
+issues will be referred to the SoCS (Associate) Director, etc. 
+• ​Recording of Materials Presentations which are made in relation to course work, including lectures,               
+cannot be recorded or copied without the permission of the presenter, whether the instructor, classmate or                
+guest lecturer. Material recorded with permission is restricted to use for that course and may not be posted                  
+on any public space unless further permission is granted. 
+• ​Instructor's Role and Responsibility to Students The instructor’s role is to develop and deliver course                
+material in ways that facilitate learning for a variety of students. Selected notes will be made available to                  
+students on the course website but are not intended to be standalone. During lectures, the instructor will                 
+expand and explain the content of notes and provide example problems that supplement posted notes.               
+Scheduled classes will be the principal venue to provide information and feedback for exams and               
+assignments. 
+• ​Students' Learning Responsibilities Students are expected to take advantage of the learning             
+opportunities provided during lectures, labs, and help sessions. Students, especially those having difficulty             
+with the course content, should also make use of other resources recommended by the instructor. Students                
+who fall behind due to illness, work, or extracurricular activities are advised to keep the instructor informed                 
+as early as possible. This will allow the instructor to recommend extra resources in a timely manner and/or                  
+provide consideration if appropriate. If you have an SAS accommodation, please consider speaking to the               
+instructor about it in private well in advance of any submissions or exams, this will allow us to make better                    
+arrangements for you.  
+  
+CIS*3750  - Systems Analysis & Design in Application 
+Winter 2020​ – 0.75 Credits (3-2) - M/W/F 9:30am-10:20am MCKN 029 
+Code of Conduct 
+Because this class needs to be a participatory community if students are to fulfill their potential 
+for learning, people who disrupt the community by their words or actions disrupt that community. 
+Rude, sarcastic, obscene, or disrespectful speech and disruptive behaviour have a negative impact on 
+everyone’s learning. Aggressive behaviour, bullying, abusive language, sexism, agism, ablism, racism, 
+homophobia, transphobia, islamophobia, etc. will not be tolerated. We are all entitled to ask questions 
+and hold opinions, but these must be presented in a respectful manner. All discussions must be 
+respectful, regardless of how much you disagree with another person or group in the classroom. We 
+will refer to and address our peers using their preferred names and preferred gender pronouns. We will 
+work towards a space where everyone has a voice, where everyone can be heard, and where everyone 
+is accepted and welcomed. 
+Our learning environment must be a friendly, safe and welcoming environment for all, 
+regardless of ethnicity, gender, sexual orientation, ability, socioeconomic status, and religion (or lack 
+thereof). As we wish to facilitate and encourage the fullest participation from everyone, this code of 
+conduct outlines the expectations for all participants (including the instructor, other staff, etc). See 
+http://citizencodeofconduct.org/ 
+• ​Expected Behaviour: Members of our community are expected to 1) participate in an authentic and                
+active way, and in doing so, contribute to the health and value of our community, 2) exercise consideration                  
+and respect in their speech and actions, 3) attempt collaboration before conflict, 4) refrain from demeaning,                
+discriminatory, or harassing behaviour and speech, and 5) be mindful of your surroundings and your fellow                
+participants, and alert community leaders (e.g. your instructor) if you notice a dangerous situation,              
+someone in distress, or violation of this Code of Conduct, even if they seem inconsequential. 
+• ​Citizenship & Participation: Communities mirror the societies in which they exist and positive action is                
+essential to counteract the many forms of inequality and abuses of power that exist in society. If you see                   
+someone who is making an extra effort to ensure our community is welcoming, friendly, and encourages all                 
+participants to contribute to the fullest extent, we want to know. 
+• ​Unacceptable Behaviour: Unacceptable behaviours include: intimidating, harassing, abusive,         
+discriminatory, derogatory or demeaning speech or actions by any participant in our community, either in               
+person, online, at any related events, or in one-on-one communications carried out in the context of                
+community business. Harassment includes: harmful or prejudicial verbal or written comments related to             
+race, religion, disability, gender, sexual orientation; inappropriate use of nudity and/or sexual images in              
+public spaces (including computer labs and presentation slides); deliberate intimidation, stalking or            
+following; harassing photography or recording; sustained disruption of talks or other events; inappropriate             
+physical contact, and unwelcome sexual attention. 
+• ​Consequences of Unacceptable Behaviour: Unacceptable behaviour from any community member,           
+including the course instructor and those members with decision-making authority, will not be tolerated.              
+Anyone asked to stop unacceptable behaviour is expected to comply immediately. If a community member               
+CIS*3750  - Systems Analysis & Design in Application 
+Winter 2020​ – 0.75 Credits (3-2) - M/W/F 9:30am-10:20am MCKN 029 
+engages in unacceptable behaviour, action will be taken to ensure that such behaviour ends, beginning               
+with action on the part of the course instructor, and escalating if necessary.  
+• ​If You Witness or Are Subject to Unacceptable Behaviour: If you are subject to or witness                 
+unacceptable behaviour, or have any other concerns, please notify the course instructor as soon as               
+possible. If you feel that the course instructor cannot or will not provide remedy for the situation, please                  
+contact any of these alternate  
+Resources:  
+1) Associate Director, Undergraduate ​ugraddir@socs.uoguelph.ca​, 
+2) Director of the School ​director@socs.uoguelph.ca 
+3) Associate Dean, Academic ​kgordon@uoguelph.ca 
+4) Office of Diversity and Human Rights ​dhrinfo@uoguelph.ca​, or ext 53000), or 5) Campus             
+Community Police (ext 52245, for emergencies use ext 2000). 
+Class Rules 
+● All assignments and project materials should include the course code CIS3750, and where             
+applicable – your name and your group’s name, section number, group number, etc. 
+● Lab demos are ​mandatory​, and will include feedback from the client (in this case the instructor).                
+Lab demos will be graded based on your performance with the client (i.e. the instructor). If you miss                  
+a lab demo, you will receive a grade of 0 for the component. 
+● Assignments and post-mortem reports are to be uploaded to the course website, and are due as                
+indicated on the assignment/report description sheets. The final lab demo’s post mortem will be              
+part of the final report. 
+● A late project submission with no appropriate justification may be assigned a grade of 0 for all team                  
+members.  
+● You are expected to take excellent notes during classes and labs. You will need them for your                 
+midterm and final exams, as a large portion of the questions will come directly from classroom                
+discussion. 
+● You are expected to show up to every class, and to every lab. There are 24 classes and 10 labs. 
+● If you miss the final exam, you must talk with your academic counsellor and follow University of                 
+Guelph policies on this matter. The instructor can not do anything in this situation.  
+Academic Integrity 
+The University of Guelph is committed to upholding the highest standards of academic integrity and it is the                  
+responsibility of all members of the University community faculty, staff, and students to be aware of what                 
+constitutes academic misconduct and to do as much as possible to prevent academic offences from               
+occurring. University of Guelph students have the responsibility of abiding by the University's policy on               
+academic misconduct regardless of their location of study; faculty, staff and students have the responsibility               
+CIS*3750  - Systems Analysis & Design in Application 
+Winter 2020​ – 0.75 Credits (3-2) - M/W/F 9:30am-10:20am MCKN 029 
+of supporting an environment that discourages misconduct. ​All students who take a SOCS course must               
+pass the Academic Integrity Self Test. 
+For educational purposes, instructors impose conditions on assignments that may limit students’            
+permission to collaborate with others or to utilize external sources (including, but not limited to, software,                
+data, images, text, etc.). Any permitted utilization must be done with proper references. Aiding and abetting                
+is a punishable offence; students must be careful not to help others commit offences by giving out solutions                  
+or providing to access computer accounts. Instructors may use automated tools to detect possible cases of                
+academic misconduct. 
+Please note: Whether or not a student intended to commit academic misconduct is not relevant for a finding                  
+of guilt. Hurried or careless submission of assignments does not excuse students from responsibility for               
+verifying the academic integrity of their work before submitting it. Students who are in any doubt as to                  
+whether an action on their part could be construed as an academic offence should consult with a faculty                  
+member. 
+• The Academic Misconduct Policy is detailed in the Undergraduate Calendar here:            
+https://www.uoguelph.ca/registrar/calendars/undergraduate/2017-2018/c08/c08-amisconduct.shtml 
+• The SOCS Academic Integrity Unit i​s here: ​https://moodle.socs.uoguelph.ca/course/view.php?id=2 ​Login          
+with your central login credentials. The key to use is “imhonest”. 
+accessibility 
+The University of Guelph is committed to creating a barrier-free environment. Providing services for              
+students is a shared responsibility among students, faculty and administrators. This relationship is based              
+on respect of individual rights, the dignity of the individual and the University community’s shared               
+commitment to an open and supportive learning environment. Students requiring service or            
+accommodation, whether due to an identified, ongoing disability, or for a short-term disability should              
+contact Student Accessibility Services (SAS) as soon as possible. 
+For more information, contact SAS at 1.519.824.4120 ext 56208 or email csd@uoguelph.ca or see the               
+website ​https://wellness.uoguelph.ca/accessibility/​ . 
+Health & Wellness 
+All members of campus play a role in fostering and promoting a safe, supportive environment, as well as                  
+good physical, emotional, spiritual, cultural, and mental health and wellness. 
+If you are sick, heartbroken, or exhausted, go home. Work is not more important than your health. -Dr. Max                   
+Liboiron 
+If you are experiencing any challenges, please do not hesitate to contact the instructor, and know that there                  
+are resources on campus set up to help you out. 
+Medical concerns? Student Health Services at x52131 
+CIS*3750  - Systems Analysis & Design in Application 
+Winter 2020​ – 0.75 Credits (3-2) - M/W/F 9:30am-10:20am MCKN 029 
+Threats of violence, personal safety? Campus police at x2000 Psychological or emotional concerns?             
+Counselling services at x53244 Accessibility concerns? SAS at x56208 
+Sexual assault? Campus police at x2000, or counselling services at x53244 Mental Health concerns? 
+Other sources are: 
+• Student Health Services, Monday to Friday, 8:30am-4:30pm, x52131, J.T. Powell Building 
+• Counselling Services, Monday to Friday, 8:15am-4:15pm, x53244, Level 3, University Centre 
+• Wellness Education Centre, Monday to Friday, 8:30am-4:30pm, x53327, J.T. Powell Building 
+• Student Support Network, Monday to Friday, 12:00pm-10:00pm, Raithby House 
+• Campus Community Police, 24/7, x2000, Trent Building 
+• Good2Talk, 1.866.925.5454 
+• Here 24/7, 1.844.437.3427 

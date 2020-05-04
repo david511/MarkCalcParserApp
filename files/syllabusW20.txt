@@ -1,0 +1,250 @@
+ 1 
+CIS*3120: Digital Systems I 
+School of Computer Science 
+Winter, 2020 
+ 
+Instructor: G. Grewal                  E-mail: ggrewal@uoguelph.ca 
+Office: 2208 Reynolds     
+Phone: x52630       Website: 
+ 
+General Course Description 
+The objectives of this course are to develop skills in the design and analysis of digital logic 
+components and circuits, to make students thoroughly familiar with the basics of gate-level 
+circuit design starting from single gates and building up to complex systems, and to provide 
+exposure to circuit design using a schematic entry based computer-aided design tool.  
+ 
+Course Content 
+Each line corresponds to roughly one week of the semester. 
+•   Overview of digital logic design 
+•   Logic gates, DeMorgan's Equivalent Forms, positive and negative logic 
+•   Truth tables, SOP and POS expressions, Karnaugh maps, Quine-McCluskey method 
+•   Arithmetic Circuits: adder, subtractor, carry-lookahead adder 
+•   Generalized ALU design, combinational multiplier 
+•   Steering Logic: multiplexers, de-multiplexers, decoders, encoders 
+•   Comparators,  parity generation/detection circuits 
+•   Sequential logic: SR, D,  latches, SR, D, JK, T, flip flops, registers 
+•   Finite-State Machines; state minimization 
+•   Up/down counters, ring counters 
+•   Sequential multiplier (datapath and controller) 
+•   Random-Access Memory (RAM): SRAM and DRAM 
+•   Programmable Devices: PROMs, PALs, PLAs, and FPGAs 
+ 
+Textbook 
+Mano. M. and M. Ciletti (2015-2019). Digital Design, Pearson. 
+ 
+Lectures 
+There will be three lectures per week: MWF (10:30am – 11:20am) in CRSC 117. Due to the 
+nature of the course material most of the lecture material will be presented on the chalk board. 
+Therefore, please make sure to attend class regularly. No online notes are available.   
+ 
+Homework 
+Homework problems will be assigned each Monday and will be due the following Monday at the 
+beginning of class.  Solutions will be made available the following week in the lab. Late 
+assignments will not be accepted. However, your lowest assignment mark will be dropped when 
+computing your final grade. 
+ 2 
+Laboratory Exercises 
+Each week you will be designing and simulating various digital circuits using LogicWorks - a 
+Windows based software package. You are required to complete and receive a mark for each 
+exercise during your scheduled two-hour weekly lab session. Late lab assignments will not be 
+accepted. Also, you cannot move between lab sections. Therefore, it is strongly recommended 
+that you prepare for each lab exercise before attending the lab.   
+ 
+ 
+Course Evaluation 
+ 
+Weight Description 
+15% Weekly Homework Assignments 
+-   weighted equally  
+-    start January 7 
+30% Weekly Laboratory Exercises  
+-   labs 1 through 10 (equal weight) 
+-   lab 11 (5%)  
+-   see lab schedule for dates 
+30% Test 1  (15%)   
+-   February 7 (in class; weight of a missed test will be added to final exam) 
+Test 2  (15%) 
+-   March 16 (in class; weight of a missed test will be added to final exam) 
+25% Final Exam (April 9, 7-9pm) 
+ 
+You must achieve a passing grade on the testing portion of the course (i.e., 27.5 out of 55) and 
+on the lab portion of the course (i.e., 15 out of 30). If you fail to achieve a grade of at least 50% 
+in either of these two cases, the highest final grade that you can achieve is 45%. In this case, a 
+final grade which is greater than 45% will be reduced to 45%. A final grade of 45% or less will 
+remain unchanged.  
+ 
+ 
+Graduate Teaching Assistants (GTAs) 
+ 
+•   Nastaran Bateni    nbateni@uoguelph.ca 
+•   Hannah Szentimrey  szentimh@uoguelph.ca 
+ 
+ 
+GTAs are responsible for marking homework assignments and lab exercises. All requests for re-
+grades must be made by email to the GTA who marked the item within one week of the marked 
+item being returned.  
+ 
+ 
+Advising Hours 
+An open-door policy will be applied throughout the semester; otherwise, please email me (Gary) 
+to request a specific meeting time. Please do not send questions by email. 
+ 3 
+A Word of Caution 
+ 
+Needless to say, plagiarism in any form must be dealt with severely. Discussion with fellow 
+students about problems is healthy. However, when answering questions do it yourself. Be 
+original. All cases of academic misconduct are handled by the Dean, in conjunction with the 
+Associate Director of the School. Successive infractions of misconduct affirmed by this process 
+could have consequences as serious as expulsion from the University. (It is your responsibility to 
+acquaint yourself with the definitions and ramifications of academic misconduct as described in 
+the university’s undergraduate Calendar.) The risks are sufficiently great that they are not worth 
+taking.  If you are having trouble, please see the teaching assistant or the instructor for help. 
+ 
+ 
+Lab Schedule for W20 
+ MON TUE WED THR FRI 
+JANUARY  
+ 
+ 1 
+ 
+2 3 
+ 
+ 
+ 
+6 
+ 
+first class 
+7 
+ 
+8 
+ 
+9 
+ 
+10 
+ 
+ 13 
+ 
+14 
+ 
+15 
+Lab 1 
+16 
+Lab 1 
+17 
+ 
+ 20 
+ 
+21 
+ 
+22 
+Lab 2 
+23 
+Lab 2 
+24 
+ 
+ 27 
+ 
+28 
+ 
+29 
+Lab 3 
+30 
+Lab 3 
+31 
+ 
+ 
+FEBUARY 
+3 
+ 
+4 
+ 
+5 
+Lab 4 
+6 
+Lab 4 
+7 
+TEST 1 
+ 10 
+ 
+11 12 
+Lab 5  
+ 
+13 
+Lab 5 
+14 
+ 
+Winter 
+Break 
+17 18 
+ 
+19 
+ 
+20 
+ 
+21 
+ 
+ 24 
+ 
+25 
+ 
+26 
+Lab 6 
+27 
+Lab 6 
+28 
+ 
+ 
+MARCH 
+2 
+ 
+3 
+ 
+4 
+Lab 7 
+5 
+Lab 7 
+6  
+ 
+ 
+ 
+9 
+ 
+10 
+ 
+11 
+Lab 8 
+12 
+Lab 8 
+13 
+ 
+ 16 
+TEST 2 
+17 18 
+Lab 9 
+ 
+19 
+Lab 9 
+20 
+ 
+ 23 
+ 
+24 25 
+Lab 10 
+26 
+Lab 10 
+27 
+ 
+APRIL 30 
+ 
+31 
+ 
+1 
+Lab 11 
+2 
+Lab 11 
+3 
+last class 
+ 
+        Lab Times:  
+§   (Sec: 0101) Thursday, 11:30am – 1:20pm, THRN 2418 
+§   (Sec: 0102) Wednesday, 11:30am – 1:20pm, THRN 2418   

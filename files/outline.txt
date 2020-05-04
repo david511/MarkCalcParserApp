@@ -1,0 +1,101 @@
+School of Computer Science
+University of Guelph
+CIS*3530 Data Base Systems and Concepts
+Fall 2019
+Instructor
+Fangju Wang, 3304 Reynolds, X52939, fjwang@uoguelph.ca
+Instructor Advisory Hours
+Wednesday 02:30-03:30pm Friday 12:30-01:30pm
+Calendar Description
+This course is a study of data organization and data management principles with the per-
+spective of analyzing applications suitable for implementation using a DBMS. This will include
+an analysis of several data base models, query specification methods, and query processing
+techniques. Overview of several related issues including concurrency control, security, integrity
+and recovery. Students will demonstrate concepts through project assignments.
+Main Topics
+This course provides fundamental concepts and techniques of conventional database systems.
+Topics include database models and modeling, relational database model and query languages,
+database design theory, query optimization, and transaction management. Students will also
+learn skills for application analysis, conceptual database design and implementation using a
+DBMS. Additional topics include the object-relational database model, and the Hadoop and
+MapReduce systems for big data.
+Lab Schedule
+0101: Friday 11:30AM-12:20PM, LA Room 204
+Sept 13 N Sept 20 N Sept 27 Y (A1) Oct 4 Y (A1)
+Oct 11 Y (A2) Oct 18 Y (A2) Oct 25 N Nov 1 Y (A3)
+Nov 8 Y (A3) Nov 15 Y (A4) Nov 22 Y (A4) Nov 29 N
+Y – lab on the day; N – no lab on the day.
+Teaching Assistants
+Omar Irfan Khan, Michael Roher, Tyler Laforet, cis3530@socs.uoguelph.ca, TA advisory
+hours: TBA.
+1
+Recommended Textbook:
+• R. Elmasri and S. Navathe, Fundamentals of Database Systems (Seventh Edition), Pearson
+Education Inc, 2019.
+Course Moodle Page URL
+http://moodle.socs.uoguelph.ca/
+Assignments and Examinations
+• Four assignments: 10% + 10% + 10% + 10% = 40%
+• Midterm examination: 20%
+• Final examination: 40%
+The late policy for assignments is: NO late assignment will be accepted.
+Evaluation Schedule
+• Final examination: Wednesday, December 4, 2019 (07:00pm - 09:00pm)
+• Midterm examination: Monday, October 28, 2019 (01:30pm – 02:20pm).
+• Assignment due dates:
+– Assignment 1: Monday, October 7, 2019
+– Assignment 2: Monday, October 21, 2019
+– Assignment 3: Monday, November 11, 2019
+– Assignment 4: Monday, November 25, 2019
+Statements
+• E-mail Communication
+As per university regulations, all students are required to check their <mail.uoguelph.ca>
+e-mail account regularly: e-mail is the official route of communication between the Uni-
+versity and its students.
+• When You Cannot Meet a Course Requirement
+When you find yourself unable to meet an in-course requirement because of illness or
+compassionate reasons, please advise the course instructor (or designated person, such
+as a teaching assistant) in writing, with your name, id#, and e-mail contact. See the
+undergraduate calendar for information on regulations and procedures for Academic Con-
+sideration.
+2
+• Copies of Out-of-class Assignments
+Keep paper and/or other reliable back-up copies of all out-of-class assignments: you may
+be asked to resubmit work at any time.
+• Accessibility
+The University promotes the full participation of students who experience disabilities in
+their academic programs. To that end, the provision of academic accommodation is a
+shared responsibility between the University and the student.
+When accommodations are needed, the student is required to first register with Student
+Accessibility Services (SAS). Documentation to substantiate the existence of a disabil-
+ity is required, however, interim accommodations may be possible while that process is
+underway.
+Accommodations are available for both permanent and temporary disabilities. It should
+be noted that common illnesses such as a cold or the flu do not constitute a disability.
+Use of the SAS Exam Centre requires students to book their exams at least 7 days in ad-
+vance, and not later than the 40th Class Day. More information: /www.uoguelph.ca/sas/.
+• Academic Misconduct
+The University of Guelph is committed to upholding the highest standards of academic
+integrity and it is the responsibility of all members of the University community faculty,
+staff, and students to be aware of what constitutes academic misconduct and to do as
+much as possible to prevent academic offences from occurring. University of Guelph stu-
+dents have the responsibility of abiding by the University’s policy on academic misconduct
+regardless of their location of study; faculty, staff and students have the responsibility of
+supporting an environment that discourages misconduct. Students need to remain aware
+that instructors have access to and the right to use electronic and other means of detection.
+Please note: Whether or not a student intended to commit academic misconduct is
+not relevant for a finding of guilt. Hurried or careless submission of assignments does
+not excuse students from responsibility for verifying the academic integrity of their work
+before submitting it.
+Students who are in any doubt as to whether an action on their part could be construed
+as an academic offence should consult with a faculty member or faculty advisor.
+The Academic Misconduct Policy is detailed in the Undergraduate Calendar.
+• Recording of Materials
+Presentations which are made in relation to course work, including lectures, cannot be
+recorded or copied without the permission of the presenter, whether the instructor, a
+classmate or guest lecturer. Material recorded with permission is restricted to use for
+that course unless further permission is granted.
+• To Appeal a Mark
+To appeal a mark of an assignment or the midterm examination you must do so within
+two weeks after it is returned.
+3

@@ -1,0 +1,106 @@
+CIS*3090 – Parallel Programming [0.5 credits]
+Course Outline – Fall 2019
+Instructor: David Calvert
+Office : Reynolds Building, Room 2201
+Phone: 824-4120 ext. 53085
+Email: dcalvert@uoguelph.ca
+Timetable
+Lecture: Tuesday, Thursday, 10:00-11:20, Crop Science 116
+Textbook: An Introduction to Parallel Programming, by Peter Pacheco, Morgan Kaufmann, 2011.
+ISBN-10: 0123742609
+ISBN-13: 978-0123742605
+Course Web Page: All course material will be posted to Courselink.
+https://courselink.uoguelph.ca
+Marking Scheme
+Programming
+• Assignments: 50%
+Written
+• Midterm Exam: 25%
+• Final Exam: 25%
+Notes:
+• You must achieve a passing grade in each of the Written and Programming sections to pass
+the course. A failing total in either of the above two sections will result in a final grade in the
+course equal to that failing total. The highest grade you can achieve if you fail either section
+is 45%.
+• Assignments will primarily involve parallel programming using different software libraries.
+• There is no group work in this course. Any work which is the product of more than one
+person’s efforts is grounds for academic misconduct. All submitted code will be checked
+for copying. All parties involved will be reported to the Director of SOCS as participants
+in academic misconduct. See Academic Misconduct in Section VIII of the Undergraduate
+Calendar. The penalties for academic misconduct are described in the University of Guelph
+Undergraduate Calendar.
+• Code which is submitted and does not compile or execute will be given a mark of zero.
+• Failure to submit assignments correctly will result in a substantial loss of marks.
+• Remarking of assignments will occur in the advising times for the teaching assistant. Requests
+for remarking will be considered for only one week after the assignment has been returned.
+• Assignments may be handed in up to two days after the due date listed on the assignment
+with no penalty. No other extensions will be granted.
+• Classes missed due to holidays are made up in the last week of the semester.
+Lecture Topics
+1. Multi-core and cluster platforms.
+2. Parallel patterns.
+3. Software libraries for parallel programming.
+4. Data and task parallel approaches.
+Semester Schedule
+• Assignment 1 due Friday, Sept. 27
+• Midterm – Tuesday, Oct. 8 in class
+• Assignment 2 due Friday, Oct. 25
+• Assignment 3 due Friday, Nov. 8
+• Assignment 4 due Friday, Nov. 22
+Calendar Description
+This course examines the current techniques for design and development of parallel programs tar-
+geted for platforms ranging from multicore computers to high-performance clusters, with and with-
+out shared memory. It includes theoretical models for, and hardware effects on, parallel computa-
+tion, the definitions of speedup, scalability, and data versus task-parallel approaches. The course
+will also examine strategies for achieving speedup based on controlling granularity, resource con-
+tention, idle time, threading overhead, work allocation, and data localization.
+Prerequisite(s): (CIS*2030 or ENGG*3640), CIS*3110
+E-mail Communication
+As per university regulations, all students are required to check their ¡mail.uoguelph.ca¿ e-mail
+account regularly: e-mail is the official route of communication between the University and its
+students.
+When You Cannot Meet a Course Requirement
+When you find yourself unable to meet an in-course requirement because of illness or compassionate
+reasons, please advise the course instructor (or designated person, such as a teaching assistant) in
+writing, with your name, id number, and e-mail contact. See the undergraduate calendar for
+information on regulations and procedures for Academic Consideration.
+Drop Date
+Students will have until the last day of classes to drop courses without academic penalty. The regu-
+lations and procedures for course registration are available in their respective Academic Calendars.
+Copies of out-of-class assignments
+Keep paper and/or other reliable back-up copies of all out-of-class assignments: you may be asked
+to resubmit work at any time.
+Accessibility
+The University promotes the full participation of students who experience disabilities in their aca-
+demic programs. To that end, the provision of academic accommodation is a shared responsibility
+between the University and the student.
+When accommodations are needed, the student is required to first register with Student Ac-
+cessibility Services (SAS). Documentation to substantiate the existence of a disability is required,
+however, interim accommodations may be possible while that process is underway.
+Accommodations are available for both permanent and temporary disabilities. It should be
+noted that common illnesses such as a cold or the flu do not constitute a disability.
+Use of the SAS Exam Centre requires students to book their exams at least 7 days in advance,
+and not later than the 40th Class Day. More information: www.uoguelph.ca/sas
+Academic Misconduct
+The University of Guelph is committed to upholding the highest standards of academic integrity
+and it is the responsibility of all members of the University community faculty, staff, and students
+to be aware of what constitutes academic misconduct and to do as much as possible to prevent
+academic offences from occurring. University of Guelph students have the responsibility of abiding
+by the University’s policy on academic misconduct regardless of their location of study; faculty, staff
+and students have the responsibility of supporting an environment that discourages misconduct.
+Students need to remain aware that instructors have access to and the right to use electronic and
+other means of detection.
+Please note: Whether or not a student intended to commit academic misconduct is not relevant
+for a finding of guilt. Hurried or careless submission of assignments does not excuse students from
+responsibility for verifying the academic integrity of their work before submitting it.
+Students who are in any doubt as to whether an action on their part could be construed as an
+academic offence should consult with a faculty member or faculty advisor.
+The Academic Misconduct Policy is detailed in the Undergraduate Calendar.
+Recording of Materials
+Presentations which are made in relation to course workincluding lectures cannot be recorded or
+copied without the permission of the presenter, whether the instructor, a classmate or guest lecturer.
+Material recorded with permission is restricted to use for that course unless further permission is
+granted.
+Resources
+The Academic Calendars are the source of information about the University of Guelphs procedures,
+policies and regulations which apply to undergraduate, graduate and diploma programs.

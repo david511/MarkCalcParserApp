@@ -1,0 +1,266 @@
+ 
+ 
+ 
+Course Syllabus 
+CIS*3210 Computer Networks F (3-1) [0.50] 
+School of Computer Science, University of Guelph, Guelph 
+Fall Semester | 2019 
+ 
+ 
+1. INSTRUCTIONAL SUPPORT 
+Instructor Information 
+Instructor Name Office  Phone Email 
+Dr. Xiaodong Lin Reynolds 2210 X53889 xlin08@uoguelph.ca 
+Office Hours:      Monday/Wednesday, 3:30 pm - 5:00 pm or by appointment 
+ 
+Prerequisite(s): CIS*3110. 
+Credit Weight: 0.5 
+ 
+Teaching Assistant Name Email 
+Fatemeh Safari safarif@uoguelph.ca 
+Office Hours: TBD 
+ 
+Teaching Assistant Name Email 
+Hanwen Zheng hzheng01@uoguelph.ca 
+Office Hours: TBD 
+ 
+Lectures 
+Day Time Location 
+Monday/Wednesday/Friday 02:30PM - 03:20PM RICH, Room 2529 
+ 
+Labs 
+Day Time Location 
+Monday 10:30AM - 11:20AM JTP, Room 2266 
+ 
+Note: Unless otherwise stated, the lab will be used for advising and consulting with the Teaching 
+Assistant, including the review of key knowledge and skills essential for solving programming 
+assignments as well as hands-on Wireshark practice labs and written homework. 
+2. LEARNING RESOURCES 
+ 
+Textbook 
+• Computer Networking: A Top-Down Approach, 7th ed. J. Kurose and K. Ross 
+The seventh edition of this book was published in 2016. Students having a copy of an older 
+edition may be able to get by, but please get the latest edition if you intend to purchase the 
+textbook. Homework problems may refer to numbered problems or figures in the text, so make 
+sure you have access to the latest edition through a classmate if you intend to get by with an 
+older edition. 
+ 
+Reference resources 
+• Beej's Guide to Network Programming: Using Internet Sockets 
+Available at: https://beej.us/guide/bgnet/ 
+• TCP/IP Sockets in C: Practical Guide for Programmers 2/e 
+Michael J. Donahoo and Kenneth L. Calvert 
+Morgan Kaufmann, ISBN: 0-123-74540-3 
+http://cs.baylor.edu/~donahoo/practical/CSockets/ 
+• TCP/IP Tutorial and Technical Overview 
+IBM Corporation 
+Available at: https://www.redbooks.ibm.com/pubs/pdfs/redbooks/gg243376.pdf 
+ 
+Course Website 
+Course material, news, announcements, and grades will be regularly posted to the CIS*3210 
+website which can be found on Courselink. It is the student’s responsibility to check these pages 
+frequently for new information or updates. 
+• Lecture Information: Selected notes will be posted on the course website as instructors 
+have time to make them available. You are expected to take your own notes during lecture. 
+• Labs and Tutorials: Selected tutorial and lab materials will be available on the course 
+website. 
+• Assignments: Assignment descriptions will be posted on the course website. Assignments 
+are submitted via the course website. 
+ 
+Course Description 
+Computer networking has become increasingly important as we become more dependent on the 
+Internet. The Internet is becoming more integrated in our lives. An increasingly large number of 
+people rely on the Internet to communicate with one another, search for information on the most 
+diverse topics, shop online, etc. It is therefore important for computer scientists and computer 
+engineers to be familiar with the fundamentals as well as practices of computer networking. This 
+course covers the high-level (protocol) oriented aspects of computer networks, specifically: 
+application, session, transport and network layers. It includes the Internet, socket-level 
+programming, multimedia and quality of service issues. The hardware aspects (switches, LANs, 
+modems, transmission paths) are only covered at a functional level. 
+Please see The Academic Calendar for more details. The Academic Calendars are the source of 
+information about the University of Guelph’s procedures, policies and regulations which apply to 
+undergraduate, graduate and diploma programs: 
+http://www.uoguelph.ca/registrar/calendars/index.cfm?index 
+3. COURSE OUTCOMES 
+ 
+On the successful completion of the course, students will be able to: 
+1. Define and describe the layered structure of a typical networking architecture  
+2. Identify the key components of a network  
+3. Describe the components of IPv4 and IPv6 protocols, including addressing, routing and 
+forwarding  
+4. Evaluate error detection/correction mechanisms in different network contexts  
+5. Judge the effectiveness of existing or similar network protocols  
+6. Implement network applications using reliable and unreliable socket communication  
+7. Analyze network traffic using Wireshark  
+8. Describe common network vulnerabilities and exploits, as well as the methods for 
+mitigating them 
+ 
+4. COURSE TOPICS 
+ 
+Introduction  
+The Application Layer  
+The Transport Layer  
+The Network Layer: Data Plane 
+The Network Layer: Control Plane 
+The Link Layer and Local Area Networks  
+Fundamentals of Networking Security 
+Wireless Networks 
+ 
+5. EVALUATION METHOD 
+ 
+Final grade calculation 
+In determining the overall grade of the course, the following weights will be used: 
+ 
+Coursework Amount % of Grade 
+Programming assignments 2 22 
+hands-on lab exercises 4 25 
+Written homework 4 8 
+Midterm exam 1 15 
+Final exam 1 30 
+  
+▪ Programming assignments: 22%, where 
+➢ Assignment 1: 12% Due October 11 
+➢ Assignment 2: 10% Due November 15 
+▪ Hands-on lab exercises: 25%, where  
+➢ Lab exercise 1: 4% Due September 20 
+➢ Lab exercise 2: 7% Due October 15 
+➢ Lab exercise 3: 8% Due November 6 
+➢ Lab exercise 4: 6% Due November 30 
+▪ Written homework: 8%  
+➢ The schedule of written assignments will be determined according to the progress 
+within the course. There are total four written assignments for the Computer 
+Networks course this Fall. Only three of them will be marked and the choice is at 
+the instructor's discretion. 4% each. 
+➢ Two best homework out of three will be selected. Your two highest marks for the 
+assignments will be counted towards your final grade. 
+▪ Mid-term Exam: 15% October 23 
+▪ Final Exam: 30% TBA by Registrar 
+ 
+The final grade is the weighted sum of all assessments shown above, using the weights indicated 
+in the table above. 
+ 
+Course Grading Policies 
+Development environment: Systems and software are provided in the lab and the SoCS Linux 
+servers for use in assignments. Students who choose to develop their assignments on other systems 
+and/or with other versions of software are fully responsible for ensuring compatibility with the 
+SoCS Linux server environment for marking purposes. 
+ 
+Late assignments: All assignments are due at 11:59 PM on the due date. Barring truly exceptional 
+circumstances, submissions after the deadline will not be accepted, unless an extension has been 
+negotiated in advance of the deadline date. Any work that is late without approval will receive 
+zero. 
+ 
+Compiler errors/warnings: Program code which does not compile will not be accepted for 
+marking and a grade of zero (0) will be assigned. Code that does not compile “clean” will lose 
+marks for compiler warnings. Code must compile and run on the SoCS servers. 
+ 
+Submission policy: All assignments will be only be accepted via submission through Courselink 
+unless otherwise indicated on the assignment by the instructor. Failure to submit assignments 
+correctly (e.g., incorrect file names, faulty/missing makefile, etc.) will result in a mark penalty. 
+ 
+Regrades: Students may request a reassessment of their assignments in writing and specify the 
+reasons for such requests. Their entire assignment will be reassessed, and the reassessment may 
+result in raising or lowering of the original marks. Remark requests will only be accepted up to 5 
+calendar days from the release of the assignment mark. Please carefully read through the 
+comments made by the marker on Courselink before sending a remark request. 
+ 
+Missed Assessments: If you are unable to meet an in-course requirement due to medical, 
+psychological, or compassionate reasons, please make an appointment to meet your course 
+instructor. Please see below for specific details and consult the undergraduate calendar for 
+information on regulations and procedures for Academic Consideration: 
+http://www.uoguelph.ca/registrar/calendars/undergraduate/current/c08/c08-ac.shtml 
+ 
+Note: There are no makeup assignments or midterm exams. If you miss an assessment and 
+have documentation to show that you are eligible for Academic Consideration, the weight of the 
+assessment will be moved to the final exam. 
+ 
+Accommodation of Religious Obligations: If you are unable to meet an in-course requirement 
+due to religious obligations, please email the instructor within two weeks of the start of the 
+semester to make alternate arrangements. See the undergraduate calendar for information on 
+regulations and procedures for Academic Accommodation of Religious Obligations: 
+http://www.uoguelph.ca/registrar/calendars/undergraduate/current/c08/c08-accomrelig.shtml 
+ 
+Plagiarism Policy: All work submitted must be your own. Regarding programming assignments, 
+you may discuss assignment strategies openly (including online). You can also search the Internet 
+for strategies and code examples. However, when writing the actual code, you must do all of 
+the work yourself. Submission of program code for an assignment that is written by another 
+person, or in collaboration with another person (unless explicitly stated otherwise in the 
+assignment, for example, group assignments) also constitutes Academic Dishonesty. Similarities 
+between assignment submissions are monitored using the program MOSS (Measure of Software 
+Similarity) as well as by manual means. 
+ 
+Exams: Course examinations will be based on material discussed in the course lectures. Simply 
+reading the course notes will not be adequate preparation for the exams. Written homework will be 
+provided during the course and placed on the course website. Attempting these is one valuable tool 
+for you to reinforce concepts that were taught in class and assess your understanding of the course 
+material, preparing yourself for exams. The exams are closed book and include a mix of multiple-
+choice, true/false, and short answer questions. 
+ 
+Special Note: 
+ 
+• All cases of academic misconduct are handled by the Dean, in conjunction with the School 
+Director. Successive infractions of misconduct affirmed by this process could have consequences 
+as serious as expulsion from the University. For details please see related pages in the University 
+of Guelph Undergraduate Calendar 2019-2020. 
+• Requests for academic consideration because of illness or of a compassionate nature must be 
+made in writing and accompanied by certification whenever possible. 
+  
+6. STANDARD STATEMENTS  
+The following are standard statements for inclusion on all course outlines (adapted with permission 
+from the College of Arts). Some departments or colleges may also elect to post this information 
+on a common website and link to such sites in the course outline. However, it is strongly 
+recommended that statements on academic misconduct and links to the academic misconduct 
+section of the academic calendars are included on all course outlines.  
+E-mail Communication 
+As per university regulations, all students are required to check their <mail.uoguelph.ca> e-mail 
+account regularly: e-mail is the official route of communication between the University and its 
+students.  
+When You Cannot Meet a Course Requirement 
+When you find yourself unable to meet an in-course requirement because of illness or 
+compassionate reasons, please advise the course instructor (or designated person, such as a 
+teaching assistant) in writing, with your name, id#, and e-mail contact. See the undergraduate 
+calendar for information on regulations and procedures for Academic Consideration.  
+Drop Date 
+Students will have until the last day of classes to drop courses without academic penalty. The 
+regulations and procedures for course registration are available in their respective Academic 
+Calendars. 
+Copies of out-of-class assignments 
+Keep paper and/or other reliable back-up copies of all out-of-class assignments: you may be 
+asked to resubmit work at any time.  
+ 
+Accessibility 
+The University promotes the full participation of students who experience disabilities in their 
+academic programs. To that end, the provision of academic accommodation is a shared 
+responsibility between the University and the student.  
+When accommodations are needed, the student is required to first register with Student 
+Accessibility Services (SAS). Documentation to substantiate the existence of a disability is 
+required, however, interim accommodations may be possible while that process is underway.  
+Accommodations are available for both permanent and temporary disabilities. It should be noted 
+that common illnesses such as a cold or the flu do not constitute a disability.  
+Use of the SAS Exam Centre requires students to book their exams at least 7 days in advance, and 
+not later than the 40th Class Day. More information: www.uoguelph.ca/sas  
+Academic Misconduct 
+The University of Guelph is committed to upholding the highest standards of academic integrity 
+and it is the responsibility of all members of the University community – faculty, staff, and students 
+– to be aware of what constitutes academic misconduct and to do as much as possible to prevent 
+academic offences from occurring. University of Guelph students have the responsibility of 
+abiding by the University's policy on academic misconduct regardless of their location of study; 
+faculty, staff and students have the responsibility of supporting an environment that discourages 
+misconduct. Students need to remain aware that instructors have access to and the right to use 
+electronic and other means of detection.  
+Please note: Whether or not a student intended to commit academic misconduct is not relevant for 
+a finding of guilt. Hurried or careless submission of assignments does not excuse students from 
+responsibility for verifying the academic integrity of their work before submitting it.  
+Students who are in any doubt as to whether an action on their part could be construed as an 
+academic offence should consult with a faculty member or faculty advisor.  
+The Academic Misconduct Policy is detailed in the Undergraduate Calendar.  
+Recording of Materials 
+Presentations which are made in relation to course work—including lectures—cannot be 
+recorded or copied without the permission of the presenter, whether the instructor, a classmate or 
+guest lecturer. Material recorded with permission is restricted to use for that course unless further 
+permission is granted.  
+Resources 
+The Academic Calendars are the source of information about the University of Guelph’s 
+procedures, policies and regulations which apply to undergraduate, graduate and diploma 
+programs.  
+ 

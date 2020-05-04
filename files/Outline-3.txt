@@ -1,0 +1,48 @@
+ 
+ 
+CIS*4650 (Winter 2020) Compilers 
+ 
+ Instructor: Fei Song 
+  Contact: fsong@uoguelph.ca, (519) 824-4120 x58067 
+Office Hours: Tuesdays and Fridays, 3:30 – 4:30 pm in 2225 Reynolds 
+ 
+ Teaching Assistants: Emanuel Principe de Carvalho (eprincip@uoguelph.ca) 
+and George Chapman-Brown (gchapm02@uoguelph.ca) 
+                        Office Hours: Mondays and Wednesdays, 4:30 – 5:30 pm in 0001 Reynolds 
+    
+ Course website: https://courselink.uoguelph.ca/ 
+ 
+This course provides an introduction to different programming paradigms followed by a detailed 
+study on the compilation process of a procedural programming language.  Students will gain an 
+in-depth understanding of the compiler construction process by considering the fundamental 
+issues such as scanning, parsing, building and checking the intermediate representation of a 
+program, and code generation.  The knowledge learned will be put into practice through the 
+construction of a fully functioning compiler for a simple procedural language using the widely 
+adopted tools (JFlex and CUP) and a general purpose programming language (Java).  More 
+specifically, the implementation exercises are designed to reinforce various concepts that are 
+typically abstracted by tools during compiler construction in order to provide a complete picture 
+of the compiler design and implementation process. 
+ 
+Students are expected to have a solid background in modular programming, assembly language, 
+and basic computer architecture (e.g., registers, memory organization, etc.).  Experience with the 
+development of large software projects such as those practiced in CIS*2750, CIS*3750, and 
+CIS*3760 will be beneficial. 
+ 
+Evaluation 
+• Warmup assignment: 10% (due on Jan. 30) 
+• Three checkpoints for the project: 45% (due on Mar. 2, Mar. 18, and Apr. 1) 
+• Midterm: 20% (scheduled on Feb. 12 during the class time) 
+• Final exam: 25% (scheduled on Apr. 14 between 8:30 and 10:30 am)  
+Lecture attendance is important.  The textbook and lecture notes will not necessarily provide 
+adequate coverage for the course materials, especially the discussions and question answering we 
+conduct during the classes. Late submissions for the implementation are not encouraged, and 
+there will be a deduction of marks by 10% for one day late, 25% for two days late, and 50% for 
+three days late.  No marks will be given for late submissions that are more than three days late. 
+ 
+References 
+ 
+Charles N. Fischer, Ron K. Cytron, and Richard J. LeBlanc Jr.  “Crafting a Compiler”.  Pearson, 
+2009. 
+ 
+John R. Levine, Tony Mason, and Doug Brown.  “Lex & Yacc” 2nd Edition.  O’Reily & 
+Associates, 1992.  (Available on CourseLink) 

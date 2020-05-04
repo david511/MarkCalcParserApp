@@ -1,0 +1,42 @@
+{
+  "name": "Mark_Calc_App",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "bcrypt": "^3.0.7",
+    "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.4.3",
+    "curljs": "^0.1.2",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "express-fileupload": "^1.1.6",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.0",
+    "ffi-napi": "^2.4.5",
+    "flash": "^1.1.0",
+    "form-data": "^3.0.0",
+    "helmet": "^3.21.2",
+    "html": "^1.0.0",
+    "http": "0.0.0",
+    "javascript-obfuscator": "^0.20.2",
+    "jquery": "^3.0.0",
+    "jquery-migrate": "^3.0.0",
+    "method-override": "^3.0.0",
+    "multer": "^1.4.2",
+    "mysql2": "^2.1.0",
+    "npm-install-all": "^1.1.21",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "sequelize": "^5.21.3"
+  },
+  "devDependencies": {
+    "react-scripts": "^3.3.0"
+  },
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "author": "David Eastwood",
+  "license": "ISC"
+}

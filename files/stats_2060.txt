@@ -1,0 +1,399 @@
+STAT*2060 Statistics for Business Decisions
+Fall 2019
+Section(s): C01, C02
+Department of Mathematics & Statistics
+Credit Weight: 0.50
+Version 1.00 - September 03, 2019
+___________________________________________________________________________________________________________________
+1 Course Details
+1.1 Calendar Description
+This course is designed for students interested in the application of statistics in a business 
+setting. Topics covered will include the role of statistics in business decisions, organization 
+of data, frequency distributions, probability, normal and sampling distributions, hypothesis 
+tests, linear regression and an introduction to time series, quality control and operations 
+research.
+(4U mathematics or equivalent) or 0.50 credit in mathematicsPre-Requisites:      
+STAT*2040, STAT*2080, STAT*2120. Not available to B.Sc. 
+students.
+Restrictions:        
+1.2 Timetable
+Section 1: M/W/F, 12:30pm – 1:20pm, MACN 105 
+ 
+Section 2: M/W/F, 4:30pm – 5:20pm, RICH 2520 
+ 
+1.3 Final Exam
+Thursday, December 12, 7pm - 9pm.  Location TBA.
+___________________________________________________________________________________________________________________
+2 Instructional Support
+2.1 Instructional Support Team
+Dr. Lorna DeethInstructor:
+ldeeth@uoguelph.caEmail:       
++1-519-824-4120 x53034Telephone:   
+MACN 548Office:      
+STAT*2060 C01, C02 F19 v1.00
+MACN 548. Office hours are M/W, 2:00pm – 4:00pm.Office Hours:
+  
+ 
+Communication Policies: My preferred method of communication is in-person or by email. 
+For email communication, you must use your University of Guelph email account. Use 
+STAT*2060 in your subject line, and include your name and student ID number in all 
+correspondence. Emails that do not include a name and ID number, or from non-uoguelph 
+accounts, will not be answered; otherwise, I will try to respond to emails within 3 business 
+days. Please note that only administrative inquiries will be answered via email; questions 
+regarding assignments, course content, etc. will only be answered during office hours or in 
+lecture. 
+ 
+2.2 GTA Information
+Test and assignment regrade requests only can be sent to stat2060@uoguelph.ca . 
+Instructions for submitting a regrade request will be posted on Courselink. Note that 
+questions regarding course content or general course questions will not be answered through 
+this email account.
+___________________________________________________________________________________________________________________
+3 Learning Resources
+3.1 Required Resources
+Introductory Statistics Explained, by J. Balka (Textbook)
+This document is available in PDF format on Courselink.
+Lecture notes (Notes)
+A set of incomplete lecture notes will be posted on Courselink. It is expected students will 
+have a copy of these notes available, and will fill them in during lectures. Completed lecture 
+notes will not be posted online. 
+ 
+THE LECTURE NOTES ARE FOR INDEPENDENT USE ONLY, AND ARE NOT TO BE RE-
+DISTRIBUTED IN ANY FORM WITHOUT MY WRITTEN PERMISSION. 
+ 
+Microsoft Excel (Software)
+This course will make use of Microsoft Excel, available as part of Office 365 package to 
+which all University of Guelph students have access. Information about how to access 
+Microsoft Excel through Office 365 is on the CCS website: 
+ 
+https://www.uoguelph.ca/ccs/office365/training/online-training-resources/getting-started-
+with-office365#howInstall 
+ 
+Page 2 of 11
+STAT*2060 C01, C02 F19 v1.00
+IMPORTANT NOTE: Students are expected to use the latest version of Microsoft Excel 
+available through the Office 365 package. All instructions and support for using Microsoft 
+Excel within the course will only be available for the latest version of the software. Students 
+who choose to use an older, unsupported version of Microsoft Excel will be required to find 
+their own resources. 
+ 
+Calculators (Equipment)
+Students are required to obtain (and know how to use!) a good, multi-variable calculator. 
+Calculators will be needed to write the terms tests and final exam. I also recommend that 
+you bring a back-up calculator to all evaluations.
+Courselink (Website)
+Course information and resources will be available on Courselink. Students are encouraged 
+to check the website regularly for updated information and announcements.
+3.2 Additional Resources
+Microsoft Excel Drop-in Help (Other)
+Weekly drop-in Excel help is available every Friday, 9:30am - 11:30am in SSC 1303 (Science 
+Complex computer lab).  Additional drop-in Excel help will be available during the weeks 
+data projects are due; a schedule of these additional times will be posted on Courselink. 
+Students are expected to use these help times as their primary resource for help with the 
+course software.
+Learning Centre (Other)
+Drop-in help is available in the Statistics Learning Centre (Science Commons, 3rd floor of 
+the library) for students seeking help with course content and/or assignments. Hours of 
+operation are Monday/Wednesday: 9:30am – 3:30pm, Tuesday/Thursday: 10am – 4pm, 
+Friday: 9:30am – 2:30pm. Students are expected to use the Statistics Learning Centre as a 
+primary resource for help with course material.
+___________________________________________________________________________________________________________________
+4 Learning Outcomes
+4.1 Course Learning Outcomes
+By the end of this course, you should be able to:
+Create and properly interpret numerical and graphical data summaries.1. 
+Properly interpret probability and carry out basic probability calculations.2. 
+Carry out probability calculations for various discrete and continuous probability 
+distributions, and choose the appropriate probability distribution in different scenarios.
+3. 
+Explain statistical inference concepts and methods, including concepts related to 
+sampling distributions, confidence intervals, and hypothesis tests.
+4. 
+Choose an appropriate statistical inference procedure in a variety of situations, carry out 
+the procedure, and effectively communicate a proper interpretation of the results.
+5. 
+Page 3 of 11
+STAT*2060 C01, C02 F19 v1.00
+Explain the design of some basic experiments and observational studies, and describe 
+how statistical conclusions differ between experiments and observational studies.
+6. 
+Conduct a linear regression analysis, including statistical inference procedures on the 
+model parameters, and provide a proper interpretation of the results.
+7. 
+___________________________________________________________________________________________________________________
+5 Teaching and Learning Activities
+5.1 Lecture
+When Topic
+Sep 5 - Sep 13
+Chapter 1, Chapter 2, Chapter 3: 3.1 – 3.2
+Sep 16 - Sep 20
+Chapter 3: 3.3 – 3.5
+Sep 23 - Sep 27
+Chapter 4: 4.1 – 4.3, Chapter 5: 5.1 – 5.3
+SELF STUDY: Chapter 4: 4.4, 4.6
+Sep 30 - Oct 4
+Chapter 4: 5.5, 5.7, Chapter 6: 6.1 – 6.2
+Oct 7 - Oct 11
+Chapter 6: 6.4 – 6.5, Chapter 7: 7.1 – 7.4
+Oct 14 - Oct 18
+Chapter 8: 8.1 – 8.4
+Oct 21 - Oct 25
+Chapter 9: 9.1 – 9.3
+SELF STUDY: Chapter 9: 9.4, 9.5
+Chapter 9: 9.6 – 9.7, 9.9 – 9.10, Chapter 10: 10.1 – 10.3
+Oct 28 - Nov 1
+Page 4 of 11
+STAT*2060 C01, C02 F19 v1.00
+When Topic
+SELF STUDY: Chapter 9: 9.8
+Nov 4 - Nov 8
+Chapter 10: 10.4 – 10.5, Chapter 11: 11.1 – 11.3
+Nov 11 - Nov 15
+Chapter 11: 11.4 – 11.5, Chapter 13: 13.3
+Nov 18 - Nov 22
+Chapter 15: 15.1 – 15.4
+Nov 25 - Nov 29
+Chapter 15: 15.4 cont’d – 15.7, 15.12 (if time)
+SELF STUDY: Chapter 15: 15.9, 15.11
+5.2 Please Note
+No lecture on Monday, October 14 due to Thanksgiving Holiday 
+ 
+Not all topics in every section will be covered in class. Textbook sections, and corresponding 
+supplemental exercises, that can be excluded are listed in the document STAT2060 
+Textbook Notes, available on Courselink. 
+ 
+The schedule above is approximate, and subject to minor changes. The majority of course 
+content will be covered in lectures. However, there are several shorter topics which students 
+will be responsible for learning on their own. These topics are identified by the “SELF STUDY” 
+label. 
+ 
+___________________________________________________________________________________________________________________
+6 Assessments
+6.1 Marking Schemes & Distributions
+Name Scheme A (%)
+Online Assignments 5
+Data Projects 15
+Term Tests 40
+Page 5 of 11
+STAT*2060 C01, C02 F19 v1.00
+Name Scheme A (%)
+Final Exam 40
+Total 100
+6.2 Assessment Details
+Online Assignments (5%)
+, OnlineDate: 
+Due by 11:59pm on: 
+ 
+Friday, September 20•
+Friday, October 4•
+Friday, October 11•
+Friday, October 25•
+Friday, November 1•
+Friday, November 22•
+1% for each assignment, best 5 out of 6 assignments (Total: 5%) 
+ 
+Data Projects (15%)
+, OnlineDate: 
+Data projects will be submitted online by the following deadlines:  
+ 
+Data Project 1 Friday, September 27 Due by 11:59pm•
+Data Project 2 Friday, November 8 Due by 11:59pm•
+Data Project 3 Thursday, November 28* Due by 11:59pm (note the change of 
+date!)
+•
+5% for each project, all equally weighted (Total: 15%) 
+ 
+Term Tests (40%)
+, See information on CourselinkDate: 
+In-person term tests will be held on:  
+ 
+Term Test 1 Friday, October 18, 6 – 7:15pm•
+Term Test 2 Friday, November 15, 6 – 7:15pm•
+Weighting: 15% (worst test), 25% (best test) (Total: 40%) 
+ 
+Page 6 of 11
+STAT*2060 C01, C02 F19 v1.00
+Final Exam (40%)
+Thu, Dec 12, 7:00 PM - , 9:00 PM, TBADate: 
+6.3 Course and Grading Policies
+Online Assignments: Assignments are done through an online assessment system. Students 
+will have 4 attempts for each assignment, with the highest attempted mark counting as the 
+assignment grade. The best 5 marks of the 6 assignments will be used in the calculation of 
+the final grade; the lowest assignment mark will be discarded. This is to account for various 
+problems (computer issues, poor performance on an assignment, illness, overloaded 
+schedule, etc.), and is the only accommodation that will be made. No late assignments will be 
+accepted and missed assignments will automatically receive a grade of 0. 
+ 
+Data Analysis Projects: Details regarding each of the data analysis projects will be posted on 
+Courselink. Projects must be handed in by the posted due date/time. No late projects will be 
+accepted and missed projects will automatically receive a grade of 0. Students who cannot 
+complete a project for a valid reason will, upon my approval, have the weight of the missed 
+project added to their final exam. 
+ 
+IT IS IN YOUR BEST INTEREST TO COMPLETE EVERY ASSIGNMENT AND PROJECT 
+ 
+STUDENTS WHO MISS MULTIPLE ASSIGNMENTS/PROJECTS WILL NEED TO PROVIDE 
+DOCUMENTATION IN ORDER TO BE CONSIDERED FOR ACCOMMODATION 
+ 
+Turnitin: In this course, we will be using Turnitin, integrated with the CourseLink Dropbox tool, 
+to detect possible plagiarism, unauthorized collaboration or copying as part of the ongoing 
+efforts to maintain academic integrity at the University of Guelph. 
+ 
+All submitted data analysis projects will be included as source documents in the Turnitin.com 
+reference database solely for the purpose of detecting plagiarism of such papers. Use of the 
+Turnitin.com service is subject to the Usage Policy posted on the Turnitin.com site. 
+ 
+Data analysis projects that are flagged on Turnitin will be subject to further examination, 
+however this does not automatically mean that academic misconduct has occurred.  In the 
+event that a more detailed examination does in fact suggest academic misconduct may have 
+occurred, an official investigation will be launched through the CEPS Dean’s Office. 
+Page 7 of 11
+STAT*2060 C01, C02 F19 v1.00
+ 
+Term Tests: Term tests are scheduled for Friday evenings to minimize conflicts. Students 
+who are aware before the test date of a conflict must contact me immediately to discuss their 
+situation. Only valid conflicts such as another scheduled test, a religious accommodation, or 
+a varsity sport will be considered for accommodation, and supporting documentation must 
+be provided. Students who miss a test for medical illness must obtain a medical note for their 
+absence and contact me within 5 business days of the missed test. In the case of absence 
+due to medical illness, a student’s final exam will be reweighted to make up for the missed 
+test 
+ 
+The final exam (date, time and location) is scheduled by the Registrar’s Office. Students who 
+miss the final exam due to a valid, documented reason must contact their program counsellor 
+for advice on University regulations regarding final exams. These procedures are based on 
+University policy and are not under the control of the course instructor. 
+ 
+The format of the term tests and the final exam will be posted at a later date. Students will be 
+allowed a stand-alone calculator (i.e. must not be part of a cell phone, laptop, etc.), and are 
+permitted to have one double-sided letter size (8.5’’ X 11’’) reference page for each of the two 
+term tests (that is, ONE double-sided 8.5” X 11” reference page per term test). Students are 
+allowed two double-sided 8.5” X 11” reference pages for the final exam. Reference pages 
+must be handwritten. Any required statistical values will be provided. No other resources are 
+permitted. 
+ 
+In order to uphold the University of Guelph’s academic integrity standards, the term tests will 
+be scanned and digitally stored before graded tests are returned to the students. Any work 
+that is submitted for regrading will be compared to the corresponding digital copy. Note that 
+in the event that a student submits a test for regrading, I reserve the right to regrade the entire 
+test, not just the question under consideration. Procedures for submitting a regrade request 
+will be posted on Courselink. 
+ 
+Regrade requests must be submitted within two weeks of an assignment/project/test being 
+returned, after which regrade requests may no longer be submitted, and the 
+assignment/project/test grade is final. 
+ 
+Course Policy on Group Work:  Students are encouraged to work together to discuss course 
+content, share ideas, and ask/answer questions. However, all online assignments, term tests, 
+Page 8 of 11
+STAT*2060 C01, C02 F19 v1.00
+and final exam in this course must be completed independently.  The data analysis projects 
+can be completed in groups of no more than 3 people, with explicit instructions regarding this 
+group work posted on Courselink. Any unauthorized collaboration, completing another 
+student’s work, or having another student complete your work, will constitute academic 
+misconduct. 
+ 
+___________________________________________________________________________________________________________________
+7 University Statements
+7.1 Email Communication
+As per university regulations, all students are required to check their e-mail account regularly: 
+e-mail is the official route of communication between the University and its students.
+7.2 When You Cannot Meet a Course Requirement
+When you find yourself unable to meet an in-course requirement because of illness or 
+compassionate reasons please advise the course instructor (or designated person, such as a 
+teaching assistant) in writing, with your name, id#, and e-mail contact. The grounds for 
+Academic Consideration are detailed in the Undergraduate and Graduate Calendars. 
+ 
+Undergraduate Calendar - Academic Consideration and Appeals 
+https://www.uoguelph.ca/registrar/calendars/undergraduate/current/c08/c08-ac.shtml 
+ 
+Graduate Calendar - Grounds for Academic Consideration 
+https://www.uoguelph.ca/registrar/calendars/graduate/current/genreg/index.shtml 
+ 
+Associate Diploma Calendar - Academic Consideration, Appeals and Petitions 
+https://www.uoguelph.ca/registrar/calendars/diploma/current/index.shtml 
+ 
+7.3 Drop Date
+Students will have until the last day of classes to drop courses without academic penalty. The 
+deadline to drop two-semester courses will be the last day of classes in the second semester. 
+This applies to all students (undergraduate, graduate and diploma) except for Doctor of 
+Veterinary Medicine and Associate Diploma in Veterinary Technology (conventional and 
+alternative delivery) students. The regulations and procedures for course registration are 
+available in their respective Academic Calendars. 
+ 
+Undergraduate Calendar - Dropping Courses 
+https://www.uoguelph.ca/registrar/calendars/undergraduate/current/c08/c08-drop.shtml 
+ 
+Graduate Calendar - Registration Changes 
+https://www.uoguelph.ca/registrar/calendars/graduate/current/genreg/genreg-reg-
+regchg.shtml 
+ 
+Page 9 of 11
+STAT*2060 C01, C02 F19 v1.00
+Associate Diploma Calendar - Dropping Courses 
+https://www.uoguelph.ca/registrar/calendars/diploma/current/c08/c08-drop.shtml 
+ 
+7.4 Copies of Out-of-class Assignments
+Keep paper and/or other reliable back-up copies of all out-of-class assignments: you may be 
+asked to resubmit work at any time.
+7.5 Accessibility
+The University promotes the full participation of students who experience disabilities in their 
+academic programs. To that end, the provision of academic accommodation is a shared 
+responsibility between the University and the student. 
+ 
+When accommodations are needed, the student is required to first register with Student 
+Accessibility Services (SAS). Documentation to substantiate the existence of a disability is 
+required; however, interim accommodations may be possible while that process is underway. 
+ 
+Accommodations are available for both permanent and temporary disabilities. It should be 
+noted that common illnesses such as a cold or the flu do not constitute a disability. 
+ 
+Use of the SAS Exam Centre requires students to book their exams at least 7 days in advance 
+and not later than the 40th Class Day. 
+ 
+For Guelph students, information can be found on the SAS website 
+https://www.uoguelph.ca/sas 
+ 
+For Ridgetown students, information can be found on the Ridgetown SAS website 
+https://www.ridgetownc.com/services/accessibilityservices.cfm 
+ 
+7.6 Academic Integrity
+The University of Guelph is committed to upholding the highest standards of academic 
+integrity, and it is the responsibility of all members of the University community-faculty, staff, 
+and students-to be aware of what constitutes academic misconduct and to do as much as 
+possible to prevent academic offences from occurring. University of Guelph students have 
+the responsibility of abiding by the University's policy on academic misconduct regardless of 
+their location of study; faculty, staff, and students have the responsibility of supporting an 
+environment that encourages academic integrity. Students need to remain aware that 
+instructors have access to and the right to use electronic and other means of detection. 
+ 
+Please note: Whether or not a student intended to commit academic misconduct is not 
+relevant for a finding of guilt. Hurried or careless submission of assignments does not excuse 
+students from responsibility for verifying the academic integrity of their work before 
+submitting it. Students who are in any doubt as to whether an action on their part could be 
+construed as an academic offence should consult with a faculty member or faculty advisor. 
+ 
+Undergraduate Calendar - Academic Misconduct 
+https://www.uoguelph.ca/registrar/calendars/undergraduate/current/c08/c08-
+Page 10 of 11
+STAT*2060 C01, C02 F19 v1.00
+amisconduct.shtml 
+ 
+Graduate Calendar - Academic Misconduct 
+https://www.uoguelph.ca/registrar/calendars/graduate/current/genreg/index.shtml 
+ 
+7.7 Recording of Materials
+Presentations that are made in relation to course work - including lectures - cannot be 
+recorded or copied without the permission of the presenter, whether the instructor, a student, 
+or guest lecturer. Material recorded with permission is restricted to use for that course unless 
+further permission is granted.
+7.8 Resources
+The Academic Calendars are the source of information about the University of Guelph’s 
+procedures, policies, and regulations that apply to undergraduate, graduate, and diploma 
+programs. 
+ 
+Academic Calendars 
+https://www.uoguelph.ca/academics/calendars 
+ 
+___________________________________________________________________________________________________________________
+Page 11 of 11

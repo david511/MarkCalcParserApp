@@ -1,0 +1,395 @@
+1 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ACCT*3340  
+Intermediate Financial Accounting II 
+Fall 2019 
+0.5 Credits 
+ 
+AMENDED 
+  
+General Course Information 
+Instructor: Allan W. Foerster BBA, CPA-CA 
+Email afoerste@uoguelph.ca 
+Office Location  MAC 217 
+Office Hours  By appointment 
+Department/School Management 
+  
+Class Schedule:  
+ 
+Monday/Wednesday 11:30-1:00 and 2:30-4:00 
+Please note midterm timing on: 
+Wednesday October 2, 3019 IN CLASS 
+Wednesday November 6, 2019 IN CLASS 
+Please inform the instructor ASAP if you have an academic conflict 
+with this timing. 
+Pre-requisites: ACCT*3330 
+Restrictions:  
+Course Description  
+This course focuses on how entities account for current and non-current liabilities and equity accounts, including, 
+income taxes, leases, pensions and other post retirement benefits, share equity and retained earnings, stock options. 
+Additional topics may include earnings per share, restatements and statement analysis. 
+Course Learning Outcomes    
+Upon successfully completing this course, you will be able to: 
+1. Apply generally accepted accounting principles and practices to situations with moderate complexity as 
+they relate to the following topics: 
+a. Current liabilities 
+b. Long term financial liabilities 
+c. Accounting for leases, pensions, deferred taxes and asset retirement obligations 
+d. Shareholders’ equity 
+e. Other measurement and disclosure issues such as earnings per share, interim and segmented 
+reporting, subsequent events and related party transactions 
+2 
+ 
+2. Prepare financial statement information related to the above noted topics. 
+3. Analyze moderately complex accounting issues and research alternative treatments in support of a 
+recommended solution. 
+4. Communicate effectively in written format in response to less structured problems. 
+5. Demonstrate an awareness of ethical and professional reporting responsibilities as they relate to financial 
+reporting. 
+ 
+ 
+ 
+ 
+TENTATIVE CLASS SCHEDULE – Fall 2019 
+ 
+Date                   READINGS (Note: chapter coverage will 
+generally start in the week noted, but may 
+be completed in the following week) 
+KIESO 
+Vol. 2 – 
+Chapters & 
+Appendices 
+DISCUSSION PROBLEMS and 
+(tentative) timing of ASSIGNMENTS, 
+CASES & MIDTERM Exam 
+Sept 
+9&11 
+Non-Financial and Current Liabilities 
+IAS 37  
+Ch. 13 E13-8, 9, 15, 20, 23, 27, 29 
+P13-1, 2, 8, 10, 11, 13, 14, 15 
+Sept 16 
+& 18  
+Long-Term Financial Liabilities  
+IFRS 9, IAS 39 
+Ch. 14 E14-8, 9, 11, 17, 20, 28 
+P14-3, 4, 7, 10, 12   
+(Assignment 1 available on WileyPLUS 
+by Sept 13, 2019 and due Sept. 20 , 2019 
+by 5:00 pm) 
+Sept 23 
+& 25 
+Shareholders’ Equity 
+IFRS 2 
+ 
+Ch. 15 and 
+App. 15B 
+E15-2, 3, 5, 9, 12, 13,19 
+P15-2, 4, 6,  10, 14  
+(Assignment 2 available on WileyPLUS 
+by Sept 20, 2019 and due Sept 27, 2019 
+by 5:00 pm) 
+Sept 30 
+& Oct 2 
+Complex Financial Instruments  
+IFRS 9, IAS 39  
+Ch. 16 and 
+App. 16A & 
+16B 
+E16-1, 6, 8, 9, 13, 15, 19, 24 
+P16-1, 8, 9, 10   
+(Assignment 3 available on WileyPLUS 
+by Sept 27, 2019 and due Oct 4, 2019 by 
+5:00 pm) 
+Oct 7 & 
+9 
+Earnings per Share 
+IAS 33    
+ 
+Ch. 17 
+ 
+E17-2, 5, 11,  15, 16 
+P17-3, 4, 5, 8, 10 
+Assignment 4 available on Oct 4, 2019 
+due Oct 11, 2019 by 5:00 pm 
+Oct 16 
+& 21 
+Income Taxes (pages 18-1 to 18-28+ 
+Appendix 18A) IAS 12 
+ 
+Ch. 18 and 
+App. 18A  
+E18-1, 5, 6, 7, 12, 19, 34 
+P18-1, 8, 14, 15 
+Oct 23 Income Taxes (Loss Carryover Benefits) 
+(pages 18-28 –end).   Handbook, s. 3465   
+Ch. 18 E18-22, 23, 25, 26 
+P18-12, 
+Assignment 5 available on Oct 18, 2019 
+due Oct 25, 2019 by 5:00 pm 
+Oct 28 
+& 30 
+Pensions and Other Post-Employment 
+Benefits  
+IAS 19 
+Ch. 19 E19-3, 5, 7, 10, 14, 16 
+P19-3, 5, 8, 11, 12, 13 
+Assignment 6 available on Oct 25, 2019 
+due Nov 1, 2019 by 5:00 pm 
+Nov 4 
+& 6 
+Leases 
+IFRS 16 and IAS 17 Pensions and Other  
+ 
+Ch. 20 and 
+App. 20A  
+E E20-3, 5, 6, 11, 12, 17, 24 
+P20-3, 5, 9, 10, 11, 17 
+Group Case  available for purchase by 
+Nov 5, 2019 due Nov 18, 2019 at the 
+beginning of class 
+3 
+ 
+Assignment 7 available on Nov 1, 2019 
+due Nov 8, 2019 by 5:00 pm 
+Nov 11 
+& 13 
+Accounting Changes and Error Analysis  
+IAS 8 
+Ch. 21 and 
+App. 21A 
+E21-2, 7, 8, 11, 18 
+P21-3, 8, 12, 15 
+Assignment 8 available on Nov 8, 2019 
+due Nov 15, 2019 by 5:00 pm 
+Nov 18 
+& 20 
+Statement of Cash Flows  
+IAS 7 
+Ch. 22 E22-1, 6, 11, 12, 14, 16 
+P22-2, 4, 7 
+Assignment 9 available on Nov 15, 2019 
+due Nov 22, 2019 by 5:00 pm 
+Nov 25 
+& 27 
+Other Measurement and Disclosure Issues 
+IAS34, IFRS 8 
+Ch. 23 E23-2, 6, 7 
+P23-1, 5, 11 
+Assignment 10 available on Nov 22, 2019 
+due Nov 29, 2019 by 5:00 pm 
+REVIEW   
+ 
+ 
+ 
+Course Assessment 
+ . 
+ 
+ 
+Associated 
+Learning 
+Outcomes 
+Due Date/ 
+location 
+Assessment 1:  10% 
+On-line WileyPlus 
+Assignments 
+(top 8 count) 
+LO 1-4 
+Refer to 
+weekly 
+schedule  
+     
+Assessment 2: 20%  Midterm Exam #1 LO 1-4 
+**THURS 
+Oct 3, 7-
+8:30 pm/ 
+TBA 
+ 
+Assessment 3: 
+ 
+20% Midterm Exam #2 LO 1-4 
+**TUES Oct 
+29, 7-8:30 
+pm/ TBA 
+Assessment 4: 20% Group written case report)  LO 1-5 
+Refer to 
+weekly 
+schedule 
+     
+Assessment 5: 30% Final Examination LO 1-5  TBA 
+     
+Total  
+100%    
+ 
+** Please note the timing of Midterms.  Please inform the instructor ASAP if you have an academic conflict 
+with this timing. 
+4 
+ 
+ 
+ 
+ 
+ 
+Teaching and Learning Practices   
+Background 
+Readings 
+Each topic contains readings about related concepts and issues.  Readings 
+are to be completed prior to attending class.   
+On-line 
+presentations 
+PowerPoint presentations are available on the course website.   
+On-line WileyPlus 
+assignments 
+Assignments (WileyPlus required) are similar to the questions discussed in 
+class. They will be done on-line using WileyPlus. The assignments are not 
+timed, and you have two attempts for each question. If you miss a deadline 
+for whatever reason, the assignment will be recorded as zero. There is no 
+re-weighting of marks for assignments. 
+Problems for class 
+discussion 
+You will be assigned problems and exercises which form an integral part of 
+each class discussion. These problems approximate the difficulty level you 
+should expect to see on exams.  You are to attempt the in-class problems 
+prior to attending class.  In addition, there will be problems handed out and 
+completed in class.  If you miss a class, it will be your responsibility to obtain 
+a copy of the problem and solution. 
+Self-study problems In addition to the problems for class discussion, additional problems should 
+be completed on a self-study basis to reinforce and clarify the in-class 
+learning.  Solutions to brief exercise problems from the text will be posted 
+to Courselink. 
+Group written case 
+report 
+The group written assignment will provide you and your group members 
+(no more than 5 students in a group.) with an opportunity to delve more 
+deeply into the selected topic areas in the course. The assignment will 
+include some less directed elements and will require demonstration of 
+strong writing and organizing skills.  The group response should be 
+formatted in a manner similar to the CPA Way which will be discussed in 
+class. 
+Students should not share or discuss their solutions with members of other 
+groups.  One (hard) copy of the solution (per group) should be submitted as 
+instructed in the course schedule and one (soft) copy to the drop box for 
+ACCT 3340 in Courselink (Courselink automatically subjects all submissions 
+to checks for plagiarism, etc., via turnitin.com). The solution to the case 
+should be no more than 3 pages in length (minimum 12 font) -- plus up to 3 
+pages for appendices for items such as journal entries or draft financial 
+statements -- if applicable (see “Approach to Financial Accounting Cases” 
+below for further details).  
+ 
+5 
+ 
+ 
+ 
+ 
+Course Resources 
+Required Texts: 
+Kieso, et al., Intermediate Accounting, Volume II, 11th Canadian Ed., John Wiley & Sons Canada Ltd., 
+2016.   
+[The text may be purchased in hard copy with “WileyPlus” access or as the online “eBook” 
+version.  For students who are planning to pursue the CPA designation, we recommend the hard 
+copy.  The material in this course is examinable within the professional program, and it’s useful to 
+have the reference from which you originally learned the material. The e-book provides access 
+only for 6 months.]   Note that used textbooks do not include “WileyPlus” access. 
+ 
+CPAC Handbook. 
+Electronic access to the CPAC Handbook can be obtained through the University of Guelph library.  
+Because the Handbook is constantly being updated, a hardcopy version would become quickly 
+updated, and is not recommended. 
+ 
+Course Policies 
+Grading Policies 
+Unless you have discussed an extension well ahead of the due date with the instructor, late penalties of 
+5% of the total grade earned per day (including weekends) will be assigned to any assessment (i.e. deducted 
+from the total mark). Extensions will only be granted on the basis of valid reasons. Late assignments will 
+not be accepted once graded assignments have been returned officially to the class at large, unless 
+circumstances permit and alternative arrangements have been made. 
+ 
+Students who find themselves unable to meet course requirements by the deadlines or the criteria 
+expected because of medical or personal reasons, should review the regulations on academic consideration 
+in the Academic Calendar and discuss their situation with the instructor, program counselor or other 
+academic counselor as appropriate. 
+ 
+http://www.uoguelph.ca/registrar/calendars/undergraduate/current/c08/c08-grds.shtml  
+ 
+Missed Assignments: 
+ 
+A grade of zero will be assigned if you fail to submit an assignment, unless you are ill or have other 
+compassionate reasons. Please read your Undergraduate Calendar for the regulations regarding illness and 
+compassionate grounds. Please note, vacation travel, moving house, or outside work commitments will 
+not be accepted as valid reasons for missing deadlines. 
+ 
+If you have religious observances which conflict with the course schedule or if you are registered with 
+Student Accessibility Services, please contact the course instructor in order to make arrangements for your 
+assessment if appropriate. 
+6 
+ 
+ 
+Missed online WileyPlus assignments 
+There are no deferred on-line assignments. If you miss a deadline for whatever reason, the assignment will 
+be recorded as zero. There is no re-weighting of marks for assignments. 
+ 
+ 
+University Policies  
+Academic Consideration 
+When you find yourself unable to meet an in-course requirement because of illness or compassionate 
+reasons, please advise the course instructor in writing, with your name, id#, and e-mail contact. See the 
+academic calendar for information on regulations and procedures for Academic Consideration: 
+http://www.uoguelph.ca/registrar/calendars/undergraduate/current/c08/c08-ac.shtml 
+Academic Misconduct 
+The University of Guelph is committed to upholding the highest standards of academic integrity and it is 
+the responsibility of all members of the University community, faculty, staff, and students  to be aware of 
+what constitutes academic misconduct and to do as much as possible to prevent academic offences from 
+occurring.  
+University of Guelph students have the responsibility of abiding by the University's policy on academic 
+misconduct regardless of their location of study; faculty, staff and students have the responsibility of 
+supporting an environment that discourages misconduct. Students need to remain aware that instructors 
+have access to and the right to use electronic and other means of detection. Please note: Whether or not 
+a student intended to commit academic misconduct is not relevant for a finding of guilt. Hurried or careless 
+submission of assignments does not excuse students from responsibility for verifying the academic integrity 
+of their work before submitting it. Students who are in any doubt as to whether an action on their part 
+could be construed as an academic offence should consult with a faculty member or faculty advisor.  
+The Academic Misconduct Policy is detailed in the Undergraduate Calendar: 
+https://www.uoguelph.ca/registrar/calendars/undergraduate/current/c08/c08-amisconduct.shtml  
+Accessibility 
+The University of Guelph is committed to creating a barrier-free environment. Providing services for 
+students is a shared responsibility among students, faculty and administrators. This relationship is based 
+on respect of individual rights, the dignity of the individual and the University community's shared 
+commitment to an open and supportive learning environment. Students requiring service or 
+accommodation, whether due to an identified, ongoing disability or a short-term disability should contact 
+Student Accessibility Services as soon as possible.  
+For more information, contact SAS at 519-824-4120 ext. 56208 or email sas@uoguelph.ca or see the 
+website: https://wellness.uoguelph.ca/accessibility/  
+Course Evaluation Information 
+Please refer to the Course and Instructor Evaluation Website 
+7 
+ 
+ 
+ 
+ 
+ 
+Date Submitted to Chair: 
+ 
+ 
+Chair Signature (Approval): 
+ 
+ 
+Sandra Scott 
+Date Approved by Chair: 
+ 
+27 August 2019 
+ 
+Recording of Materials  
+Presentations which are made in relation to course work—including lectures—cannot be recorded or 
+copied without the permission of the presenter, whether the instructor, a classmate or guest lecturer. 
+Material recorded with permission is restricted to use for that course unless further permission is 
+granted. 
+Drop date 
+The last date to drop one-semester courses, without academic penalty, is Friday, November 29, 2019. For 
+regulations and procedures for Dropping Courses, see the Academic Calendar: 
+https://www.uoguelph.ca/registrar/calendars/undergraduate/current/c08/c08-drop.shtml 

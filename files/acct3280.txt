@@ -1,0 +1,356 @@
+1 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ACCT 3280 
+Auditing I 
+Fall 2019 
+0.5 Credits 
+  
+General Course Information 
+Instructors: 
+Mary Jo Fedy (Section 01) 
+Adeel Mahmood (Section 02) 
+Email Mary Jo Fedy: mfedy@uoguelph.ca 
+Adeel Mahmood: mahmood@uoguelph.ca 
+Office Location  MAC 217 
+Office Hours  After class, or by appointment 
+Department/School Department of Management 
+  
+Class Schedule:  
+Section 01: Mondays and Wednesdays from 8.30 AM to 9.50 AM 
+Section 02: Wednesdays from 7.00 PM to 9.50 PM 
+Pre-requisites: ACCT  3330 
+Restrictions: - 
+Course Description  
+Auditing I is an examination of the principles and theory underlying the practice of auditing.  
+Concepts of materiality and audit risk are examined and discussed.  Sources and techniques for 
+gathering auditing evidence will also be examined.  Modern organizations rely on information 
+systems, technology and internal controls to manage and monitor their operations and the 
+impact of these systems on the quality of information produced and on the scope of audits are 
+important elements of this course. 
+Course Learning Outcomes    
+Upon successfully completing this course, you will be able to: 
+1. Compare the use and purpose of the different types of assurance engagements. 
+2. Apply relevant ethical and legal principles to situations involving ethical or legal 
+elements. 
+3. Identify and assess issues related to the acceptance of an audit engagement. 
+4. Demonstrate how to gain an understanding of an audit client and its internal control in 
+order to assess the risk of material misstatement through error or fraud, set materiality 
+appropriately, and devise an overall audit strategy. 
+5. Assess the risks of the project, or, for audit engagements, assesses the risks of 
+material misstatement at the financial statement level and at the assertion level for 
+2 
+ 
+classes of transactions, account balances, and disclosures. 
+6. Assess risks at an assertion level and plan suitable evidence-gathering procedures, 
+including tests of controls, substantive tests of details, and analytical procedures. 
+7. Evaluate audit evidence and results of audit tests. 
+8. Describe analytical procedures appropriate for the identified risk of material 
+misstatement. 
+9. Describe the procedures required to complete an audit and formulate an opinion in 
+support of an appropriate audit report. 
+ 
+During this course you will also practice and develop the following skills, in 
+accordance CPA Competency Map: 
+• Demonstrate a cohesive process for using professional judgment to solve problems 
+and make decisions. (Competency Map – Section 2.1) 
+• Write and speak to enhance work performed (Competency Map – Section 3.2) 
+• Work effectively as a team member.  (Competency Map – Section 5.2) 
+ 
+Summary of Course Content and Materials 
+Date Chapters/Topics/Deliverables Due* 
+Week 
+of Sep 9 
+• Introduction 
+• Ch. 3: Professional Ethics and Legal Liability 
+- 
+Week 
+of Sep 
+16 
+• Ch. 4: Audit Responsibilities and Objectives 
+• Ch. 6: Client Acceptance, Planning, and Materiality 
+Q1 
+Week 
+of Sep 
+23 
+• Ch. 7: Assessing the Risk of Material Misstatement  
+• Ch. 8: Internal Control and COSO Framework 
+Q2 
+ICA1 
+Week 
+of Sep 
+30 
+• Ch. 9: Assessing Control Risks and Designing Tests of Controls 
+• Ch. 10: Develop Risk Response: Audit Strategy and Audit Program 
+Q3 
+ICA2 
+Week 
+of Oct 7 
+• Ch. 11: Audit Sampling Concepts ICA3 
+Oct 16, 
+2019 
+MIDTERM TEST (Written on Campus) - 
+Week 
+of Oct 
+21 
+• Ch. 5: Audit Evidence 
+• Ch. 16: Audit of the Capital Acquisition and Repayment Cycle 
+- 
+3 
+ 
+Week 
+of Oct 
+28 
+• Ch. 12: Audit of the Revenue Cycle 
+• Ch. 17: Audit of Cash Balances 
+Project Proposal Due by 11.59 PM Guelph Time on Oct 31, 2019 
+Q4 
+ICA4 
+Week 
+of Nov 
+4 
+• Ch. 13: Audit of the Acquisition and Payment Cycle 
+• Ch. 14: Audit of the Inventory and Distribution Cycle 
+Q5 
+ICA5 
+Week 
+of Nov 
+11 
+• Ch. 15: Audit of the Human Resources and Payroll Cycle 
+• Ch. 18: Completing the Audit 
+ICA6 
+Week 
+of Nov 
+18 
+• Ch. 19: Audit Reports on Financial Statements 
+• Ch. 20: Other Assurance and Non-assurances Services  
+GROUP PROJECT Due by 11.59 PM Guelph Time on Nov 24, 2019 
+Q6 
+Week 
+of Nov 
+25 
+• Review - 
+- FINAL EXAM as Scheduled by the Office of the Registrar  
+* Q1, Q2, etc. refer to Online Quizzes, while ICA1, ICA2, etc. refer to In-Class Activities.  See 
+below for more detail. 
+ 
+Course Assessment 
+ . 
+ 
+ 
+Associated Learning 
+Outcomes 
+Due Date / 
+Location 
+Assessment 1:  5% Online Quizzes  LO 3, 4, 5, 6 
+Refer to schedule 
+/ Online 
+     
+Assessment 2:  10% In-Class Activities LO 1, 3, 4, 5, 6 
+Refer to schedule 
+/ In Class 
+     
+Assessment 3: 25% Midterm Test LO 2 – 5 
+Oct 16, 2019 / In 
+class 
+     
+Assessment 4: 20% Group Project LO 4, 5, 8 
+Proposal: Oct 31, 
+2019 / online 
+ 
+Project: Nov 24, 
+2019 / online 
+     
+4 
+ 
+Assessment 5: 40% Final Exam LO 1 – 7, 9 
+Dec 12, 2019 / 
+On campus 
+     
+Total  100% 
+ 
+ 
+ 
+ 
+ 
+Teaching and Learning Practices   
+Lectures Learning in this course results primarily from in-class discussion and 
+problem-solving, and out-of-class analysis and group work.  Students will be 
+encouraged to think, analyze, evaluate, and solve problems – that is, not 
+memorize.  Students are expected to come to class on time and be prepared 
+for the class (having read the assigned reading and done the associated 
+problems). 
+A list of suggested homework problems is provided online on the course 
+website along with the solutions.  These problems provide excellent review 
+of the key concepts discussed in class.   
+Online Quizzes There are six (6) quizzes in total in a multiple-choice format, and they are 
+due online by the start of the class they are scheduled for.  Each quiz will 
+have test-style questions and will be timed when written online.  The best 
+five (5) grades out of six will be used in computing your mark for this 
+component. 
+In-Class 
+Activities 
+In-Class Activities are problem-solving activities conducted in class on the 
+scheduled topic, allowing students to participate and get graded on their 
+performance in the activity.  More details of the format, structure, and 
+content coverage will be provided during the term. 
+There are six (6) such activities in total, and they are completed in groups.  
+The best five (5) grades out of six will be used in computing your mark for 
+this component.  See Group Project below for information on group 
+formation. 
+Midterm Test The Midterm Test is written on campus on an individual basis.  The test will 
+cover introduction plus chapters 3, 4, 6, 7, 8, 9, 10, and 11.   
+Final Exam The Final Exam is also written on campus on an individual basis.  The exam 
+will cover all course content including chapters 3 to 20. 
+Group Project Students will form groups for this component.  The group will also complete 
+the In-Class Activities above.   
+The Group Project will allow the students an opportunity to engage in audit 
+planning for a reference company, perform audit data analytics, and submit 
+a report documenting their work. 
+As a part of the project deliverables, each student group will submit a 
+proposal outlining the reference company and the rationale for selecting it.  
+5 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+The company will be used to provide the context for audit planning and data 
+analytics.   
+Course Resources 
+Required Text:       
+Arens, et. al., Auditing: The Art & Science of Assurance Engagements, 14th Canadian Edition, 
+Pearson Canada, 2018: 
+• The text may be purchased in a physical or an online ‘eBook’ version.  Note that the e-
+book purchase may not provide permanent access. 
+• ISBN: 9780134894805 (Hard cover), 9780134897141 (Loose leaf), 9780134835013 (E-
+book access card) 
+CPA Canada Handbook: 
+• Electronic access to the CPA Canada Handbook can be obtained through the 
+University of Guelph library.  A hardcopy version is not recommended. 
+ 
+Course Policies 
+Grading Policies 
+ 
+If a student misses a quiz or the Midterm Test for a valid reason, the weight of the missed quiz 
+or test will be added to that of the Final Exam.  A student missing the Final Exam is subject to 
+the same policies and procedures as those outlined in the Academic Calendar for missed final 
+exams. 
+ 
+It is expected that all group members contribute equally to group work.  If peer evaluations 
+completed at the end of the course indicate otherwise, individual group members may not 
+receive the same marks as the group marks.  
+ 
+If a group misses the Group Project deadline for a valid reason applicable to each group 
+member, a deadline extension may be granted.  Otherwise, there is a 25% marks penalty for 
+every 24 hours (or a fraction rounded UP) that the Group Project is submitted late.  Each group 
+member must provide the instructor with the required documentation within one week of the 
+missed submission deadline. 
+ 
+University Policies  
+Academic Consideration 
+When you find yourself unable to meet an in-course requirement because of illness or 
+compassionate reasons, please advise the course instructor in writing, with your name, id#, 
+and e-mail contact. See the academic calendar for information on regulations and procedures 
+6 
+ 
+for Academic Consideration: 
+http://www.uoguelph.ca/registrar/calendars/undergraduate/current/c08/c08-ac.shtml 
+Academic Misconduct 
+The University of Guelph is committed to upholding the highest standards of academic integrity 
+and it is the responsibility of all members of the University community, faculty, staff, and 
+students  to be aware of what constitutes academic misconduct and to do as much as possible 
+to prevent academic offences from occurring.  
+University of Guelph students have the responsibility of abiding by the University's policy on 
+academic misconduct regardless of their location of study; faculty, staff and students have the 
+responsibility of supporting an environment that discourages misconduct. Students need to 
+remain aware that instructors have access to and the right to use electronic and other means 
+of detection. Please note: Whether or not a student intended to commit academic misconduct 
+is not relevant for a finding of guilt. Hurried or careless submission of assignments does not 
+excuse students from responsibility for verifying the academic integrity of their work before 
+submitting it. Students who are in any doubt as to whether an action on their part could be 
+construed as an academic offence should consult with a faculty member or faculty advisor.  
+The Academic Misconduct Policy is detailed in the Undergraduate Calendar: 
+https://www.uoguelph.ca/registrar/calendars/undergraduate/current/c08/c08-
+amisconduct.shtml 
+Accessibility 
+The University of Guelph is committed to creating a barrier-free environment. Providing 
+services for students is a shared responsibility among students, faculty and administrators. This 
+relationship is based on respect of individual rights, the dignity of the individual and the 
+University community's shared commitment to an open and supportive learning environment. 
+Students requiring service or accommodation, whether due to an identified, ongoing disability 
+or a short-term disability should contact Student Accessibility Services as soon as possible.  
+For more information, contact SAS at 519-824-4120 ext. 56208 or email sas@uoguelph.ca or 
+see the website: https://wellness.uoguelph.ca/accessibility/  
+Course Evaluation Information 
+Please refer to the Course and Instructor Evaluation Website 
+Recording of Materials  
+Presentations which are made in relation to course work—including lectures—cannot be 
+recorded or copied without the permission of the presenter, whether the instructor, a 
+classmate or guest lecturer. Material recorded with permission is restricted to use for that 
+course unless further permission is granted. 
+Drop date 
+7 
+ 
+ 
+ 
+ 
+ 
+Date Submitted to Chair: 
+ 
+ 
+Chair Signature (Approval): 
+ 
+ 
+Sandra Scott 
+Date Approved by Chair: 
+ 
+27 August 2019 
+ 
+ 
+ 
+The last date to drop one-semester courses, without academic penalty, is Nov 29, 2019. For 
+regulations and procedures for Dropping Courses, see the Academic Calendar: 
+https://www.uoguelph.ca/registrar/calendars/undergraduate/current/c08/c08-drop.shtml 

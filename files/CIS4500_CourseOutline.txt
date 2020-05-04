@@ -1,0 +1,151 @@
+CIS*4030 Mobile Computing 
+0.50 Credits – Undergraduate – Winter 2020 
+School of Computer Science – University of Guelph
+Lectures: 
+Tuesdays & Thursdays, 1430-1550 
+Crop Science 117 
+Instructor Details: 
+David Flatla (dflatla@uoguelph.ca) 
+Office: Reynolds 2205 
+Office Hours: by appointment 
+Teaching Assistant Details: 
+Patrick Houlding (cis4030@socs.uoguelph.ca) 
+Arslan Kazmi (cis4030@socs.uoguelph.ca)
+Course Website: 
+https://courselink.uoguelph.ca/d2l/home/611872 
+The course website will be used to post any materials, announcements, and assignment 
+specifications and grades. You are responsible for checking this site regularly. Assignments 
+will be submitted via the course website. 
+Textbook: 
+https://commonsware.com/Android/ (latest version is 8.13 [August 2018]) 
+https://commonsware.com/Android/4-2-free (latest free version is 7.0 [December 2015]) 
+Course Prerequisites: CIS*2030, CIS*2750, CIS*3110 
+Course Description: This course introduces students to mobile computing and mobile 
+application development. It examines mobile technology, application development, user 
+interaction, data storage, and software tools. 
+Course Objectives: The purpose of this course is to help you become familiar with the 
+technical skills and experience necessary to be competitive for an entry-level Android 
+Developer job. As such, you will become a subject-matter expert in (at least) one Android 
+topic, as well as gain a robust topical knowledge of the breadth of Android development. You 
+will demonstrate your expertise by: 1) helping guide your peers to understand your particular 
+specialism, and 2) completing 20 short exercises covering the breadth of Android 
+development. To further extend and demonstrate your expertise, you will also complete a 
+substantial Android development project (in groups), with the specific goal of releasing a 
+stable minimal viable product (MVP) on the Google Play Store by the end of the course. 
+Grading Scheme: 
+Peer Teaching Activity = 40% 
+20 Android Exercises @ 1% each = 20% total 
+Android Group Project = 40% 
+Your final grade will be the weighted average of your grades for each of the above 
+components. 
+Assessment: 
+Peer Teaching Activities will be completed in class between 14 January and 13 February 
+(inclusive – 10 classes). For your activity, you will have ~40 minutes to teach and 
+demonstrate your particular topic (2 per class). You will also set an exercise for your peers 
+(the Android Exercise for your topic), which will be released by the instructional staff via the 
+course webpage. Activities will be done in groups of 3-4 (70 students / (10 classes x 2 
+activities per class) = 3.5 students per activity). 
+Android Exercises will be released on the course website as I receive them. I recommend that 
+you work on these as they come out. They must all be completed by 28 February. You will 
+complete these Exercises individually. 
+ 
+ 
+Android Group Project will have three milestones: 
+Milestone 1 (10% - presentation of your idea) will be due in-class 27 February 
+Milestone 2 (10% - initial design and coding) will be due in-class 12 March 
+Milestone 3 (20% - public demo of MVP) will be due in-class 02 April 
+I will release the group project specification before the end of January. You will do the project 
+in groups of ~5 (14 groups). You don’t have to work with the same people as for the Peer 
+Teaching Activity. 
+Course Schedule: 
+Week (Mon) Tuesday Class Thursday Class 
+00 (06 Jan) Course introduction Topic generation & selection 
+01 (13 Jan) 2 Peer Teaching Activities 2 Peer Teaching Activities 
+02 (20 Jan) 2 Peer Teaching Activities 2 Peer Teaching Activities 
+03 (27 Jan) 2 Peer Teaching Activities 2 Peer Teaching Activities 
+04 (03 Feb) 2 Peer Teaching Activities 2 Peer Teaching Activities 
+05 (10 Feb) 2 Peer Teaching Activities 2 Peer Teaching Activities 
+06 (17 Feb) Winter Break Winter Break 
+07 (24 Feb) -- Milestone 1 
+08 (02 Mar) -- -- 
+09 (09 Mar) -- Milestone 2 
+10 (16 Mar) -- -- 
+11 (23 Mar) -- -- 
+12 (30 Mar) -- Milestone 3 
+Additional Notes: 
+• First day of class is Tuesday, 07 January. 
+• Peer Teaching Activities will take place from 14 January – 13 February (inclusive). 
+• Winter Break (no lectures or labs) is 17 February – 21 February. 
+• After Winter Break, we will only meet together formally on 27 February (Project 
+Milestone 1), 12 March (Project Milestone 2), and 02 April (Project Milestone 3). Please 
+use the class time to work on your projects. 
+• The final day of classes is 03 April. 
+• There is no midterm exam for this course. 
+• There is no final exam for this course. 
+E-mail Communication: 
+As per university regulations, all students are required to check their @uoguelph.ca e-mail 
+account regularly: e-mail is the official route of communication between the University and its 
+students. 
+You must use the course email (under TA information above) for all course-related 
+correspondence. We all get a lot of email, so please state the course title and your name in any 
+correspondence you send. If you send a question that is answerable via Google, the course text 
+book, your peers, or any other resource besides us, then we will redirect you instead of 
+answering your question (and that wastes both of our time). Please be respectful in all email 
+correspondence. We promise to do the same. 
+When You Cannot Meet a Course Requirement: 
+When you find yourself unable to meet an in-course requirement because of illness or 
+compassionate reasons, please advise the course instructor in writing, with your name, id#, 
+and e-mail contact. See the undergraduate calendar for information on regulations and 
+procedures for Academic Consideration. 
+ 
+Drop Date 
+Courses that are one semester long must be dropped by the last day of classes. The 
+regulations and procedures for Dropping Courses are available in the Undergraduate 
+Calendar. 
+ 
+Copies of out-of-class assignments 
+Keep reliable back-up copies of any work that you do in the course; you may be asked to 
+resubmit your work at any time. 
+ 
+Accessibility: 
+The University promotes the full participation of students who experience disabilities in their 
+academic programs. To that end, the provision of academic accommodation is a shared 
+responsibility between the University and the student. 
+ 
+When accommodations are needed, the student is required to first register with Student 
+Accessibility Services (SAS). Documentation to substantiate the existence of a disability is 
+required, however, interim accommodations may be possible while that process is underway. 
+Accommodations are available for both permanent and temporary disabilities. It should be 
+noted that common illnesses such as a cold or the flu do not constitute a disability.  
+ 
+More information: http://www.uoguelph.ca/sas 
+ 
+Academic Misconduct: 
+The University of Guelph is committed to upholding the highest standards of academic 
+integrity and it is the responsibility of all members of the University community – faculty, 
+staff, and students – to be aware of what constitutes academic misconduct and to do as much 
+as possible to prevent academic offences from occurring. University of Guelph students have 
+the responsibility of abiding by the University's policy on academic misconduct regardless of 
+their location of study; faculty, staff and students have the responsibility of supporting an 
+environment that discourages misconduct. Students need to remain aware that instructors 
+have access to and the right to use electronic and other means of detection. 
+ 
+Please note: Whether or not a student intended to commit academic misconduct is not 
+relevant for a finding of guilt. Hurried or careless submission of assignments does not excuse 
+students from responsibility for verifying the academic integrity of their work before 
+submitting it. Students who are in any doubt as to whether an action on their part could be 
+construed as an academic offence should consult with a faculty member or faculty advisor. 
+ 
+The Academic Misconduct Policy is detailed in the Undergraduate Calendar. 
+ 
+Recording of Materials: 
+Presentations that are made in relation to course work—including lectures—cannot be 
+recorded or copied without the permission of the presenter, whether the instructor, a 
+classmate, or guest lecturer. Material recorded with permission is restricted to use for that 
+course unless further permission is granted. 
+ 
+Academic Calendar: The Academic Calendars are the source of information about the 
+University of Guelph’s procedures, policies and regulations that apply to undergraduate, 
+graduate, and diploma programs: 
+http://www.uoguelph.ca/registrar/calendars/index.cfm?index 
+ 
