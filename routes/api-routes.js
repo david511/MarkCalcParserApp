@@ -1,6 +1,12 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
+
+//AWS s3 bucket
+const AWS = require('aws-sdk');
+AWS.config.update({region: 'ca-central-1'});
+const s3 = new AWS.S3({apiVersion: '2006-03-01'});
+
 //
 module.exports = function(app) {
         // Using the passport.authenticate middleware with our local strategy.
@@ -24,7 +30,17 @@ module.exports = function(app) {
             school: req.body.school,
             email: req.body.email,
             password: req.body.password
-        }).then(function() {
+        }).then(function() {//add a new file to aws s3 and then redirect to the login page
+            var uploadParams = {Bucket: "markcaluploaddirectory/" + req.body.firstName +
+                    req.body.lastName + "uploads", Key: '', Body: ''};
+            s3.upload (uploadParams, function (err, data) {
+                if (err) {
+                    console.log("Error", err);
+                } if (data) {
+                    console.log("Sucess! Created the " + req.body.firstName + "s folder in AWS s3 --> ", data.Location);
+                }
+            });
+
             res.redirect(307, "/api/login");
         }).catch(function(err) {
             console.log(err);
@@ -38,7 +54,7 @@ module.exports = function(app) {
         res.redirect("/");
     });
     //
-    // Route for getting some data about our user to be used client side
+    // Route for getting some data about our user to be used client/server side
     app.get("/api/user_data", function(req, res) {
         if (!req.user) {
             // The user is not logged in, send back an empty object
@@ -49,6 +65,7 @@ module.exports = function(app) {
             // Sending back a password, even a hashed password, isn't a good idea
             res.json({
                 firstName: req.user.firstName,
+                lastName: req.user.lastName,
                 email: req.user.email,
                 id: req.user.id
             });

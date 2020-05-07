@@ -69,22 +69,29 @@ $(document).ready(function()
                     </div>
                 </div>
             </header>`);
+
+            $(".divFooter").html(`
+            <footer class="bg-black small text-center text-white">
+                <div class="container">
+                    Copyright &copy; Guelph Mark Calculator 2020.
+                    <p>Created by: David Eastwood</p>
+                </div>
+            </footer>`);
         }
         else
         {
-            // $("home_title").html(``);//getting rid of the header from home page
-
             $("#login_status").html(`   
             <div class="dropdown" style="cursor: pointer;">
                 <a class="nav-link js-scroll-trigger" data-toggle="dropdown">
                     Welcome ` + data.firstName + ` <i class=" fas fa-caret-down"></i></a>
-                <div class="dropdown-menu">
+                <div style="padding: 2rem;" class="dropdown-menu">
                     <a class="dropdown-item" href="#">View Profile</a>
                     <a class="dropdown-item" href="/logout">Logout</a>
                 </div>
             </div>`);
 
-            $("#myTable").html(`
+            $(".tableDiv").html(`
+            <section id="myTable" class="about-section text-center">
             <div class="container d-flex h-20 align-items-center">
                 <div class="wrapper" id="semesterNav">
                     <button style="float: right;" type="button" class="btn-sm btn-info addSemester">
@@ -99,12 +106,14 @@ $(document).ready(function()
                     </ul>
                     <div class="tab-content">
                         <div id="homeTab" class="tab-pane panel active">
+                            <div class="justify-content-center noCourses"></div>
                             <div class="table_s1"></div>
+                            <br>
+                            <h6 style="color: white;" align="center">Please upload your University of Guelph course outline here (.pdf only):</h6><br>
                             <div class="row justify-content-center">
-                                <p style="color: white;" align="center">Please upload your University of Guelph course outline here (.pdf only):</p>
                                 <form style="color: white;" ref="upload" id="upload" enctype="multipart/form-data" method="post" action="/upload" >
-                                Select a file: <input id="file_input" name="file_input" type="file" accept="application/pdf"><br>
-                                <button data-toggle="modal" data-target="#progressWindow" onclick="progressBar()" type="submit" id="upload" class="btn-sm btn-info addSemester">upload</button>
+                                    Select a file:   <input id="file_input" name="file_input" type="file" accept="application/pdf">
+                                    <button data-toggle="modal" data-target="#progressWindow" onclick="progressBar()" type="submit" id="upload" class="btn-sm btn-info addSemester">upload</button>                                </div>
                                 </form>
                             </div>
                         <div class="modal fade" id="progressWindow" tabindex="-1" role="dialog"
@@ -116,7 +125,16 @@ $(document).ready(function()
                         </div>
                     </div>
                 </div>
-            </div>`);
+            </div>
+            </section>`);
+
+            $(".divFooter").html(`
+            <footer class="bg-black small text-center text-white">
+                <div class="container">
+                    Copyright &copy; Guelph Mark Calculator 2020.
+                    <p>Created by: David Eastwood</p>
+                </div>
+            </footer>`);
 
             let current_user = data.id;
             $.ajax({
@@ -130,6 +148,13 @@ $(document).ready(function()
                 success: function (data) {
                     let number_files;
                     for (let obj of data.num_files) { number_files = obj.NUM_COURSES; }
+                    
+                    if (number_files == 0)
+                    {
+                        $(".noCourses").html(`
+                            <br><br><br>
+                            <h4 style="color: white;">No Course Outlines have been uploaded!</h4>`);
+                    }
                     // $('#num_courses').html(number_files + " Courses Added");
                 },
                 fail: function(error) {
@@ -147,8 +172,8 @@ $(document).ready(function()
                 },
                 success: function (data) {
                     let number_files;
-                    console.log("in ajax call for outline tables")
                     for (let obj of data.number_files) { number_files = obj.NUM_COURSES; }
+
                     insert_tables(number_files, data.Assessement, data.Prof_info);   
                 },
                 fail: function(error) {
@@ -165,29 +190,28 @@ function progressBar()
     console.log("in progress bar " + fileSize);
     $('#progressWindow').html(`
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Generating Table now!</h5>
-        </div>
-        <div class="modal-body">
-            <div class="progress">
-                <div id="progressBar" class="progress-bar progress-bar-success progress-bar-striped"
-                role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
-                style="width:0% text-algin: center;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Generating Table now!</h5>
+            </div>
+            <div class="modal-body">
+                <div class="progress">
+                    <div id="progressBar" class="progress-bar progress-bar-success progress-bar-striped"
+                    role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                    style="width:0% text-algin: center;">
+                    </div>
                 </div>
             </div>
+            <div class="modal-footer">
+            </div>
         </div>
-        <div class="modal-footer">
-        </div>
-      </div>
-    </div>
-    </div>
     </div>`);
 
     var element = document.getElementById('progressBar');
     var width = 1; 
-    var identity = setInterval(scene, 15); 
-    function scene() { 
+    var identity = setInterval(scene, 22); 
+    function scene()
+    { 
         if (width >= 100)
         { 
             clearInterval(identity); 
@@ -209,6 +233,7 @@ function insert_tables(num_files, assessement_obj, prof_obj)
         let num_table_id = "tableNumber" + i;
         let tableClass = "tableClass" + i;
         let weightTotal_id = "weightTotal" + i;
+        let markTotal_id = "markTotal" + i;
         let errorMsg_id = "errorMgs" + i;
         
         //if file number is odd start a new row
@@ -219,10 +244,10 @@ function insert_tables(num_files, assessement_obj, prof_obj)
                 <div class="table-wrapper">
                     <div class="table-title">
                         <div class="row">
-                            <div class="col-sm-4">` + prof_obj[i - 1].course_code + `</div>
+                            <div style="text-align: left;" class="col-sm-4">` + prof_obj[i - 1].course_code + `</div>
                             <div class="col-sm-8">
                                 <button type="button" onclick="addrow(` + table_id + `, ` + i + `)"
-                                    class="btn-sm btn-info add-new addAssessment">
+                                        class="btn-sm btn-info add-new addAssessmentButton">
                                         <i class="fa fa-plus"></i> Add Assessement</button>
                             </div>
                         </div>
@@ -236,20 +261,28 @@ function insert_tables(num_files, assessement_obj, prof_obj)
                     <table class="table table-bordered ` + tableClass + `" id="` + num_table_id + `">
                         <thead>
                             <tr>
-                                <th class="assessementTH">Assessement</th>
+                                <th class="assessementTH">Assessements</th>
                                 <th>Weight</th>
                                 <th>Your Mark (%)</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                            <tbody class="`+table_id+`" id='` + table_id + `'></tbody>   
+                        <tbody class="`+table_id+`" id='` + table_id + `'></tbody>   
+                        <tfoot>
+                            <tr>
+                                <td class="` + weightTotal_id + `" style="border: 0;"></td>
+                                <td class="` + markTotal_id + `" style="border: 0;"></td>
+                            </tr>
+                            <tr style="border: 0;" >
+                                <td style="border: 0;" class="` + errorMsg_id + ` weightErrorMsg"></td>
+                                <td style="border: 0;" class="deleteButtonTD">
+                                    <button type="button" onclick="deleteTable(`+i+`)" class="btn-sm deleteTableButton">Delete Table</button>
+                                </td>
+                            </tr>
+                        </tfoot>
                     </table>
-                    <div class="row ` + weightTotal_id + `"></div>
-                    <div class="row ` + errorMsg_id + ` weightErrorMsg"></div>
-                    </div>
                 </div>
             </div>`);
-            console.log("id " + weightTotal_id)
         }
         else
         {
@@ -260,10 +293,10 @@ function insert_tables(num_files, assessement_obj, prof_obj)
                     <div class="table-wrapper">
                         <div class="table-title">
                             <div class="row">
-                                <div class="col-sm-4">` + prof_obj[i - 1].course_code + `</div>
+                                <div style="text-align: left;" class="col-sm-4">` + prof_obj[i - 1].course_code + `</div>
                                 <div class="col-sm-8">
                                     <button type="button" onclick="addrow(` + table_id + `, ` + i + `)"
-                                            class="btn-sm btn-info add-new addAssessment">
+                                            class="btn-sm btn-info add-new addAssessmentButton">
                                             <i class="fa fa-plus"></i> Add Assessement</button>
                                 </div>
                             </div>
@@ -277,16 +310,26 @@ function insert_tables(num_files, assessement_obj, prof_obj)
                         <table class="table table-bordered ` + tableClass + `" id="` + num_table_id + `">
                             <thead>
                                 <tr>
-                                    <th class="assessementTH">Assessement</th>
+                                    <th class="assessementTH">Assessements</th>
                                     <th>Weight</th>
                                     <th>Your Mark (%)</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
-                                <tbody class="` + table_id + `" id='` + table_id + `'></tbody>   
+                            <tbody class="` + table_id + `" id='` + table_id + `'></tbody>
+                            <tfoot>
+                                <tr>
+                                    <td class="` + weightTotal_id + `" style="border: 0;"></td>
+                                    <td class="` + markTotal_id + `" style="border: 0;"></td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 0;" class="` + errorMsg_id + ` weightErrorMsg"></td>
+                                    <td style="border: 0;" class="deleteButtonTD">
+                                        <button type="button" onclick="deleteTable(`+i+`)" class="btn-sm deleteTableButton">Delete Table</button>
+                                    </td>
+                                </tr>
+                            </tfoot>
                         </table>
-                        <div class="row ` + weightTotal_id + `"></div>
-                        <div class="row ` + errorMsg_id + ` weightErrorMsg"></div>
                     </div>
                 </div>
             </div>`);
@@ -319,19 +362,45 @@ function insert_tables(num_files, assessement_obj, prof_obj)
                 weightTotal += weight;
             }
         }
-        $('.'+weightTotal_id).append(`
-        <div class="col-sm-6"><h6>Weight Total = ` + weightTotal + `%</h6>
-        </div>
-        <div class="col-sm-6"><h6>Mark Total = 0%</h6>
-        </div>`);
+
+        $('.'+weightTotal_id).append(`Weight Total = ` + weightTotal + `%`);
+        $('.'+markTotal_id).append(`Mark Total = 0%`);
+
+        // <div class="col-sm-6"><h6>Weight Total = ` + weightTotal + `%</h6>
+        // </div>
+        // <div class="col-sm-6"><h6>Mark Total = 0%</h6>
+        // </div>`);
+        //if the total weight of the table does not == 100 display an error message
         if (weightTotal < 100 || weightTotal > 100)
         {
-            $('.'+errorMsg_id).append(`
-            <p style="color: red; text-align: center"> *note: weight does not add up to 100%</p>`);
+            $('.'+errorMsg_id).append(`*note: weight does not add up to 100%`);
         }
-        else { $('.'+errorMsg_id).css("height", "0"); }
         weightTotal = 0;
     }
+}
+
+function deleteTable(tableId)
+{
+      $.ajax({
+        type: 'get',            //Request type
+        dataType: 'json',       //Data type - we will use JSON for almost everything 
+        url: '/deleteTable',   //The server endpoint we are connecting to
+        data: {
+            tableId: tableId
+        },
+        success: function (data) {
+            if (data == true)
+            {
+                console.log("Sucessfully deleted table " + tableId);
+                location.reload();
+            }
+            else {
+                console.log("Failed to delete table " + tableId);
+            }
+        },
+        fail: function(error) {
+        }
+    });
 }
 
 // Append table with add row form on add new button click
@@ -339,6 +408,7 @@ function addrow(table_id, i) {
     $('[data-toggle="tooltip"]').tooltip();
     var actions = $("table td:last-child").html();
     $(this).attr("disabled", "disabled");
+    console.log("Table number = " + i);
     var index = document.getElementById("tableNumber" + i).rows.length;
 
     var row = '<tr>' +
@@ -348,9 +418,10 @@ function addrow(table_id, i) {
         '<td>' + actions + '</td>' +
     '</tr>';
     $(table_id).append(row);		
-
+    
+    console.log("index == " + index)
     $("table.tableClass"+i+" tbody.table_body"+i+
-        " tr").eq(index - 1).find(".add, .edit").toggle();
+        " tr").eq(index - 3).find(".add, .edit").toggle();
     $('[data-toggle="tooltip"]').tooltip();
 }
 
@@ -386,7 +457,7 @@ $(document).on("click", ".edit", function()
         success: function (data) {
             if (data == true)
             {
-                console.log("Sucessfully removed the row in table " + fileId);
+                console.log("Sucessfully edited the current row in table " + fileId);
             }
             else
             {
@@ -402,14 +473,57 @@ $(document).on("click", ".edit", function()
     $(".add-new").attr("disabled", "disabled");
 });
 // Delete row on delete button click
-$(document).on("click", ".delete", function(){
-    $(this).parents("tr").remove();
+$(document).on("click", ".delete", function()
+{
+    var tableNumber = $(this).closest('table').attr('class').split(" ")[2];
+    var fileId = tableNumber[tableNumber.length - 1];//parsing class = "tableNumber'i'"
+    var row_number = $(this).closest("tr")[0].rowIndex;
+
+    let col1 = $("table.tableClass"+fileId+
+        " tbody.table_body"+fileId).find("tr:eq(" + (row_number - 1) + ")").find("td:eq(0)");
+    let col2 = $("table.tableClass"+fileId+
+        " tbody.table_body"+fileId).find("tr:eq(" + (row_number - 1) + ")").find("td:eq(1)");
+    let tempCol1 = col1.text();
+    let tempCol2 = col2.text();
+    $(this).parents("tr").remove();//remove the row from the screen
+    
+    console.log("col1 = " + tempCol1);
+ 
+    let userWeight;
+    if (tempCol2 != "undefined" && tempCol2.includes('%'))
+    {
+        userWeight = tempCol2.substring(0, tempCol2.length - 1);
+    } else userWeight = tempCol2;
+
+     $.ajax({
+        type: 'get',            //Request type
+        dataType: 'json',       //Data type - we will use JSON for almost everything 
+        url: '/removeRow',   //The server endpoint we are connecting to
+        data: {
+            fileId: fileId,
+            assessement: tempCol1,
+            weight: userWeight//getting rid of the % in the string
+        },
+        success: function (data) {
+            if (data == true)
+            {
+                console.log("Sucessfully removed row " + row_number + " in table " + fileId);
+            }
+            else
+            {
+                console.log("Failed to edit row");
+            }
+        },
+        fail: function(error) {
+            console.log(error); 
+        }
+    });
+
     $(".add-new").removeAttr("disabled");
 });
 
 $(document).on("click", ".add", function()
 {
-    console.log("adding row function");
     var empty = false;
     var input = $(this).parents("tr").find('input[type="text"]');
     var userItems = [];//array
@@ -467,10 +581,11 @@ $(document).on("click", ".add", function()
             if (data == true)
             {
                 console.log("Sucessfully added a new row to table " + fileId);
+                updateWeight(fileId);
             }
             else
             {
-                console.log("Failed to edit row");
+                console.log("Failed to add row");
             }
         },
         fail: function(error) {
@@ -478,3 +593,29 @@ $(document).on("click", ".add", function()
         }
     });
 });
+
+function updateWeight(tableId)
+{
+    $.ajax({
+        type: 'get',            //Request type
+        dataType: 'json',       //Data type - we will use JSON for almost everything 
+        url: '/getAssessementforCertainTable',   //The server endpoint we are connecting to
+        data: {
+            tableId: table
+        },
+        success: function (data) {
+            let totalWeight = 0;
+            for (let key in data.Assessement)
+            {
+                let weight = data.Assessement[key].weight;
+                totalWeight += weight;
+            }
+            //updating the new weight
+            $('.weightTotal'+table).empty();//clear original data
+            $('.weightTotal'+table).append(`Weight Total = ` + totalWeight + `%`);
+        },
+        fail: function(error) {
+                console.log(error); 
+        }
+    });
+}
