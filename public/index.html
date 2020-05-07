@@ -38,10 +38,10 @@
             <a class="nav-link js-scroll-trigger" href="#myTable"><i class="fas fa-table"></i> My Tables</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#projects"><i class="fas fa-wrench"></i> How it works</a>
+            <a class="nav-link js-scroll-trigger" href="#upload"><i class="fa fa-file"></i> Upload a Course Outline</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#upload"><i class="fa fa-file"></i> Upload a Course Outline</a>
+            <a class="nav-link js-scroll-trigger" href="#projects"><i class="fas fa-wrench"></i> How it works</a>
           </li>
           <li class="nav-item" id="login_status">
             <a class="nav-link js-scroll-trigger" href="/login"><i class="fa fa-user"></i> Login</a>
@@ -59,11 +59,10 @@
   </div>
   
   <!-- My Table Section -->
-  <section id="myTable" class="about-section text-center">
+  <div class="tableDiv"></div>
+  <!-- <section id="myTable" class="about-section text-center"> -->
     <!-- the body of this is in js/index.js -->
-  </section>
-
-
+  <!-- </section> -->
 
       <!-- <div class="container">
       <div class="row">
@@ -75,8 +74,8 @@
       </div>
       <img src="images/ipad.png" class="img-fluid" alt="">
     </div> -->
-  <!-- Projects Sectio
-  <section id="projects" class="projects-section bg-light">
+
+    <section id="projects" class="projects-section bg-light">
     <div class="container">
 
       <div class="row align-items-center no-gutters mb-4 mb-lg-5">
@@ -85,8 +84,8 @@
         </div>
         <div class="col-xl-4 col-lg-5">
           <div class="featured-text text-center text-lg-left">
-            <h4>Shoreline</h4>
-            <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any project - even commercial projects! Download it, customize it, and publish your website!</p>
+            <h4>Upload Your Course Outline</h4>
+            <p class="text-black-50 mb-0">Signup for free and upload your Course Outline and see a table with all of your course assessements appear in a table</p>
           </div>
         </div>
       </div>
@@ -99,8 +98,8 @@
           <div class="bg-black text-center h-100 project">
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-left">
-                <h4 class="text-white">Misty</h4>
-                <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else, along with a description.</p>
+                <h4 class="text-white">Add, Edit and Delete</h4>
+                <p class="mb-0 text-white-50">You can add an assessement, edit an exciting one or delete the whole table. You can edit your mark or the weight of the assessement!</p>
                 <hr class="d-none d-lg-block mb-0 ml-0">
               </div>
             </div>
@@ -116,31 +115,12 @@
           <div class="bg-black text-center h-100 project">
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-right">
-                <h4 class="text-white">Mountains</h4>
-                <p class="mb-0 text-white-50">Another example of a project with its respective description. These sections work well responsively as well, try this theme on a small screen!</p>
+                <h4 class="text-white">No need to re-upload or enter assessements</h4>
+                <p class="mb-0 text-white-50">All your progress will be save under your account and can be view from your desktop, ipad or iphone! </p>
                 <hr class="d-none d-lg-block mb-0 mr-0">
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="signup" class="signup-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10 col-lg-8 mx-auto text-center">
-
-          <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-          <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
-
-          <form class="form-inline d-flex">
-            <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Enter email address...">
-            <button type="submit" class="btn btn-primary mx-auto">Subscribe</button>
-          </form>
-
         </div>
       </div>
     </div>
@@ -151,31 +131,20 @@
 
       <div class="row">
 
-        <div class="col-md-4 mb-3 mb-md-0">
-          <div class="card py-4 h-100">
-            <div class="card-body text-center">
-              <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-              <h4 class="text-uppercase m-0">Address</h4>
-              <hr class="my-4">
-              <div class="small text-black-50">4923 Market Street, Orlando FL</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4 mb-3 mb-md-0">
+        <div class="col-md-6 mb-3 mb-md-0">
           <div class="card py-4 h-100">
             <div class="card-body text-center">
               <i class="fas fa-envelope text-primary mb-2"></i>
               <h4 class="text-uppercase m-0">Email</h4>
               <hr class="my-4">
               <div class="small text-black-50">
-                <a href="#">hello@yourdomain.com</a>
+                <a href="#">outlineParserMarkCalculator@live.ca</a>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="col-md-4 mb-3 mb-md-0">
+        <div class="col-md-6 mb-3 mb-md-0">
           <div class="card py-4 h-100">
             <div class="card-body text-center">
               <i class="fas fa-mobile-alt text-primary mb-2"></i>
@@ -194,21 +163,21 @@
         <a href="#" class="mx-2">
           <i class="fab fa-facebook-f"></i>
         </a>
-        <a href="#" class="mx-2">
-          <i class="fab fa-github"></i>
-        </a>
       </div>
-
+      <br class="bg-black">
     </div>
   </section>
+  
+  <!-- Footer Section -->
+  <div class="divFooter">
 
-  <!-- Footer -->
-  <footer class="bg-black small text-center text-white-50">
-    <div class="container">
+  </div>
+  <!-- <footer class="small text-center text-black-50"> -->
+    <!-- <div class="container">
       Copyright &copy; Guelph Mark Calculator 2020.
       <p>Created by: David Eastwood</p>
-    </div>
-  </footer>
+    </div> -->
+  <!-- </footer> -->
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

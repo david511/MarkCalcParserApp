@@ -143,11 +143,14 @@
 
 #semesterNav .panel {
   width: 100%;
-  height: 700px auto;
+  /* height: 200px; */
   /* background: white; */
-  background: linear-gradient(to bottom,white 0%, rgba(22, 22, 22, 0.7) 95%), url("../img/bg-masthead.jpg");
+  /* background: linear-gradient(to bottom,white 0%, rgba(22, 22, 22, 0.7) 95%), url("../img/bg-masthead.jpg"); */
   /* background: transparent; */
+  background: linear-gradient(to bottom, white 0%, rgba(22, 22, 22, 0.4) 40%), url("../img/bg-masthead.jpg");
+
   padding: 2%;
+  margin-bottom: 8%;
   /* box-sizing: border-box; */
 }
 
@@ -176,16 +179,38 @@
   background-color: #64a19d;
 }
 
+.weightErrorMsg {
+  align-items: left;
+  justify-content: left;
+  font-size: small;
+}
+
+.deleteTableButton {
+  background-color: #E34724;
+  color: white;
+}
+
+.deleteButtonTD {
+  text-align: right;
+  align-items: right;
+}
+
+.weightErrorMsg {
+  color: red;
+  text-align: center;
+  width: 65%;
+}
+
 /**
 * Table Style sheet
 */
-
 .table-wrapper {
   /* width: 700px; */
-  margin: 30px auto;
-      background: #fff;
-      padding: 20px;	
-      box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  margin: 25px auto;
+  background: #fff;
+  padding: 20px;
+  height: 610px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
   }
   .table-title {
       /* padding-bottom: 10px; */
@@ -196,19 +221,19 @@
       font-size: 22px;
   }
   .table-title .add-new {
-      float: right;
-  height: 30px;
-  font-weight: bold;
-  font-size: 12px;
-  text-shadow: none;
-  background-color: #64a19d;
-  min-width: 100px;
-  /* border-radius: 50px; */
-  line-height: 13px;
+        float: right;
+    height: 30px;
+    font-weight: bold;
+    font-size: 12px;
+    text-shadow: none;
+    background-color: #64a19d;
+    min-width: 100px;
+    /* border-radius: 50px; */
+    line-height: 13px;
   }
-.table-title .add-new i {
-  margin-right: 4px;
-}
+  .table-title .add-new i {
+    margin-right: 4px;
+  }
 
   table.table {
     /* -ms-overflow-style: none; */
@@ -224,6 +249,8 @@
     height: 300px;
     overflow-y:scroll;
     display: inline-block; 
+    border-bottom: 3px solid;
+    border-color: #64a19d;
   }
 
   table.table thead{
@@ -297,6 +324,16 @@ table.table td .add {
   display: none;
 }
 
+table.table tfoot td {
+  height: 13px;
+  line-height: 13px;
+}
+
+table.table tfoot {
+  border:4px;
+  border-color: blue;
+}
+
 .assessementTH {
   width: 35%;
 }
@@ -312,12 +349,6 @@ table.table td .add {
   padding-right: 1px;
   font-size: 90%;
   word-wrap: break-word;
-}
-
-.weightErrorMsg {
-  align-items: center;
-  justify-content: center;
-  height: 16px;
 }
 
 .progress-bar {
@@ -352,8 +383,7 @@ table.table td .add {
 
 .about-section {
   padding-top: 2rem;
-  background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 65%, #161616 90%), url("../img/bg-masthead.jpg");
-
+  background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 65%), url("../img/bg-masthead.jpg");
 }
 
 .about-section p {
@@ -413,6 +443,8 @@ table.table td .add {
 
 .contact-section {
   padding: 5rem 0 0;
+  border-bottom: #64a19d solid 2px;
+  /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 55%, rgba(235, 235, 235, 0.7) 80%, rgb(196, 195, 195) 100%), url("../img/bg-masthead.jpg"); */
 }
 
 .contact-section .card {
@@ -467,6 +499,10 @@ a {
 a:focus, a:hover {
   text-decoration: none;
   color: #3c6360;
+}
+
+.footer {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 55%, rgba(235, 235, 235, 0.7) 80%, rgb(196, 195, 195) 100%), url("../img/bg-masthead.jpg");
 }
 
 .bg-black {

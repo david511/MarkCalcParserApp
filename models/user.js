@@ -3,7 +3,7 @@ var bcrypt = require("bcrypt-nodejs");
 
 module.exports = function(sequelize, DataTypes) {
     /**
-     * Creates the user mode, this defines each column in the 'Users' table
+     * Creates the user mode, this defines each column in the 'Users' table of the database
      */
     var User = sequelize.define("User", {
         firstName: {
