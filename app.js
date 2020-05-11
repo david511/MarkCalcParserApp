@@ -209,27 +209,23 @@ async function uploadToS3butcket(firstName, lastName, fileName)
 
 app.get('/get_num_courses', async function(req , res)
 {
-    if (req.query.User)
+    let connection;
+    try
     {
-        let connection;
-        try
-        {
-            connection = await mysql.createConnection(dbConf);
+        connection = await mysql.createConnection(dbConf);
 
-            const [num_courses, empty] = 
-                    await connection.execute(`SELECT Count(*) AS NUM_COURSES
-                                                FROM Users, Course_file
-                                                WHERE Users.id = '` + req.query.User + `' AND
-                                                    Users.id = Course_file.id;`);
+        const [num_courses, empty] = 
+                await connection.execute(`SELECT Count(*) AS NUM_COURSES
+                                            FROM Course_file
+                                            WHERE Course_file.id = '` + req.user.id + `';`);
 
-            res.send({num_files: num_courses});
-            return true;
-        } catch(e) {
-            console.log("Query error: " + e);
-            return false;
-        } finally {
-            if (connection && connection.end) connection.end();
-        }
+        res.send({num_files: num_courses});
+        return true;
+    } catch(e) {
+        console.log("Query error: " + e);
+        return false;
+    } finally {
+        if (connection && connection.end) connection.end();
     }
 });
 
@@ -297,6 +293,34 @@ app.get('/create_outline_table', async function(req, res)
         if (connection && connection.end) connection.end();
     }
 });
+
+app.get('/checkIfEmailExcists', async function(req, res)
+{
+    let connection;
+    try
+    {
+        connection = await mysql.createConnection({ 
+            host : '127.0.0.1',
+            user : "root",
+            password : "PASSWORD",
+            database : "Mark_Calc_app_database"
+        });
+
+        const [num_users, empty] =
+        await connection.execute(`SELECT Count(*) AS NUM_USERS
+                                  FROM Users
+                                  WHERE Users.email='` + req.query.email + `';`);
+
+        res.send({user: num_users });
+    } catch (e) {
+        console.log("Query error, failed to check for number of users with the email  " + req.query.email);
+    } finally {
+        if (connection && connection.end) connection.end();
+    }
+});
+
+
+
 
 /** HTTP methods (AJAX calls)**/
 app.get('/connect_db', async function(req, res)
@@ -443,7 +467,6 @@ app.get('/addEditedRowAssessement', async function(req, res)
         if (connection && connection.end) connection.end();
     }
 });
-
 
 app.get('/removeRow', async function(req, res)
 {
@@ -600,17 +623,14 @@ async function getCurrentAssessements(connection, userId)
     return course_assessements;
 }
 
-
 app.get('/getAssessementforCertainTable', async function(req, res)
 {
     let connection;
     try
     {
         connection = await mysql.createConnection(dbConf);
-        console.log(req.query.tableId)
         const [course_assessements, empty] = 
-        await connection.execute(`SELECT  Course_assessement.assessement_name, Course_assessement.weight,
-                                            Course_assessement.file_id, Course_assessement.user_mark
+        await connection.execute(`SELECT  Course_assessement.weight
                                     FROM  Course_assessement
                                     WHERE Course_assessement.id = '` + req.user.id + `' AND 
                                           Course_assessement.file_id = '` + req.query.tableId + `';`);
@@ -626,6 +646,61 @@ app.get('/getAssessementforCertainTable', async function(req, res)
         if (connection && connection.end) connection.end();
     }
 });
+
+app.get('/getUserMarksFromTableId', async function(req, res)
+{
+    let connection;
+    try
+    {
+        connection = await mysql.createConnection(dbConf);
+        console.log(req.query.tableId)
+        const [course_marks, empty] = 
+        await connection.execute(`SELECT  Course_assessement.user_mark, Course_assessement.weight
+                                    FROM  Course_assessement
+                                    WHERE Course_assessement.id = '` + req.user.id + `' AND 
+                                          Course_assessement.file_id = '` + req.query.tableId + `';`);
+
+        res.send({
+            marks: course_marks
+        });
+
+    } catch (e) {
+        console.log("Query error, when trying to get all the marks for a particular table " + e);
+        res.send(false);
+    } finally {
+        if (connection && connection.end) connection.end();
+    }
+});
+
+app.get('/addUserEnteredManualTable', async function(req, res)
+{
+    let connection;
+    try
+    {
+        connection = await mysql.createConnection(dbConf);
+
+        await connection.execute(`INSERT INTO Course_file VALUES ( 
+            '` + req.query.tableId +  `','non-outline-table-` + req.query.tableId
+                    + `','` + req.user.id + `')`);
+
+        await connection.execute(`INSERT INTO Course_information VALUES (
+            'Unknown','','','` + req.query.tableId + `','` + req.user.id + `');`);
+
+        await connection.execute(`INSERT INTO Course_assessement 
+            (assessement_name, weight, user_mark, file_id, id) VALUES (
+            'Add Assessement Here','0', '0','` + req.query.tableId + `','` +
+                    req.user.id + `');`);
+
+        res.send(true);
+    } catch (e) {
+        console.log("Query error, failed to add table without a course outline " + e);
+        res.send(false);
+    } finally {
+        if (connection && connection.end) connection.end();
+    }
+});
+
+
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {

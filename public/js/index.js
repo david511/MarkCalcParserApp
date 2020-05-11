@@ -1,5 +1,3 @@
-// import { col } from "sequelize/types";
-// 
 /**
  * HTML calls this id function when somone refreshed the webpage
 */
@@ -31,15 +29,11 @@ $(document).ready(function()
             let count = 0;
 
             for (i in file_array) count++;
-            console.log("Number of files on server " + count);
 
             if (count == 0)
             {
                 console.log("Here are 0 files");
                 $('#no_tables').html(`Please upload a course outline`);
-            }
-            else
-            {
             }
         },
         fail: function(error) {
@@ -60,12 +54,13 @@ $(document).ready(function()
             <header class="masthead" id="header">
                 <div class="container d-flex h-100 align-items-center">
                     <div class="mx-auto text-center">
-                        <h1 class="mx-auto my-0 text-uppercase">Mark Calculator</h1>
-                        <h2 class="text-white-50 mx-auto mt-2 mb-5">A free Mark Calculator. Simply upload your Course Outline
+                        <h1 class="mx-auto my-0 text-uppercase">Grade Calculator</h1>
+                        <h2 class="text-white-50 mx-auto mt-2 mb-5">A free Grade Calculator. Simply upload your Course Outline
                             and a table with all your assessements and their weight appears.</h2>
                         <h2 class="text-white-50 mx-auto mt-2 mb-5">Sign up now so you won't need to re-enter your marks.
                         </h2>
                         <a href="/signup" class="btn btn-primary js-scroll-trigger">Sign up here</a>
+                        <a href="#" class="btn btn-primary js-scroll-trigger">Create Table</a>
                     </div>
                 </div>
             </header>`);
@@ -73,7 +68,7 @@ $(document).ready(function()
             $(".divFooter").html(`
             <footer class="bg-black small text-center text-white">
                 <div class="container">
-                    Copyright &copy; Guelph Mark Calculator 2020.
+                    Copyright &copy; Grade Calculator 2020.
                     <p>Created by: David Eastwood</p>
                 </div>
             </footer>`);
@@ -98,30 +93,43 @@ $(document).ready(function()
                             <i class="fa fa-plus"></i> Add Semester</button>
                     <ul class="nav nav-tabs">
                     <li>
-                        <a href="#homeTab" class="nav-item nav-link active" data-toggle="tab">Semester 1</a>
-                    </li>
-                    <li>
-                        <a href="#contactTab" class="nav-item nav-link" data-toggle="tab">Semester 2</a>
+                        <a href="#semester1" class="nav-item nav-link active" data-toggle="tab">Semester 1</a>
                     </li>
                     </ul>
                     <div class="tab-content">
-                        <div id="homeTab" class="tab-pane panel active">
+                        <div id="semester1" class="tab-pane panel active">
                             <div class="justify-content-center noCourses"></div>
                             <div class="table_s1"></div>
                             <br>
-                            <h6 style="color: white;" align="center">Please upload your University of Guelph course outline here (.pdf only):</h6><br>
+                            <h6 style="color: white;" align="center">
+                                Please upload your University course outline here to generate table (.pdf only):
+                            </h6><br>
                             <div class="row justify-content-center">
                                 <form style="color: white;" ref="upload" id="upload" enctype="multipart/form-data" method="post" action="/upload" >
                                     Select a file:   <input id="file_input" name="file_input" type="file" accept="application/pdf">
-                                    <button data-toggle="modal" data-target="#progressWindow" onclick="progressBar()" type="submit" id="upload" class="btn-sm btn-info addSemester">upload</button>                                </div>
+                                    <button data-toggle="modal" data-target="#progressWindow" onclick="progressBar()"
+                                        type="submit" id="upload" class="btn-sm btn-info addSemester">
+                                                <i class="fa fa-plus"></i> Create Table With Outline
+                                    </button></div>
+                                    <br>
+                                    <div class="row justify-content-center">
+                                            <h5 style="color: white;">OR</h5>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-sm-7" style="padding-top: 6px; padding-right: 0px;">
+                                            <h6 style="color: white;" align="right">
+                                                Don't have a Course outline? Create one without it!</h6>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <button type="button" onclick="createTableFromScratch()" class="btn-sm btn-info addSemester">
+                                                <i class="fa fa-plus"></i> Create Table From Scratch</button>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         <div class="modal fade" id="progressWindow" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        </div>
-                        <div id="contactTab" class="tab-pane panel fade">
-                            <h3>Contact</h3>
-                            <p>Contact page content</p>
                         </div>
                     </div>
                 </div>
@@ -131,7 +139,7 @@ $(document).ready(function()
             $(".divFooter").html(`
             <footer class="bg-black small text-center text-white">
                 <div class="container">
-                    Copyright &copy; Guelph Mark Calculator 2020.
+                    Copyright &copy; Grade Calculator 2020.
                     <p>Created by: David Eastwood</p>
                 </div>
             </footer>`);
@@ -153,7 +161,7 @@ $(document).ready(function()
                     {
                         $(".noCourses").html(`
                             <br><br><br>
-                            <h4 style="color: white;">No Course Outlines have been uploaded!</h4>`);
+                            <h4 style="color: white;">No Course Outlines have been uploaded in Semester 1 section!</h4>`);
                     }
                     // $('#num_courses').html(number_files + " Courses Added");
                 },
@@ -337,6 +345,8 @@ function insert_tables(num_files, assessement_obj, prof_obj)
         if (i % 2 != 0) $('.table_s1').append('</div>');
 
         let weightTotal = 0;
+        let markTotal = 0;
+        var weightWithMark = [];//array
         for (let key in assessement_obj)
         {
             if (assessement_obj[key].file_id == i)
@@ -359,23 +369,38 @@ function insert_tables(num_files, assessement_obj, prof_obj)
                         </td>
                     </tr>`
                 );
+                if (userMark > 0)
+                {
+                    weightWithMark.push(weight);
+                    markTotal += weight * userMark;
+                }
+
                 weightTotal += weight;
             }
         }
+        let totalWeightInUse = 0;
+        for (var x in weightWithMark)
+        {
+            totalWeightInUse += weightWithMark[x];
+        }
+        markTotal = markTotal / totalWeightInUse;
+
+        let finalMark = 0;
+        if (isNaN(markTotal)) {
+            finalMark = 0;
+        }
+        else finalMark = Math.round(100 * markTotal) / 100;
 
         $('.'+weightTotal_id).append(`Weight Total = ` + weightTotal + `%`);
-        $('.'+markTotal_id).append(`Mark Total = 0%`);
+        $('.'+markTotal_id).append(`Mark Total = ` + finalMark + '%');
 
-        // <div class="col-sm-6"><h6>Weight Total = ` + weightTotal + `%</h6>
-        // </div>
-        // <div class="col-sm-6"><h6>Mark Total = 0%</h6>
-        // </div>`);
         //if the total weight of the table does not == 100 display an error message
         if (weightTotal < 100 || weightTotal > 100)
         {
             $('.'+errorMsg_id).append(`*note: weight does not add up to 100%`);
         }
         weightTotal = 0;
+        markTotal = 0;
     }
 }
 
@@ -404,7 +429,9 @@ function deleteTable(tableId)
 }
 
 // Append table with add row form on add new button click
-function addrow(table_id, i) {
+function addrow(table_id, i)
+{
+    console.log("add row " + table_id + " + " + i);
     $('[data-toggle="tooltip"]').tooltip();
     var actions = $("table td:last-child").html();
     $(this).attr("disabled", "disabled");
@@ -472,10 +499,11 @@ $(document).on("click", ".edit", function()
     $(this).parents("tr").find(".add, .edit").toggle();
     $(".add-new").attr("disabled", "disabled");
 });
+
 // Delete row on delete button click
 $(document).on("click", ".delete", function()
 {
-    var tableNumber = $(this).closest('table').attr('class').split(" ")[2];
+    var tableNumber = $(this).closest('table').attr('class').split(" ")[2];//getting the 3 class name
     var fileId = tableNumber[tableNumber.length - 1];//parsing class = "tableNumber'i'"
     var row_number = $(this).closest("tr")[0].rowIndex;
 
@@ -486,8 +514,7 @@ $(document).on("click", ".delete", function()
     let tempCol1 = col1.text();
     let tempCol2 = col2.text();
     $(this).parents("tr").remove();//remove the row from the screen
-    
-    console.log("col1 = " + tempCol1);
+    $(".add-new").removeAttr("disabled");
  
     let userWeight;
     if (tempCol2 != "undefined" && tempCol2.includes('%'))
@@ -495,7 +522,7 @@ $(document).on("click", ".delete", function()
         userWeight = tempCol2.substring(0, tempCol2.length - 1);
     } else userWeight = tempCol2;
 
-     $.ajax({
+    $.ajax({
         type: 'get',            //Request type
         dataType: 'json',       //Data type - we will use JSON for almost everything 
         url: '/removeRow',   //The server endpoint we are connecting to
@@ -508,6 +535,8 @@ $(document).on("click", ".delete", function()
             if (data == true)
             {
                 console.log("Sucessfully removed row " + row_number + " in table " + fileId);
+                updateTotalWeight(fileId); 
+                updateTotalMark(fileId); 
             }
             else
             {
@@ -519,7 +548,6 @@ $(document).on("click", ".delete", function()
         }
     });
 
-    $(".add-new").removeAttr("disabled");
 });
 
 $(document).on("click", ".add", function()
@@ -581,7 +609,8 @@ $(document).on("click", ".add", function()
             if (data == true)
             {
                 console.log("Sucessfully added a new row to table " + fileId);
-                updateWeight(fileId);
+                updateTotalWeight(fileId); 
+                updateTotalMark(fileId);
             }
             else
             {
@@ -594,14 +623,14 @@ $(document).on("click", ".add", function()
     });
 });
 
-function updateWeight(tableId)
+function updateTotalWeight(tableId)
 {
     $.ajax({
         type: 'get',            //Request type
         dataType: 'json',       //Data type - we will use JSON for almost everything 
         url: '/getAssessementforCertainTable',   //The server endpoint we are connecting to
         data: {
-            tableId: table
+            tableId: tableId
         },
         success: function (data) {
             let totalWeight = 0;
@@ -611,8 +640,226 @@ function updateWeight(tableId)
                 totalWeight += weight;
             }
             //updating the new weight
-            $('.weightTotal'+table).empty();//clear original data
-            $('.weightTotal'+table).append(`Weight Total = ` + totalWeight + `%`);
+            $('.weightTotal' + tableId).empty();//clear original data
+            $('.weightTotal' + tableId).append(`Weight Total = ` + totalWeight + `%`);
+
+            if (totalWeight == 100)
+            {
+                $('.errorMgs' + tableId).empty();//clear the weight error msg
+            }
+            else
+            {
+                $('.errorMgs' + tableId).empty();//clear the weight error msg
+                $('.errorMgs' + tableId).append(`*note: weight does not add up to 100%`);
+            }
+        },
+        fail: function(error) {
+                console.log(error); 
+        }
+    });
+}
+
+function updateTotalMark(tableId)
+{
+    $.ajax({
+        type: 'get',            //Request type
+        dataType: 'json',       //Data type - we will use JSON for almost everything 
+        url: '/getUserMarksFromTableId',   //The server endpoint we are connecting to
+        data: {
+            tableId: tableId
+        },
+        success: function (data) {
+            let markTotal = 0;
+            let weightWithMark = [];
+            for (let key in data.marks)
+            {
+                let userMark = data.marks[key].user_mark;
+                let weight = data.marks[key].weight;
+
+                if (userMark > 0)
+                {
+                    weightWithMark.push(weight);
+                    markTotal += weight * userMark;
+                }
+            }
+
+            let totalWeightInUse = 0;
+            for (var x in weightWithMark)
+            {
+                totalWeightInUse += weightWithMark[x];
+            }
+            markTotal = markTotal / totalWeightInUse;
+
+            let finalMark = 0;
+            if (isNaN(markTotal)) {
+                finalMark = 0;
+            }
+            else finalMark = Math.round(100 * markTotal) / 100;
+            //updating the new mark
+            $('.markTotal' + tableId).empty();//clear original data
+            $('.markTotal' + tableId).append(`Mark Total = ` + finalMark + `%`);
+        },
+        fail: function(error) {
+                console.log(error); 
+        }
+    });
+}
+
+/**
+ * Creates a table with out uploading a course outline
+ */
+function createTableFromScratch()
+{
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/get_num_courses',
+        success: function (data) {
+            let number_files;
+            for (let obj of data.num_files) { number_files = obj.NUM_COURSES; }
+            number_files += 1;
+
+            if (number_files != 0) $(".noCourses").empty();
+
+            let table_id = "table_body" + number_files;
+            let num_table_id = "tableNumber" + number_files;
+            let tableClass = "tableClass" + number_files;
+            let weightTotal_id = "weightTotal" + number_files;
+            let markTotal_id = "markTotal" + number_files;
+            let errorMsg_id = "errorMgs" + number_files;
+
+            if (number_files % 2 == 0)
+            {
+                $('#row-' + (number_files - 1) + '').append(`
+                <div class="col">
+                    <div class="table-wrapper">
+                        <div class="table-title">
+                            <div class="row">
+                                <div style="text-align: left;" class="col-sm-4">Course Table ` + number_files + `</div>
+                                <div class="col-sm-8">
+                                    <button type="button" onclick="addrow(` + table_id + `, ` + number_files + `)"
+                                            class="btn-sm btn-info add-new addAssessmentButton">
+                                            <i class="fa fa-plus"></i> Add Assessement</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div style="text-align: left;" class="prof_info col-sm-6"></div>
+                                <div style="text-align: right;" class="prof_info_email col-sm-6"></div>
+                            </div>
+                        </div>
+                        <table class="table table-bordered ` + tableClass + `" id="` + num_table_id + `">
+                            <thead>
+                                <tr>
+                                    <th class="assessementTH">Assessements</th>
+                                    <th>Weight</th>
+                                    <th>Your Mark (%)</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="`+table_id+`" id='` + table_id + `'></tbody>   
+                            <tfoot>
+                                <tr>
+                                    <td class="` + weightTotal_id + `" style="border: 0;"></td>
+                                    <td class="` + markTotal_id + `" style="border: 0;"></td>
+                                </tr>
+                                <tr style="border: 0;" >
+                                    <td style="border: 0;" class="` + errorMsg_id + ` weightErrorMsg"></td>
+                                    <td style="border: 0;" class="deleteButtonTD">
+                                        <button type="button" onclick="deleteTable(`+number_files+`)" class="btn-sm deleteTableButton">Delete Table</button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>`);
+            }
+            else
+            {
+                $('.table_s1').append(`
+                <div class="row" id="row-` + number_files + `">
+                    <div class="col col-width">
+                        <div class="table-wrapper">
+                            <div class="table-title">
+                                <div class="row">
+                                    <div style="text-align: left;" class="col-sm-4">Course Table ` + number_files + `</div>
+                                    <div class="col-sm-8">
+                                        <button type="button" onclick="addrow(` + table_id + `, ` + number_files + `)"
+                                                class="btn-sm btn-info add-new addAssessmentButton">
+                                                <i class="fa fa-plus"></i> Add Assessement</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div style="text-align: left;" class="prof_info col-sm-6"></div>
+                                    <div style="text-align: right;" class="prof_info_email col-sm-6"></div>
+                                </div>
+                            </div>
+                            <table class="table table-bordered ` + tableClass + `" id="` + num_table_id + `">
+                                <thead>
+                                    <tr>
+                                        <th class="assessementTH">Assessements</th>
+                                        <th>Weight</th>
+                                        <th>Your Mark (%)</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="` + table_id + `" id='` + table_id + `'></tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td class="` + weightTotal_id + `" style="border: 0;"></td>
+                                        <td class="` + markTotal_id + `" style="border: 0;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 0;" class="` + errorMsg_id + ` weightErrorMsg"></td>
+                                        <td style="border: 0;" class="deleteButtonTD">
+                                            <button type="button" onclick="deleteTable(`+number_files+`)" class="btn-sm deleteTableButton">Delete Table</button>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>`);
+            }
+            if (number_files % 2 != 0) $('.table_s1').append('</div>');
+            //add a file id to the course file table
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                url: '/addUserEnteredManualTable',
+                data: {
+                    tableId: number_files
+                },
+                success: function (data) {
+                    if (data == true)
+                    {
+                        console.log("Sucessfully created a table without a course outline " + number_files);
+                        
+                        //adding the first row to start the user off
+                        $('[data-toggle="tooltip"]').tooltip();
+                        var actions = $("table td:last-child").html();
+                        $(this).attr("disabled", "disabled");
+
+                        var row = '<tr>' +
+                            '<td class="assessementTH" >Add Assessement Here</td>' +
+                            '<td>0</td>' +
+                            '<td>0.00</td>' +
+                            '<td>' + actions + '</td>' +
+                        '</tr>';
+                        $('#' + table_id).append(row);		
+
+                        $('.'+weightTotal_id).append(`Weight Total = 0%`);
+                        $('.'+markTotal_id).append(`Mark Total = 0.00%`);
+                        $('.'+errorMsg_id).append(`*note: weight does not add up to 100%`);
+                    }
+                    else
+                    {
+                        console.log("Failed to create a table without using a course outline");
+                    }
+                },
+                fail: function(error) {
+                        console.log(error); 
+                }
+            });
         },
         fail: function(error) {
                 console.log(error); 
