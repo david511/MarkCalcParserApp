@@ -160,18 +160,14 @@
 
 #semesterNav .nav-item:active{
   border-top: 4px solid #64a19d;
-  color: #64a19d;
+  color: black;
 }
 #semesterNav .nav-item:focus{
   border-top: 4px solid #64a19d;
-  color: #64a19d;
 }
 
 #semesterNav .nav-item:hover {
   font-size: 95%;
-  /* padding: 0.75rem; */
-  color: #64a19d;
-  background-color: #e0ebea;
   border-top: 4px solid #64a19d;
 }
 
@@ -190,6 +186,12 @@
   color: white;
 }
 
+.deleteTableButton:active{
+  
+}
+.deleteTableButton:hover{
+  font-size: 96%;
+}
 .deleteButtonTD {
   text-align: right;
   align-items: right;
@@ -201,6 +203,9 @@
   width: 65%;
 }
 
+.dropdown-item:active{
+  background-color: #64a19d;
+}
 /**
 * Table Style sheet
 */
@@ -221,10 +226,10 @@
       font-size: 22px;
   }
   .table-title .add-new {
-        float: right;
+    float: right;
     height: 30px;
-    font-weight: bold;
     font-size: 12px;
+    font-weight: bold;
     text-shadow: none;
     background-color: #64a19d;
     min-width: 100px;
@@ -235,6 +240,9 @@
     margin-right: 4px;
   }
 
+  .table-title .add-new:hover {
+    font-size: 71%;
+  }
   table.table {
     /* -ms-overflow-style: none; */
     /* border: 1px solid #ccc; */
@@ -294,7 +302,7 @@
   }
 
 table.table td a.add {
-      color: #27C46B;
+    color: #27C46B;
 }
 table.table td a.edit {
     color: #FFC107;
@@ -486,6 +494,14 @@ table.table tfoot {
 .contact-section .social a:active {
   color: #fff;
 }
+
+.errorMsgForms {
+  color: red;
+  font-size: medium;
+}
+
+
+
 
 body {
   font-family: 'Nunito';

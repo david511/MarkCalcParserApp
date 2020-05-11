@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="David Eastwood">
 
-  <title>Guelph Mark Calculator</title>
+  <title>Grade Calculator</title>
 
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -25,7 +25,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Mark Calculator</a>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Grade Calculator</a>
       <!-- Bootstrap code for the hambuger button -->
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" 
               data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,10 +35,12 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#myTable"><i class="fas fa-table"></i> My Tables</a>
+            <a class="nav-link js-scroll-trigger" onclick="checkLoginStatus()" 
+                  href="#myTable"><i class="fas fa-table"></i> My Tables</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#upload"><i class="fa fa-file"></i> Upload a Course Outline</a>
+            <a class="nav-link js-scroll-trigger" onclick="checkLoginStatus()"
+                  href="#upload"><i class="fa fa-file"></i> Upload a Course Outline</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#projects"><i class="fas fa-wrench"></i> How it works</a>
@@ -47,59 +49,61 @@
             <a class="nav-link js-scroll-trigger" href="/login"><i class="fa fa-user"></i> Login</a>
           </li>
           <li id="num_courses">
-
           </li>
         </ul>
       </div>
     </div>
   </nav>
+  <script>
+    function checkLoginStatus()
+    {
+      $.get("/api/user_data").then(function(data)
+      {
+        if (String(data.email) == "undefined")
+        {
+          window.location.href = "/login";
+        }
+      });
+    }
+  </script>
 
   <!-- Header -->
-  <div id="home_title">
-  </div>
+  <div id="home_title"></div>
   
   <!-- My Table Section -->
   <div class="tableDiv"></div>
-  <!-- <section id="myTable" class="about-section text-center"> -->
-    <!-- the body of this is in js/index.js -->
-  <!-- </section> -->
 
-      <!-- <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto">
-          <h2 class="text-white mb-4">Built with Bootstrap 4</h2>
-          <p class="text-white-50">Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on
-            <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
-        </div>
-      </div>
-      <img src="images/ipad.png" class="img-fluid" alt="">
-    </div> -->
-
-    <section id="projects" class="projects-section bg-light">
+  <section id="projects" class="projects-section bg-light">
     <div class="container">
 
       <div class="row align-items-center no-gutters mb-4 mb-lg-5">
         <div class="col-xl-8 col-lg-7">
-          <img class="img-fluid mb-3 mb-lg-0" src="images/bg-masthead.jpg" alt="">
+          <video width="100%" height="60%" loop autoplay muted>
+            <source src="images/upload-file-video.mov" type="video/mp4">
+          </video>
         </div>
         <div class="col-xl-4 col-lg-5">
           <div class="featured-text text-center text-lg-left">
             <h4>Upload Your Course Outline</h4>
-            <p class="text-black-50 mb-0">Signup for free and upload your Course Outline and see a table with all of your course assessements appear in a table</p>
+            <p class="text-black-50 mb-0">Signup for free and upload your Course Outline
+                  and see a table with all of your course assessements appear in a table</p>
           </div>
         </div>
       </div>
 
       <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
-        <div class="col-lg-6">
-          <img class="img-fluid" src="images/demo-image-01.jpg" alt="">
+        <div class="col-lg-6 justify-content-center">
+          <img class="img-fluid" style="height: 500px;" src="/images/edit-add-delete-example.jpg" alt="">
         </div>
         <div class="col-lg-6">
           <div class="bg-black text-center h-100 project">
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-left">
                 <h4 class="text-white">Add, Edit and Delete</h4>
-                <p class="mb-0 text-white-50">You can add an assessement, edit an exciting one or delete the whole table. You can edit your mark or the weight of the assessement!</p>
+                <p class="mb-0 text-white-50">You can add an assessement, edit an exciting one or
+                      delete the whole table. You can edit your mark or the weight of the assessement!
+                        Your final grade will update in real time!
+                </p>
                 <hr class="d-none d-lg-block mb-0 ml-0">
               </div>
             </div>
@@ -109,7 +113,7 @@
 
       <div class="row justify-content-center no-gutters">
         <div class="col-lg-6">
-          <img class="img-fluid" src="images/demo-image-02.jpg" alt="">
+          <img class="img-fluid" src="images/mytable-example.jpg" alt="">
         </div>
         <div class="col-lg-6 order-lg-first">
           <div class="bg-black text-center h-100 project">
@@ -167,29 +171,17 @@
       <br class="bg-black">
     </div>
   </section>
-  
+
   <!-- Footer Section -->
-  <div class="divFooter">
+  <div class="divFooter"> </div>
 
-  </div>
-  <!-- <footer class="small text-center text-black-50"> -->
-    <!-- <div class="container">
-      Copyright &copy; Guelph Mark Calculator 2020.
-      <p>Created by: David Eastwood</p>
-    </div> -->
-  <!-- </footer> -->
-
-  <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Plugin JavaScript -->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Custom scripts -->
   <script src="js/grayscale.min.js"></script>
   <script src="js/index.js"></script>
 
 </body>
-
 </html>
