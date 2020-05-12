@@ -66,7 +66,7 @@ const portNum = 3000;
 /**
 * Back end functions in C, Linked with the dynamic shared library
 */
-let sharedLib = ffi.Library('./libgpxparse.dylib', {
+let sharedLib = ffi.Library('./libgpxparse.dylib.so', {
     'execute_java_program_PDF_to_TXT' : [ 'int', [ 'string' ] ],
     'JSON_assessement_list' : [ 'string' , [ 'string'] ],
     'professor_to_JSON' : [ 'string' , [ 'string' ] ],
@@ -102,6 +102,7 @@ app.post('/upload', async function(req, res)
         }
     }); 
     uploadToS3butcket(req.user.firstName, req.user.lastName, uploadFile.name);//upload the pdf to s3 bucket
+	console.log("path = " + __dirname  + '/parser/');
     /**
         * Forks a new process to run a java program that converts the PDF to a Text files
         */
@@ -255,9 +256,9 @@ app.get('/create_outline_table', async function(req, res)
     try
     {
         connection = await mysql.createConnection({
-            host : '127.0.0.1', 
+            host : '127.0.0.1',
             user : "root",
-            password : "PASSWORD",
+            password : "Dwedwe123",
             database : "Mark_Calc_app_database"
         })
 
@@ -302,7 +303,7 @@ app.get('/checkIfEmailExcists', async function(req, res)
         connection = await mysql.createConnection({ 
             host : '127.0.0.1',
             user : "root",
-            password : "PASSWORD",
+            password : "Dwedwe123",
             database : "Mark_Calc_app_database"
         });
 
@@ -343,14 +344,14 @@ async function dbconnect ()
         dbConf = { 
             host : '127.0.0.1',
             user : "root",
-            password : "PASSWORD",
+            password : "Dwedwe123",
             database : "Mark_Calc_app_database"
         };
 
         connection = await mysql.createConnection({ 
             host : '127.0.0.1',
             user : "root",
-            password : "PASSWORD",
+            password : "Dwedwe123",
             database : "Mark_Calc_app_database"
         });
 
