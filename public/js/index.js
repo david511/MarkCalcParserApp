@@ -44,7 +44,7 @@ $(document).ready(function()
 
     $.get("/api/user_data").then(function(data)
     {
-        if (String(data.email) == "undefined")
+        if (String(data.email) == "undefined")//if user is not logged in
         {
             $("#login_status").html(`
                 <a class="nav-link js-scroll-trigger" href="/login">
@@ -57,13 +57,35 @@ $(document).ready(function()
                         <h1 class="mx-auto my-0 text-uppercase">Grade Calculator</h1>
                         <h2 class="text-white-50 mx-auto mt-2 mb-5">A free Grade Calculator. Simply upload your Course Outline
                             and a table with all your assessements and their weight appears.</h2>
-                        <h2 class="text-white-50 mx-auto mt-2 mb-5">Sign up now so you won't need to re-enter your marks.
+                        <h2 class="text-white-50 mx-auto mt-2 mb-5">Sign up now so you can save your marks and courses.
                         </h2>
                         <a href="/signup" class="btn btn-primary js-scroll-trigger">Sign up here</a>
-                        <a href="#" class="btn btn-primary js-scroll-trigger">Create Table</a>
+                        <a href="#createTableHomePage" onclick="createTableNotLogggedIn()"
+                                class="btn btn-primary scroll js-scroll-trigger">Create Table</a>
+                        <div class="modal fade" id="tableWithOrWithoutOutline" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        </div>
                     </div>
                 </div>
             </header>`);
+
+            $.ajax({
+                type: 'get',            //Request type
+                dataType: 'json',       //Data type - we will use JSON for almost everything 
+                url: '/check_non_user_table',   //The server endpoint we are connecting to
+                data: {},
+                success: function (data) {
+                    if (data.number_evaluations > 0)
+                    {
+                        window.location.replace("#createTableHomePage");
+                        createTableNotLogggedInWithOutline(data.number_evaluations,
+                                    data.assessement, data.information);
+                    }
+                },
+                fail: function(error) {
+                    console.log(error);
+                }
+            });
 
             $(".divFooter").html(`
             <footer class="bg-black small text-center text-white">
@@ -194,8 +216,6 @@ $(document).ready(function()
 
 function progressBar()
 {
-    var fileSize = document.getElementById('file_input').files[0].size
-    console.log("in progress bar " + fileSize);
     $('#progressWindow').html(`
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -252,15 +272,15 @@ function insert_tables(num_files, assessement_obj, prof_obj)
                 <div class="table-wrapper">
                     <div class="table-title">
                         <div class="row">
-                            <div style="text-align: left;" class="col-sm-4">` + prof_obj[i - 1].course_code + `</div>
+                            <div id="tableName`+i+`" style="text-align: left;" class="col-sm-4">` + prof_obj[i - 1].course_code + `</div>
                             <div class="col-sm-8">
-                                <button type="button" onclick="addrow(` + table_id + `, ` + i + `)"
+                                <button type="button" onclick="addrow(` + table_id + `, ` + i + `, true)"
                                         class="btn-sm btn-info add-new addAssessmentButton">
                                         <i class="fa fa-plus"></i> Add Assessement</button>
                             </div>
                         </div>
                         <div class="row">
-                            <div style="text-align: left;" class="prof_info col-sm-6">Prof: ` +
+                            <div id="prof_name`+i+`" style="text-align: left;" class="prof_info col-sm-6">Prof: ` +
                                     prof_obj[i - 1].prof_name + `</div>
                             <div style="text-align: right;" class="prof_info_email col-sm-6">` +
                                     prof_obj[i - 1].prof_email + `</div>
@@ -301,15 +321,15 @@ function insert_tables(num_files, assessement_obj, prof_obj)
                     <div class="table-wrapper">
                         <div class="table-title">
                             <div class="row">
-                                <div style="text-align: left;" class="col-sm-4">` + prof_obj[i - 1].course_code + `</div>
+                                <div id="tableName`+i+`" style="text-align: left;" class="col-sm-4">` + prof_obj[i - 1].course_code + `</div>
                                 <div class="col-sm-8">
-                                    <button type="button" onclick="addrow(` + table_id + `, ` + i + `)"
+                                    <button type="button" onclick="addrow(` + table_id + `, ` + i + `, true)"
                                             class="btn-sm btn-info add-new addAssessmentButton">
                                             <i class="fa fa-plus"></i> Add Assessement</button>
                                 </div>
                             </div>
                             <div class="row">
-                                <div style="text-align: left;" class="prof_info col-sm-6">Prof: ` +
+                                <div id="prof_name`+i+`" style="text-align: left;" class="prof_info col-sm-6">Prof: ` +
                                         prof_obj[i - 1].prof_name + `</div>
                                 <div style="text-align: right;" class="prof_info_email col-sm-6">` +
                                         prof_obj[i - 1].prof_email + `</div>
@@ -343,6 +363,10 @@ function insert_tables(num_files, assessement_obj, prof_obj)
             </div>`);
         }
         if (i % 2 != 0) $('.table_s1').append('</div>');
+
+        if (prof_obj[i - 1].prof_name.length == 0) $("#prof_name" + i).empty();
+        if (prof_obj[i - 1].course_code.length == 0)
+            $('#tableName' + i).html("Course table " + i);
 
         let weightTotal = 0;
         let markTotal = 0;
@@ -429,14 +453,16 @@ function deleteTable(tableId)
 }
 
 // Append table with add row form on add new button click
-function addrow(table_id, i)
+function addrow(table_id, i, user)
 {
-    console.log("add row " + table_id + " + " + i);
     $('[data-toggle="tooltip"]').tooltip();
     var actions = $("table td:last-child").html();
     $(this).attr("disabled", "disabled");
     console.log("Table number = " + i);
-    var index = document.getElementById("tableNumber" + i).rows.length;
+    var index;
+    //if the user is logged in
+    if (user == true) index = document.getElementById("tableNumber" + i).rows.length;
+    else index = document.getElementById("tempTableBody").rows.length;
 
     var row = '<tr>' +
         '<td class="assessementTH" ><input type="text" class="form-control"></td>' +
@@ -447,17 +473,26 @@ function addrow(table_id, i)
     $(table_id).append(row);		
     
     console.log("index == " + index)
-    $("table.tableClass"+i+" tbody.table_body"+i+
-        " tr").eq(index - 3).find(".add, .edit").toggle();
+    if (user == true)
+    {
+        $("table.tableClass"+i+" tbody.table_body"+i+
+                " tr").eq(index - 3).find(".add, .edit").toggle();
+    }
+    else
+    {
+        $("table tbody tr").eq(index).find(".add, .edit").toggle();
+    }
     $('[data-toggle="tooltip"]').tooltip();
 }
 
 // Edit row on edit button click
 $(document).on("click", ".edit", function()
 {	
+    //geting 3rd class in the table and parsing it to find out the table number
     var tableNumber = $(this).closest('table').attr('class').split(" ")[2];
     var fileId = tableNumber[tableNumber.length - 1];//parsing class = "tableNumber'i'"
     var row_number = $(this).closest("tr")[0].rowIndex;
+    console.log("rownumber = " + row_number)
     //have to get the value of the cell before we clear the data when user tries to
     //edit their assessement
     let col1 = $("table.tableClass"+fileId+
@@ -471,7 +506,7 @@ $(document).on("click", ".edit", function()
     $(this).parents("tr").find("td:not(:last-child)").each(function(){
         $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
     });		
-
+   
     $.ajax({
         type: 'get',            //Request type
         dataType: 'json',       //Data type - we will use JSON for almost everything 
@@ -485,6 +520,8 @@ $(document).on("click", ".edit", function()
             if (data == true)
             {
                 console.log("Sucessfully edited the current row in table " + fileId);
+                updateTotalWeight(fileId); 
+                updateTotalMark(fileId, true); 
             }
             else
             {
@@ -522,32 +559,41 @@ $(document).on("click", ".delete", function()
         userWeight = tempCol2.substring(0, tempCol2.length - 1);
     } else userWeight = tempCol2;
 
-    $.ajax({
-        type: 'get',            //Request type
-        dataType: 'json',       //Data type - we will use JSON for almost everything 
-        url: '/removeRow',   //The server endpoint we are connecting to
-        data: {
-            fileId: fileId,
-            assessement: tempCol1,
-            weight: userWeight//getting rid of the % in the string
-        },
-        success: function (data) {
-            if (data == true)
-            {
-                console.log("Sucessfully removed row " + row_number + " in table " + fileId);
-                updateTotalWeight(fileId); 
-                updateTotalMark(fileId); 
-            }
-            else
-            {
-                console.log("Failed to edit row");
-            }
-        },
-        fail: function(error) {
-            console.log(error); 
+    $.get("/api/user_data").then(function(data)
+    {
+        if (String(data.email) != "undefined")
+        {
+            $.ajax({
+                type: 'get',            //Request type
+                dataType: 'json',       //Data type - we will use JSON for almost everything 
+                url: '/removeRow',   //The server endpoint we are connecting to
+                data: {
+                    fileId: fileId,
+                    assessement: tempCol1,
+                    weight: userWeight//getting rid of the % in the string
+                },
+                success: function (data) {
+                    if (data == true)//User is logged in and connect to the db
+                    {
+                        console.log("Sucessfully removed row " + row_number + " in table " + fileId);
+                        updateTotalWeight(fileId); 
+                        updateTotalMark(fileId, true); 
+                    }
+                    else
+                    {
+                        console.log("Failed to edit row");
+                    }
+                },
+                fail: function(error) {
+                    console.log(error); 
+                }
+            });
+        }
+        else//update user table when not logged in
+        {
+            updateWeightMarkNonloggedInUser();
         }
     });
-
 });
 
 $(document).on("click", ".add", function()
@@ -564,7 +610,7 @@ $(document).on("click", ".add", function()
             empty = true;
         } else{
             $(this).removeClass("error");
-            userItems.push($(this).val());//populating user items array
+            userItems.push($(this).val());//populating user items array assessement, weight and user mark
         }
     });
     $(this).parents("tr").find(".error").first().focus();
@@ -592,33 +638,44 @@ $(document).on("click", ".add", function()
         userMark = userItems[2].substring(0, userItems[2].length - 1);
     } else userMark = userItems[2];
 
-    // userItems[0] and [1] are the assessement and weight
-    // userItems[2] is the user entered mark
-    console.log("sending data over >>> " + userWeight + " AND " + userItems[0]);
-    $.ajax({
-        type: 'get',            //Request type
-        dataType: 'json',       //Data type - we will use JSON for almost everything 
-        url: '/addEditedRowAssessement',   //The server endpoint we are connecting to
-        data: {
-            fileId: fileId,
-            updatedAssessement: userItems[0],
-            updatedWeight: userWeight,
-            updatedUser_mark: userMark
-        },
-        success: function (data) {
-            if (data == true)
-            {
-                console.log("Sucessfully added a new row to table " + fileId);
-                updateTotalWeight(fileId); 
-                updateTotalMark(fileId);
-            }
-            else
-            {
-                console.log("Failed to add row");
-            }
-        },
-        fail: function(error) {
-            console.log(error); 
+    $.get("/api/user_data").then(function(data)
+    {
+        if (String(data.email) != "undefined")
+        {
+            // userItems[0] and [1] are the assessement and weight
+            // userItems[2] is the user entered mark
+            console.log("sending data over >>> " + userWeight + " AND " + userItems[0]);
+            $.ajax({
+                type: 'get',            //Request type
+                dataType: 'json',       //Data type - we will use JSON for almost everything 
+                url: '/addEditedRowAssessement',   //The server endpoint we are connecting to
+                data: {
+                    fileId: fileId,
+                    updatedAssessement: userItems[0],
+                    updatedWeight: userWeight,
+                    updatedUser_mark: userMark
+                },
+                success: function (data) {
+                    if (data == true)
+                    {
+                        console.log("Sucessfully added a new row to table " + fileId);
+                        updateTotalWeight(fileId); 
+                        updateTotalMark(fileId, true);
+                    }
+                    else
+                    {
+                        console.log("Failed to add row");
+                    }
+                },
+                fail: function(error) {
+                    console.log(error); 
+                }
+            });
+        }
+        else//update user table when not logged in
+        {
+            //update total weight and mark for table when user is NOT logged in`
+            updateWeightMarkNonloggedInUser();
         }
     });
 });
@@ -654,57 +711,122 @@ function updateTotalWeight(tableId)
             }
         },
         fail: function(error) {
-                console.log(error); 
+            console.log(error); 
         }
     });
 }
 
-function updateTotalMark(tableId)
+function updateTotalMark(tableId, user)
 {
-    $.ajax({
-        type: 'get',            //Request type
-        dataType: 'json',       //Data type - we will use JSON for almost everything 
-        url: '/getUserMarksFromTableId',   //The server endpoint we are connecting to
-        data: {
-            tableId: tableId
-        },
-        success: function (data) {
-            let markTotal = 0;
-            let weightWithMark = [];
-            for (let key in data.marks)
-            {
-                let userMark = data.marks[key].user_mark;
-                let weight = data.marks[key].weight;
-
-                if (userMark > 0)
+    if (user == true)
+    {
+        $.ajax({
+            type: 'get',            //Request type
+            dataType: 'json',       //Data type - we will use JSON for almost everything 
+            url: '/getUserMarksFromTableId',   //The server endpoint we are connecting to
+            data: {
+                tableId: tableId
+            },
+            success: function (data) {
+                let markTotal = 0;
+                let weightWithMark = [];
+                for (let key in data.marks)
                 {
-                    weightWithMark.push(weight);
-                    markTotal += weight * userMark;
+                    let userMark = data.marks[key].user_mark;
+                    let weight = data.marks[key].weight;
+
+                    if (userMark > 0)
+                    {
+                        weightWithMark.push(weight);
+                        markTotal += weight * userMark;
+                    }
+                }
+
+                let totalWeightInUse = 0;
+                for (var x in weightWithMark)
+                {
+                    totalWeightInUse += weightWithMark[x];
+                }
+                markTotal = markTotal / totalWeightInUse;
+
+                let finalMark = 0;
+                if (isNaN(markTotal)) {
+                    finalMark = 0;
+                }
+                else finalMark = Math.round(100 * markTotal) / 100;
+                //updating the new mark
+                $('.markTotal' + tableId).empty();//clear original data
+                $('.markTotal' + tableId).append(`Mark Total = ` + finalMark + `%`);
+            },
+            fail: function(error) {
+                console.log(error); 
+            }
+        });
+    }
+    else
+    {   
+        console.log("getting table")
+      
+    }
+}
+
+/**
+ * Update the total weight and mark of the table on the homepage when 
+ * the user is not logged in
+ */
+function updateWeightMarkNonloggedInUser()
+{
+    var table = document.getElementById('tempTableBody');
+    var colLength = table.rows.length;        
+    var totalWeight = 0;
+    var totalMark = 0;
+    var weightWithMark = [];//used to store weight that have marks entered from the user
+    for (var r = 0, n = colLength; r < n; r++)
+    {   //c = 1 to not include assessement col
+        for (var c = 1, m = table.rows[r].cells.length; c < m; c++)
+        {
+            var col = table.rows[r].cells[c].innerText
+            if (c == 1)
+            {
+                var weight = col.substring(0, col.length - 1);
+                totalWeight += Number(weight);
+
+                var unparserdMark = table.rows[r].cells[2].innerHTML;
+                var mark = unparserdMark.substring(0, unparserdMark.length - 1);
+                if (mark > 0)
+                {
+                    weightWithMark.push(Number(weight));
+                    totalMark += Number(weight) * Number(mark);
                 }
             }
-
-            let totalWeightInUse = 0;
-            for (var x in weightWithMark)
-            {
-                totalWeightInUse += weightWithMark[x];
-            }
-            markTotal = markTotal / totalWeightInUse;
-
-            let finalMark = 0;
-            if (isNaN(markTotal)) {
-                finalMark = 0;
-            }
-            else finalMark = Math.round(100 * markTotal) / 100;
-            //updating the new mark
-            $('.markTotal' + tableId).empty();//clear original data
-            $('.markTotal' + tableId).append(`Mark Total = ` + finalMark + `%`);
-        },
-        fail: function(error) {
-                console.log(error); 
         }
-    });
-}
+    }
 
+    let totalWeightInUse = 0;
+    for (var x in weightWithMark)
+    {
+        totalWeightInUse += weightWithMark[x];
+    }
+    totalMark = totalMark / totalWeightInUse;
+
+    let finalMark = 0;
+    if (isNaN(totalMark)) {
+        finalMark = 0;
+    }
+    else finalMark = Math.round(100 * totalMark) / 100;
+
+    $('.markTotal').empty();
+    $('.markTotal').append(`Mark Total = ` + finalMark + `%`);
+
+    $('.weightTotal').empty();
+    $('.weightTotal').append(`Weight Total = ` + totalWeight + `%`);
+    if (totalWeight < 100 || totalWeight > 100)
+    {
+        $('.weightErrorMsg').empty();
+        $('.weightErrorMsg').append(`*note: weight does not add up to 100%`);
+    }
+    else { $('.weightErrorMsg').empty(); }
+}
 /**
  * Creates a table with out uploading a course outline
  */
@@ -737,7 +859,7 @@ function createTableFromScratch()
                             <div class="row">
                                 <div style="text-align: left;" class="col-sm-4">Course Table ` + number_files + `</div>
                                 <div class="col-sm-8">
-                                    <button type="button" onclick="addrow(` + table_id + `, ` + number_files + `)"
+                                    <button type="button" onclick="addrow(` + table_id + `, ` + number_files + `, true)"
                                             class="btn-sm btn-info add-new addAssessmentButton">
                                             <i class="fa fa-plus"></i> Add Assessement</button>
                                 </div>
@@ -783,7 +905,7 @@ function createTableFromScratch()
                                 <div class="row">
                                     <div style="text-align: left;" class="col-sm-4">Course Table ` + number_files + `</div>
                                     <div class="col-sm-8">
-                                        <button type="button" onclick="addrow(` + table_id + `, ` + number_files + `)"
+                                        <button type="button" onclick="addrow(` + table_id + `, ` + number_files + `, true)"
                                                 class="btn-sm btn-info add-new addAssessmentButton">
                                                 <i class="fa fa-plus"></i> Add Assessement</button>
                                     </div>
@@ -833,18 +955,24 @@ function createTableFromScratch()
                     if (data == true)
                     {
                         console.log("Sucessfully created a table without a course outline " + number_files);
-                        
                         //adding the first row to start the user off
                         $('[data-toggle="tooltip"]').tooltip();
-                        var actions = $("table td:last-child").html();
                         $(this).attr("disabled", "disabled");
 
-                        var row = '<tr>' +
-                            '<td class="assessementTH" >Add Assessement Here</td>' +
-                            '<td>0</td>' +
-                            '<td>0.00</td>' +
-                            '<td>' + actions + '</td>' +
-                        '</tr>';
+                        var row = 
+                        `<tr>
+                            <td class="assessementTH" >Add Assessement Here</td>
+                            <td>0</td>
+                            <td>0.00</td>
+                            <td>
+                            <a class="add" title="Add" data-toggle="tooltip">
+                                        <i class="material-icons">&#xE03B;</i></a>
+                            <a class="edit" title="Edit" data-toggle="tooltip">
+                                        <i class="material-icons">&#xE254;</i></a>
+                            <a class="delete" title="Delete" data-toggle="tooltip">
+                                        <i class="material-icons">&#xE872;</i></a>
+                        </td>`;
+
                         $('#' + table_id).append(row);		
 
                         $('.'+weightTotal_id).append(`Weight Total = 0%`);
@@ -865,4 +993,204 @@ function createTableFromScratch()
                 console.log(error); 
         }
     });
+}
+
+/**
+ * Onclick function
+ * This function creates a temp table, available when the user is not logged in and
+ * user is creating table from scratch
+ */
+function createTableNotLogggedIn()
+{
+    $(".tableNotLoggedInDiv").html(`
+    <div class="table_wrapper_not_logged_in">
+        <div class="table-title">
+            <div class="row">
+                <div style="text-align: left;" class="col-sm-4"></div>
+                <div class="col-sm-8">
+                    <button type="button" onclick="addrow(tempTableBody, 0, false)"
+                            class="btn-sm btn-info add-new addAssessmentButton">
+                            <i class="fa fa-plus"></i> Add Assessement</button>
+                </div>
+            </div>
+            <div class="row prof_name_email"></div>
+        </div>
+        <table id="nonLoggedInTable" class="table table-bordered tableNumber0">
+            <thead>
+                <tr>
+                    <th class="assessementTH">Assessements</th>
+                    <th>Weight</th>
+                    <th>Your Mark (%)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="tempTableBody"></tbody>   
+            <tfoot>
+                <tr>
+                    <td class="weightTotal" style="border: 0;"></td>
+                    <td class="markTotal" style="border: 0;"></td>
+                </tr>
+                <tr style="border: 0;" >
+                    <td style="border: 0;" class="weightErrorMsg "></td>
+                    <td style="border: 0;" class="deleteButtonTD">
+                        <button type="button" onclick="clearTable()"
+                            class="btn-sm clearTableButton">Clear Table</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        Try Populating the table with your course outline!
+        <div class="row">
+            <div class="col-sm-12" style="padding-top: 4px;">
+                <form style="font-size: 14px;" ref="upload" id="upload"
+                        enctype="multipart/form-data" method="post" action="/uploadFromHomepage" >
+                    <input id="file_input" name="file_input" type="file" accept="application/pdf">
+                    <button data-toggle="modal" data-target="#progressWindow" onclick="progressBar()"
+                        type="submit" id="upload" class="btn-sm btn-info uploadButton">
+                                <i class="fa fa-plus"></i> Upload Outline
+                </button></div>
+                </form>
+            </div>
+        </div>
+        <div class="modal fade" id="progressWindow" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+        </div>
+    </div>`);
+
+    $('[data-toggle="tooltip"]').tooltip();
+    $(this).attr("disabled", "disabled");
+
+    var row = 
+    `<tr>
+        <td class="assessementTH" >Add Assessement Here</td>
+        <td>0</td>
+        <td>0.00</td>
+        <td>
+        <a class="add" title="Add" data-toggle="tooltip">
+                    <i class="material-icons">&#xE03B;</i></a>
+        <a class="edit" title="Edit" data-toggle="tooltip">
+                    <i class="material-icons">&#xE254;</i></a>
+        <a class="delete" title="Delete" data-toggle="tooltip">
+                    <i class="material-icons">&#xE872;</i></a>
+    </td>`;
+
+    $('#tempTableBody').append(row);		
+
+    $('.weightTotal').append(`Weight Total = 0%`);
+    $('.markTotal').append(`Mark Total = 0.00%`);
+    $('.weightErrorMsg').append(`*note: weight does not add up to 100%`);
+}
+
+function createTableNotLogggedInWithOutline(number_assessements, Assessement, course_information)
+{
+    console.log("in create table function " + Assessement[1].assessement_name);
+
+    $(".tableNotLoggedInDiv").html(`
+    <div class="table_wrapper_not_logged_in">
+        <div class="table-title">
+            <div class="row">
+                <div id="course_code_div" style="text-align: left;" class="col-sm-4">` + course_information[0].course_code + `</div>
+                <div class="col-sm-8">
+                    <button type="button" onclick="addrow(tempTableBody, 0, false)"
+                            class="btn-sm btn-info add-new addAssessmentButton">
+                            <i class="fa fa-plus"></i> Add Assessement</button>
+                </div>
+            </div>
+            <div class="row prof_name_email">
+                <div style="text-align: left;" class="prof_info col-sm-6">Prof: ` +
+                        course_information[0].prof_name + `</div>
+                <div style="text-align: right;" class="prof_info_email col-sm-6">` +
+                        course_information[0].prof_email + `</div>
+            </div>
+        </div>
+        <table id="nonLoggedInTable" class="table table-bordered tableNumber0">
+            <thead>
+                <tr>
+                    <th class="assessementTH">Assessements</th>
+                    <th>Weight</th>
+                    <th>Your Mark (%)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="tempTableBody"></tbody>   
+            <tfoot>
+                <tr>
+                    <td class="weightTotal" style="border: 0;"></td>
+                    <td class="markTotal" style="border: 0;"></td>
+                </tr>
+                <tr style="border: 0;" >
+                    <td style="border: 0;" class="weightErrorMsg "></td>
+                    <td style="border: 0;" class="deleteButtonTD">
+                        <button type="button" onclick="clearTable()"
+                            class="btn-sm clearTableButton">Clear Table</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        Try Populating the table with your course outline!
+        <div class="row">
+            <div class="col-sm-12" style="padding-top: 4px;">
+                <form style="font-size: 14px;" ref="upload" id="upload"
+                        enctype="multipart/form-data" method="post" action="/uploadFromHomepage" >
+                    <input id="file_input" name="file_input" type="file" accept="application/pdf">
+                    <button data-toggle="modal" data-target="#progressWindow" onclick="progressBar()"
+                        type="submit" id="upload" class="btn-sm btn-info uploadButton">
+                                <i class="fa fa-plus"></i> Upload Outline
+                </button></div>
+                </form>
+            </div>
+        </div>
+        <div class="modal fade" id="progressWindow" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+        </div>
+    </div>`);
+
+    for (var i = 0; i < number_assessements; i++)
+    {
+        $('#tempTableBody').append(`
+        <tr>
+            <td class="assessementTH">` + Assessement[i].assessement_name + `</td>
+            <td>` + Assessement[i].weight + `%</td>
+            <td>0.00%</td>
+            <td>
+                <a class="add" title="Add" data-toggle="tooltip">
+                            <i class="material-icons">&#xE03B;</i></a>
+                <a class="edit" title="Edit" data-toggle="tooltip">
+                            <i class="material-icons">&#xE254;</i></a>
+                <a class="delete" title="Delete" data-toggle="tooltip">
+                            <i class="material-icons">&#xE872;</i></a>
+            </td>
+        </tr>`);
+    }
+
+    updateWeightMarkNonloggedInUser();
+}
+
+function clearTable()
+{
+    $('#tempTableBody').empty();
+    var row = 
+    `<tr>
+        <td class="assessementTH" >Add Assessement Here</td>
+        <td>0</td>
+        <td>0.00</td>
+        <td>
+        <a class="add" title="Add" data-toggle="tooltip">
+                    <i class="material-icons">&#xE03B;</i></a>
+        <a class="edit" title="Edit" data-toggle="tooltip">
+                    <i class="material-icons">&#xE254;</i></a>
+        <a class="delete" title="Delete" data-toggle="tooltip">
+                    <i class="material-icons">&#xE872;</i></a>
+    </td>`;
+    $('#tempTableBody').append(row);
+
+    $('#course_code_div').empty();
+    $('.prof_name_email').empty();
+    $('.weightTotal').empty();
+    $('.markTotal').empty();
+    $('.weightErrorMsg').empty();
+
+    $('.weightTotal').append(`Weight Total = 0%`);
+    $('.markTotal').append(`Mark Total = 0.00%`);
+    $('.weightErrorMsg').append(`*note: weight does not add up to 100%`);
 }

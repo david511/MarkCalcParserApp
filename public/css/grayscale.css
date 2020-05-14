@@ -175,6 +175,10 @@
   background-color: #64a19d;
 }
 
+.uploadButton {
+  background-color: #64a19d;
+}
+
 .weightErrorMsg {
   align-items: left;
   justify-content: left;
@@ -183,6 +187,11 @@
 
 .deleteTableButton {
   background-color: #E34724;
+  color: white;
+}
+
+.clearTableButton {
+  background-color: #64a19d;
   color: white;
 }
 
@@ -210,13 +219,25 @@
 * Table Style sheet
 */
 .table-wrapper {
-  /* width: 700px; */
   margin: 25px auto;
   background: #fff;
+  text-align: center;
   padding: 20px;
   height: 610px;
   box-shadow: 0 1px 1px rgba(0,0,0,.05);
-  }
+}
+.tableNotLoggedInDiv {
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+}
+.table_wrapper_not_logged_in {
+  margin: 25px auto;
+  background: #fff;
+  padding: 20px;
+  height: 650px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
   .table-title {
       /* padding-bottom: 10px; */
       margin: 0 0 10px;
