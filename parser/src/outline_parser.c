@@ -897,6 +897,7 @@ Professor* parse_prof_info(char** doc_str, char** doc_str_title, char* original_
 
     printf("done with the professor\n");
     return prof;
+}
 
 char* parser_percentage(char* prev_str, char* next_str)
 {
