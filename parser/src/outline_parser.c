@@ -19,7 +19,7 @@
 #define WORD_LEN 1024
 #define TRUE 1
 #define FALSE 0
-#define NUM_PROGRAMS 7
+#define NUM_PROGRAMS 9//number of program names listed in the header file
 #define DIGIT_SIZE 3
 #define NUM_KEYWORDS 68
 
@@ -260,6 +260,7 @@ int contains_percent(char* doc_str)
     int length = strlen(doc_str);
     for (int i = 0; i < length; i++)
     {
+        if (doc_str[i] == 'x') return FALSE;
         if (doc_str[i] == '%') return TRUE;
     }
     return FALSE;
@@ -1125,6 +1126,14 @@ Midterm* parser_midterm(char** split_file, int i)
         printf("percentage for midterm exam = %s %.1f\n", mid->midterm_name, mid->weight);
         free(percentage);
     }
+    else if (contains_percent(split_file[i + 3]) == TRUE)
+    {
+        char* percentage = parser_percentage(split_file[i - 3], split_file[i + 3]);
+        mid->weight = strtod(percentage, NULL); 
+        printf("percentage for midterm exam = %s %.1f\n", mid->midterm_name, mid->weight);
+        free(percentage);
+    }
+        
 
     // if (mid->weight > 0.0 && is_digit_test(split_file[i + 2], NON_PERCENT) == TRUE)
     // {
@@ -1146,6 +1155,16 @@ Assignment* parser_assignment(char** split_file, int i)
     {
         printf("forward split_file == %s\n", split_file[j]);
         if (strcmp(split_file[j - 1], "x") == 0 || strcmp(split_file[j + 1], "x") == 0) break;
+        char temp_split_file[32] = {0};
+        strcpy(temp_split_file, split_file[j]);
+        for (int r = 0; r < strlen(split_file[j]); r++)
+        {
+            if (temp_split_file[r] == 'x')
+            {
+                printf("BREAKING found x in %s\n", temp_split_file);
+                break;
+            }
+        }
         count++;
         if (contains_percent(split_file[j]) == TRUE)
         {
@@ -1177,6 +1196,7 @@ Assignment* parser_assignment(char** split_file, int i)
         for (int j = i; j > i - 6; j--) 
         {   
             printf("back split_file = %s\n", split_file[j]);
+            if (strcmp(split_file[j], "penalty.") == 0) break;//special case
             if (strcmp(split_file[j - 1], "x") == 0 || strcmp(split_file[j + 1], "x") == 0) break;
             count++;
             if (contains_percent(split_file[j]) == TRUE)
@@ -1239,7 +1259,7 @@ Professor* parse_document(char* doc_str)
         }
         if (strcmp(split_file[i], "Midterm:") == 0 && is_digit_test(split_file[i + 1], NON_PERCENT))
         {
-            printf("MIDTERM\n\n");
+            printf("MIDTERM1\n\n");
             Midterm* midterm = parser_midterm(split_file, i);
             if (midterm->weight > 0.0) insertBack(grade->midterms, midterm);//inserting into the linked list
         }
@@ -1251,12 +1271,17 @@ Professor* parse_document(char* doc_str)
                     (strcmp(split_file[i], "Midterm") == 0 &&
                     (strcmp(split_file[i + 1], "Exam") == 0 || strcmp(split_file[i + 1], "Exam:") == 0 ||
                 strcmp(split_file[i + 1], "Test") == 0 || strcmp(split_file[i + 1], "examination:") == 0 ||
-                    strcmp(split_file[i + 1], "Examination:") == 0)))
+                    strcmp(split_file[i + 1], "Examination:") == 0  || strcmp(split_file[i + 1], "Examination") == 0 || 
+                strcmp(split_file[i + 1], "examination") == 0  )))
         {
+           printf("MIDTERM2 '%s' '%s'\n\n", split_file[i + 2], split_file[i + 3]);
             if (is_digit_test(split_file[i - 1], PERCENT) == TRUE ||
                     is_digit_test(split_file[i + 2], PERCENT) == TRUE ||
-                        is_digit_test(split_file[i - 2], PERCENT) == TRUE)
+                        is_digit_test(split_file[i - 2], PERCENT) == TRUE ||
+                    is_digit_test(split_file[i + 3], PERCENT) == TRUE)
             {
+                          printf("MIDTERM2\n\n");
+
                 if (strcmp(split_file[i - 1], "Midterm") != 0)
                 {
                     printf("\n>>>>>>midterm exam!!!!!\n");
@@ -1622,63 +1647,62 @@ char* professor_to_JSON(char* file_name)
 
 
 
-// int main(int argc, char *argv[])
-// {
-//     // char* filename = "POLS_3140.pdf";
-//     // execute_java_program_PDF_to_TXT(filename);
-//     // char* path = "/Users/david/Documents/Mark_Calc_App/files/Acct_3350.txt";
-//     // char* path = "/Users/david/Documents/Mark_Calc_App/files/Outline_MCS2100DE_F19.txt";
-//     // char* path = "/Users/david/Documents/Mark_Calc_App/files/CIS3090.txt";
-//     // char* path = "/Users/david/Documents/Mark_Calc_App/files/cis2750.txt";
-//     char* path = "/Users/david/Documents/Mark_Calc_App/files/3210-outline-F19_v8.txt";
-//     // char* path = "/Users/david/Documents/Mark_Calc_App/files/outline.txt";
-//     // char* path = "/Users/david/Documents/Mark_Calc_App/files/acct3280.txt";
-//     // char* path = "/Users/david/Documents/Mark_Calc_App/files/acct_2230.txt";
-//     // char* path = "/Users/david/Documents/Mark_Calc_App/files/mcs_2000.txt";
-//     // char* path = "/Users/david/Documents/Mark_Calc_App/files/hist_1150.txt";
-//     // char* path = "/Users/david/Documents/Mark_Calc_App/files/stats_2060.txt";
-//     // char* path = "/Users/david/Documents/Mark_Calc_App/files/acct3340.txt";
-//     // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/MGMT_3020.txt";//major bug
-//     // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/acct_4340.txt";1
-//     // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/ACCT_4220.txt";//final exam bug
-//     // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/HROB_3030.txt";
-//     // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/acct_4270.txt";
-//     // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/acct_4230.txt";
-//     // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/acct_4220.txt";
-//     // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/hrob_2010.txt";
-//     // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/hrob_2090.txt";
-//     // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/W2020CIS4010.txt";
-//     // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/Outline-2.txt";
-//     // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/CIS4500_CourseOutline.txt";
-//     // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/W20 CIS3750 Course Outline.txt";
-//     // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/syllabusW20.txt";
-//     // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/POLS_3140.txt";
-
-
-// // /*Still need to add a function that compares and deletes common assessments between generic and 
-// //     assignments*/
+int main(int argc, char *argv[])
+{
+    // char* filename = "POLS_3140.pdf";
+    // execute_java_program_PDF_to_TXT(filename);
+    // char* path = "/Users/david/Documents/Mark_Calc_App/files/Acct_3350.txt";
+    // char* path = "/Users/david/Documents/Mark_Calc_App/files/Outline_MCS2100DE_F19.txt";
+    // char* path = "/Users/david/Documents/Mark_Calc_App/files/CIS3090.txt";
+    // char* path = "/Users/david/Documents/Mark_Calc_App/files/cis2750.txt";
+    // char* path = "/Users/david/Documents/Mark_Calc_App/files/3210-outline-F19_v8.txt";
+    // char* path = "/Users/david/Documents/Mark_Calc_App/files/outline.txt";
+    // char* path = "/Users/david/Documents/Mark_Calc_App/files/acct3280.txt";
+    // char* path = "/Users/david/Documents/Mark_Calc_App/files/acct_2230.txt";
+    // char* path = "/Users/david/Documents/Mark_Calc_App/files/mcs_2000.txt";
+    // char* path = "/Users/david/Documents/Mark_Calc_App/files/hist_1150.txt";
+    // char* path = "/Users/david/Documents/Mark_Calc_App/files/stats_2060.txt";
+    // char* path = "/Users/david/Documents/Mark_Calc_App/files/acct3340.txt";
+    // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/MGMT_3020.txt";//major bug
+    // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/acct_4340.txt";1
+    // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/ACCT_4220.txt";//final exam bug
+    // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/HROB_3030.txt";
+    // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/acct_4270.txt";
+    // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/acct_4230.txt";
+    // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/acct_4220.txt";
+    // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/hrob_2010.txt";
+    // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/hrob_2090.txt";
+    // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/W2020CIS4010.txt";
+    // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/Outline-2.txt";
+    // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/CIS4500_CourseOutline.txt";
+    // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/W20 CIS3750 Course Outline.txt";
+    // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/syllabusW20.txt";
+    // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/POLS_3140.txt";
+    char* path = "/Users/david/Documents/MarkCalcParserApp/files/FRHD2100DE_S20_FINAL.txt";
 
 
 
 
 
-//     char* str = read_file(path);
-//     // Professor* prof = parse_document(str);
-//     free(str);
-//     // doc_to_string(prof);
-
-//     // printf("Total weight = %.1f\n", weight_total(prof));
-
-//     // delete_prof(prof);
-
-//     printf("%s\n", JSON_assessement_list(path));
-//     // printf("%s\n", professor_to_JSON(path));
 
 
+    char* str = read_file(path);
+    Professor* prof = parse_document(str);
+    free(str);
+    doc_to_string(prof);
 
-//     printf("done\n");
-//     return 0;
-// }
+    // printf("Total weight = %.1f\n", weight_total(prof));
+
+    // delete_prof(prof);
+
+    // printf("%s\n", JSON_assessement_list(path));
+    // printf("%s\n", professor_to_JSON(path));
+
+
+
+    printf("done\n");
+    return 0;
+}
 
 
 

@@ -75,7 +75,7 @@ char* grade_to_string(void* data);
 
 char** split(char* line, char* delm, Parse_type type, int check_space);
 
-char* _program_name[12] = {
+char* _program_name[13] = {
     "ACCT",
     "CIS",
     "MCS",
@@ -83,7 +83,8 @@ char* _program_name[12] = {
     "HIST",
     "MGMT",
     "HROB",
-    "POLS"
+    "POLS",
+    "FRHD"
 };
 
 char _key_words[68][32] = {
