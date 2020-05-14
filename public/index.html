@@ -70,7 +70,11 @@
   <!-- Header -->
   <div id="home_title"></div>
   
-  <!-- My Table Section -->
+  <!-- My Table Section when user is NOT logged in -->
+  <div class="homepage_table_section bg-light">
+    <div id="createTableHomePage" class="tableNotLoggedInDiv justify-content-center"></div>
+  </div>
+  <!-- My Table Section when user is logged in-->
   <div class="tableDiv"></div>
 
   <section id="projects" class="projects-section bg-light">
@@ -172,6 +176,16 @@
     </div>
   </section>
 
+  <!-- <script>
+    /*Uses the HTML scroll from up top*/
+    $('.scroll').on('click', function()
+    {
+        var href = $($(this).attr('href'));
+        if(href.length)
+            $('body, html').animate({scrollTop: 
+                    href.offset().top+'px'}, 1000);//scrolling rate
+    });
+  </script> -->
   <!-- Footer Section -->
   <div class="divFooter"> </div>
 

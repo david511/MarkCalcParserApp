@@ -86,7 +86,10 @@ app.get('/index.js',function(req,res) {
     });
 });
 
-//Respond to POST requests that upload files to uploads/ directory
+/**
+ * Respond to POST requests that upload files to the S3 bucket. Also parses
+ * the course outline and adds info the the users database
+ */ 
 app.post('/upload', async function(req, res)
 {
     if(!req.files)//no files found from clinet
@@ -207,6 +210,93 @@ async function uploadToS3butcket(firstName, lastName, fileName)
         }
     });
 }
+
+/**
+ * post request to upload user file form homepage. This request parses the outline
+ * and adds the assessements to a database but infor gets delete on refresh. This only 
+ * happens and gets called when the user is not logged in
+ */
+app.post('/uploadFromHomepage', async function(req, res)
+{
+    if(!req.files)//no files found from clinet
+    {
+        return res.status(400).send('No files were uploaded.');
+    }
+    
+    let uploadFile = req.files.file_input;  
+
+    await uploadFile.mv('uploads/' + uploadFile.name, function(err) {
+        if(err) {
+            return res.status(500).send(err);
+        }
+    }); 
+    console.log("Just uploaded course outline");
+    /**
+        * Forks a new process to run a java program that converts the PDF to a Text files
+        */
+    var child = await spawn('java', ['-cp',  path.join(__dirname + '/parser/bin/pdfbox-app-2.0.17.jar:.') ,
+                        'converter', path.join(__dirname + '/uploads/' + uploadFile.name)]);
+    child.on('exit', code => {
+        console.log(`Exit code is: ${code}`);
+    });
+
+    // printing output of the child process
+    for await (const data of child.stdout) {
+        console.log(`stdout from the child: ${data}`);
+    };
+
+    // res.redirect('api/user_data');
+    let connection;
+    try
+    {
+        connection = await mysql.createConnection(dbConf);
+
+        let pdfFile = String(uploadFile.name).replace(".pdf", ".txt");
+        /**
+        * C function that parses the document and returns a JSON string with assessements
+        * and their weights
+        */
+        let json_str_assessements = sharedLib.JSON_assessement_list(path.join(__dirname + '/uploads/' +
+                                                        pdfFile));
+
+        let json_obj = JSON.parse(json_str_assessements);
+        console.log(json_obj); 
+
+        /* Adding all the assessements from the uploaded file into the database Course_assessement table */
+        for (let index in json_obj)
+        {
+            let assessement = String(Object.keys(json_obj[index]));
+            let weight = String(Object.values(json_obj[index]));
+            await connection.execute(`INSERT INTO Non_user_course_assessement 
+                (assessement_name, weight, user_mark) VALUES (
+                '` + assessement + `','` + weight + `', '0');`);
+        }
+
+        let prof_str = sharedLib.professor_to_JSON(path.join(__dirname + '/uploads/' + pdfFile));
+        console.log(prof_str);
+        let json_prof_obj = JSON.parse(prof_str);
+        console.log("json_prof_obj = " + json_prof_obj);
+
+        await connection.execute(`INSERT INTO Non_user_course_information VALUES (
+                        '` + json_prof_obj.professor + `','` + json_prof_obj.email +
+                            `','` + json_prof_obj.course_code  + `');`);
+
+        //delete pdf and txt file as we don't need to keep them
+        fs.unlink(__dirname + '/uploads/' + uploadFile.name, function (err) {
+            if (err) console.log("Error delete .pdf file " + err);
+        });
+        fs.unlink(__dirname + '/uploads/' + pdfFile, function (err) {
+            if (err) console.log("Error delete .txt file " + err);
+        });
+
+        res.redirect('http://127.0.0.1:3000/#createTableHomePage');
+
+    } catch(e) {
+        console.log("Query error! " + e);
+    } finally {
+        if (connection && connection.end) connection.end();
+    }
+});
 
 app.get('/get_num_courses', async function(req , res)
 {
@@ -497,6 +587,12 @@ app.get('/deleteTable', async function(req, res)
     try
     {
         connection = await mysql.createConnection(dbConf);
+        const [file_name, nothing] =
+        await connection.execute(`
+                SELECT Course_file.file_name
+                FROM Course_file
+                WHERE Course_file.id = '` + req.user.id + `' AND 
+                    Course_file.file_id = '` + req.query.tableId + `'`);
         /**
         * Deleting table the user requested to delete
         */
@@ -603,6 +699,23 @@ app.get('/deleteTable', async function(req, res)
             lastFileObj = fileId;
         }
 
+        let file;
+        for (let obj of file_name) { file = obj.file_name; }
+
+        //delete file in user directory in s3
+        var params = {
+            Bucket: "markcaluploaddirectory/" + req.user.firstName + req.user.lastName + "uploads",
+            Key: file
+        };
+        await s3.deleteObject(params, function (err, data) {
+            if (data) {
+                console.log("File " + file + " deleted successfully");
+            }
+            else {
+                console.log("Check if you have sufficient permissions : "+err);
+            }
+        });
+
         res.send(true);
     } catch (e) {
         console.log("Query error, failed to delete table " + e);
@@ -685,7 +798,7 @@ app.get('/addUserEnteredManualTable', async function(req, res)
                     + `','` + req.user.id + `')`);
 
         await connection.execute(`INSERT INTO Course_information VALUES (
-            'Unknown','','','` + req.query.tableId + `','` + req.user.id + `');`);
+            '','','','` + req.query.tableId + `','` + req.user.id + `');`);
 
         await connection.execute(`INSERT INTO Course_assessement 
             (assessement_name, weight, user_mark, file_id, id) VALUES (
@@ -701,7 +814,48 @@ app.get('/addUserEnteredManualTable', async function(req, res)
     }
 });
 
+app.get('/check_non_user_table', async function(req, res)
+{
+    let connection;
+    try
+    {
+        connection = await mysql.createConnection(dbConf);
 
+
+        const [num_assessement, empty] = 
+        await connection.execute(`SELECT Count(*) AS NUM_ASSESSEMENT
+                                  FROM Non_user_course_assessement;`);
+        let number_evaluations;
+        for (let obj of num_assessement) { number_evaluations = obj.NUM_ASSESSEMENT; }
+
+        if (number_evaluations > 0)
+        {
+            const [assessement, empty1] = 
+            await connection.execute(`SELECT Non_user_course_assessement.assessement_name,
+                                             Non_user_course_assessement.weight
+                                      FROM Non_user_course_assessement;`);
+            const [information, empty2] = 
+            await connection.execute(`SELECT *
+                                      FROM Non_user_course_information;`);
+
+            await connection.execute(`DELETE FROM Non_user_course_assessement;`);
+            await connection.execute(`DELETE FROM Non_user_course_information;`);
+
+            res.send({
+                number_evaluations,
+                assessement: assessement,
+                information: information
+            });
+        }
+        else { res.send({ number_evaluations : number_evaluations}) ; }
+
+    } catch (e) {
+        console.log("Query error, failed to add table without a course outline " + e);
+        res.send(false);
+    } finally {
+        if (connection && connection.end) connection.end();
+    }
+});
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {
@@ -709,3 +863,7 @@ db.sequelize.sync().then(function() {
         console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
     });
 });
+
+/*
+create table Non_user_course_assessement (assessement_name varchar(256), weight int,
+user_mark decimal(5,2), prof_name varchar(128), prof_email varchar(128), course_code varchar(32));*/
