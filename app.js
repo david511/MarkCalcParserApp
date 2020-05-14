@@ -410,9 +410,6 @@ app.get('/checkIfEmailExcists', async function(req, res)
     }
 });
 
-
-
-
 /** HTTP methods (AJAX calls)**/
 app.get('/connect_db', async function(req, res)
 {

@@ -388,7 +388,7 @@ function insert_tables(num_files, assessement_obj, prof_obj)
                                         <i class="material-icons">&#xE03B;</i></a>
                             <a class="edit" title="Edit" data-toggle="tooltip">
                                         <i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip">
+                            <a class="delete" title="Delete">
                                         <i class="material-icons">&#xE872;</i></a>
                         </td>
                     </tr>`
@@ -457,29 +457,78 @@ function addrow(table_id, i, user)
 {
     $('[data-toggle="tooltip"]').tooltip();
     var actions = $("table td:last-child").html();
-    $(this).attr("disabled", "disabled");
+    $(this).attr("disabled", "disabled");   
     console.log("Table number = " + i);
     var index;
     //if the user is logged in
     if (user == true) index = document.getElementById("tableNumber" + i).rows.length;
     else index = document.getElementById("tempTableBody").rows.length;
 
-    var row = '<tr>' +
-        '<td class="assessementTH" ><input type="text" class="form-control"></td>' +
-        '<td><input type="text" class="form-control"></td>' +
-        '<td><input type="text" class="form-control"></td>' +
-        '<td>' + actions + '</td>' +
-    '</tr>';
-    $(table_id).append(row);		
-    
     console.log("index == " + index)
     if (user == true)
     {
-        $("table.tableClass"+i+" tbody.table_body"+i+
-                " tr").eq(index - 3).find(".add, .edit").toggle();
+        var rowCount = $("table.tableClass"+i+" tbody.table_body"+i+ " tr").length;
+        if (rowCount == 0)
+        {
+            console.log("empty")
+            var row = '<tr>' +
+            '<td class="assessementTH" >Add Assessement Here</td>' +
+            '<td>0%</td>' +
+            '<td>0.00%</td>' +
+            `<td> <a class="add" title="Add" data-toggle="tooltip">
+                    <i class="material-icons">&#xE03B;</i></a>
+                <a class="edit" title="Edit" data-toggle="tooltip">
+                     <i class="material-icons">&#xE254;</i></a>
+                <a class="delete" title="Delete">
+                     <i class="material-icons">&#xE872;</i></a></td>' +
+            </tr>`;
+            $(table_id).append(row);	
+        }
+        else
+        {
+            console.log("not empty");
+            var row = '<tr>' +
+            '<td class="assessementTH" ><input type="text" class="form-control"></td>' +
+            '<td><input type="text" class="form-control"></td>' +
+            '<td><input type="text" class="form-control"></td>' +
+            '<td>' + actions + '</td>' +
+            '</tr>';
+            $(table_id).append(row);	
+            $("table.tableClass"+i+" tbody.table_body"+i+
+                " tr").eq(index - 3).find(".add, .edit").toggle();//-3 becuase of the two columns in tfoot
+        }
     }
     else
     {
+        var rowCount = $("table tbody tr").length;
+        if (rowCount == 0)
+        {
+            console.log("empty")
+            var row = '<tr>' +
+            '<td class="assessementTH" ><input type="text" class="form-control"></td>' +
+            '<td><input type="text" class="form-control"></td>' +
+            '<td><input type="text" class="form-control"></td>' +
+            `<td> <a class="add" title="Add" data-toggle="tooltip">
+                    <i class="material-icons">&#xE03B;</i></a>
+                <a class="edit" title="Edit" data-toggle="tooltip">
+                     <i class="material-icons">&#xE254;</i></a>
+                <a class="delete" title="Delete">
+                     <i class="material-icons">&#xE872;</i></a></td>' +
+            </tr>`;
+            $(table_id).append(row);	
+        }
+        else
+        {
+            console.log("not empty");
+            var row = '<tr>' +
+            '<td class="assessementTH" ><input type="text" class="form-control"></td>' +
+            '<td><input type="text" class="form-control"></td>' +
+            '<td><input type="text" class="form-control"></td>' +
+            '<td>' + actions + '</td>' +
+            '</tr>';
+            $(table_id).append(row);	
+        }
+    
         $("table tbody tr").eq(index).find(".add, .edit").toggle();
     }
     $('[data-toggle="tooltip"]').tooltip();
@@ -969,7 +1018,7 @@ function createTableFromScratch()
                                         <i class="material-icons">&#xE03B;</i></a>
                             <a class="edit" title="Edit" data-toggle="tooltip">
                                         <i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip">
+                            <a class="delete" title="Delete">
                                         <i class="material-icons">&#xE872;</i></a>
                         </td>`;
 
@@ -1155,7 +1204,7 @@ function createTableNotLogggedInWithOutline(number_assessements, Assessement, co
                             <i class="material-icons">&#xE03B;</i></a>
                 <a class="edit" title="Edit" data-toggle="tooltip">
                             <i class="material-icons">&#xE254;</i></a>
-                <a class="delete" title="Delete" data-toggle="tooltip">
+                <a class="delete" title="Delete">
                             <i class="material-icons">&#xE872;</i></a>
             </td>
         </tr>`);
@@ -1177,7 +1226,7 @@ function clearTable()
                     <i class="material-icons">&#xE03B;</i></a>
         <a class="edit" title="Edit" data-toggle="tooltip">
                     <i class="material-icons">&#xE254;</i></a>
-        <a class="delete" title="Delete" data-toggle="tooltip">
+        <a class="delete" title="Delete">
                     <i class="material-icons">&#xE872;</i></a>
     </td>`;
     $('#tempTableBody').append(row);
