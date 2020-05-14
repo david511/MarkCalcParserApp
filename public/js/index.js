@@ -551,7 +551,7 @@ $(document).on("click", ".delete", function()
     let tempCol1 = col1.text();
     let tempCol2 = col2.text();
     $(this).parents("tr").remove();//remove the row from the screen
-    $(".add-new").removeAttr("disabled");
+    // $(".add-new").removeAttr("disabled");
  
     let userWeight;
     if (tempCol2 != "undefined" && tempCol2.includes('%'))
@@ -1070,7 +1070,7 @@ function createTableNotLogggedIn()
                     <i class="material-icons">&#xE03B;</i></a>
         <a class="edit" title="Edit" data-toggle="tooltip">
                     <i class="material-icons">&#xE254;</i></a>
-        <a class="delete" title="Delete" data-toggle="tooltip">
+        <a class="delete" title="Delete">
                     <i class="material-icons">&#xE872;</i></a>
     </td>`;
 
@@ -1083,8 +1083,6 @@ function createTableNotLogggedIn()
 
 function createTableNotLogggedInWithOutline(number_assessements, Assessement, course_information)
 {
-    console.log("in create table function " + Assessement[1].assessement_name);
-
     $(".tableNotLoggedInDiv").html(`
     <div class="table_wrapper_not_logged_in">
         <div class="table-title">

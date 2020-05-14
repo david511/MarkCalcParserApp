@@ -94,7 +94,7 @@ app.post('/upload', async function(req, res)
 {
     if(!req.files)//no files found from clinet
     {
-        return res.status(400).send('No files were uploaded.');
+        return res.redirect('/');
     }
     
     let uploadFile = req.files.file_input;  
@@ -618,7 +618,8 @@ app.get('/deleteTable', async function(req, res)
         await connection.execute(`SELECT  Course_assessement.assessement_name, Course_assessement.weight,
                                             Course_assessement.file_id, Course_assessement.user_mark
                                     FROM  Course_assessement
-                                    WHERE Course_assessement.id = '` + req.user.id + `';`);
+                                    WHERE Course_assessement.id = '` + req.user.id + `'
+                                    ORDER BY Course_assessement.id, Course_assessement.file_id;`);//to make the repopulation work
         const [currentInformation, empty1] =    
         await connection.execute(`SELECT  Course_information.prof_name, Course_information.prof_email, 
                                             Course_information.course_code, Course_information.file_id
@@ -651,7 +652,7 @@ app.get('/deleteTable', async function(req, res)
                 WHERE Course_file.id = '` + req.user.id + `'`);
 
         /* Repopulating the user assessements with the UPDATED file_id */
-        let lastObj;
+        let lastId;
         let fileIndex = 1;
         for (let key in currentAssessements)
         {
@@ -659,13 +660,14 @@ app.get('/deleteTable', async function(req, res)
             let weight = currentAssessements[key].weight;
             let userMark = currentAssessements[key].user_mark;
             let fileId = currentAssessements[key].file_id;
-            if (lastObj != fileId && lastObj != null) fileIndex += 1;
+
+            if (lastId != fileId && lastId != null) fileIndex += 1;
    
             await connection.execute(`INSERT INTO Course_assessement 
                 (assessement_name, weight, user_mark, file_id, id) VALUES (
                     '` + assessement + `','` + weight + `','` + userMark + `','` + fileIndex + `','` +
                             req.user.id + `');`);
-            lastObj = fileId;
+            lastId = fileId;
         }
 
         let lastInformationObj;
@@ -724,18 +726,6 @@ app.get('/deleteTable', async function(req, res)
         if (connection && connection.end) connection.end();
     }
 });
-
-async function getCurrentAssessements(connection, userId)
-{
-    const [course_assessements, empty] = 
-        await connection.execute(`SELECT  Course_assessement.assessement_name, Course_assessement.weight,
-                                            Course_assessement.file_id, Course_assessement.user_mark
-                                    FROM  Course_assessement
-                                    WHERE Course_assessement.id = '` + userId + `'
-                                    ORDER BY Course_assessement.assessement_name;`);
-
-    return course_assessements;
-}
 
 app.get('/getAssessementforCertainTable', async function(req, res)
 {
@@ -800,10 +790,10 @@ app.get('/addUserEnteredManualTable', async function(req, res)
         await connection.execute(`INSERT INTO Course_information VALUES (
             '','','','` + req.query.tableId + `','` + req.user.id + `');`);
 
-        await connection.execute(`INSERT INTO Course_assessement 
-            (assessement_name, weight, user_mark, file_id, id) VALUES (
-            'Add Assessement Here','0', '0','` + req.query.tableId + `','` +
-                    req.user.id + `');`);
+        // await connection.execute(`INSERT INTO Course_assessement 
+        //     (assessement_name, weight, user_mark, file_id, id) VALUES (
+        //     'Add Assessement Here','0', '0','` + req.query.tableId + `','` +
+        //             req.user.id + `');`);
 
         res.send(true);
     } catch (e) {
