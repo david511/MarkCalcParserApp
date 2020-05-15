@@ -75,19 +75,55 @@ char* grade_to_string(void* data);
 
 char** split(char* line, char* delm, Parse_type type, int check_space);
 
-char* _program_name[13] = {
-    "ACCT",
+char* _program_name[44] = {
+    "ACCT",// GUELPH course code >>
+    "AGR",
+    "ANSC",
+    "ANTH",
+    "ARTH",
+    "BIOC",
+    "BIOL",
+    "BIOM",
+    "BOT",
+    "BUS",
+    "CHEM",
+    "CLAS",
     "CIS",
-    "MCS",
-    "STAT",
+    "CROP",
+    "ECON",
+    "ENGG",
+    "ENGL",
+    "FARE",
+    "FRHD",
+    "FOOD",
+    "GEOG",
     "HIST",
+    "HTM",
+    "HK",
+    "LARC",
     "MGMT",
+    "MCS",
+    "MATH",
+    "MICR",
+    "MUSC",
+    "NANO",
+    "NEUR",
+    "NUTR",
+    "OAGR",
+    "PHYS",
+    "PSYC",
+    "REAL",
+    "SOC",
+    "SOAN",
+    "STAT",
+    "VETM",
+    "WMST"
     "HROB",
     "POLS",
-    "FRHD"
+    "RSM"// UofT course code >>
 };
 
-char _key_words[68][32] = {
+char _key_words[79][32] = {
     "Presentation",
     "Presentation:",
     "presentation",
@@ -153,10 +189,21 @@ char _key_words[68][32] = {
     "Exercises:",
     "Exercises",
     "exercises",
+    "exercises:",
     "classroom",
     "Simulation",
+    "Simulation:",
     "Peer",
-    "Portfolio"
+    "Portfolio",
+    "Participation",
+    "Participation:",
+    "Individual",
+    "Journal",
+    "Effort",
+    "Poster",
+    "poster",
+    "Poster:",
+    "poster:"
 };
 
 #endif
