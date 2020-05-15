@@ -111,7 +111,7 @@ $(document).ready(function()
             <section id="myTable" class="about-section text-center">
             <div class="container d-flex h-20 align-items-center">
                 <div class="wrapper" id="semesterNav">
-                    <button style="float: right;" type="button" class="btn-sm btn-info addSemester">
+                    <button style="float: right;" type="button" onclick="addSemesteronClick()" class="btn-sm btn-info addSemester">
                             <i class="fa fa-plus"></i> Add Semester</button>
                     <ul class="nav nav-tabs">
                     <li>
@@ -276,7 +276,7 @@ function insert_tables(num_files, assessement_obj, prof_obj)
                             <div class="col-sm-8">
                                 <button type="button" onclick="addrow(` + table_id + `, ` + i + `, true)"
                                         class="btn-sm btn-info add-new addAssessmentButton">
-                                        <i class="fa fa-plus"></i> Add Assessement</button>
+                                        <i class="fa fa-plus"></i> Add Row</button>
                             </div>
                         </div>
                         <div class="row">
@@ -325,7 +325,7 @@ function insert_tables(num_files, assessement_obj, prof_obj)
                                 <div class="col-sm-8">
                                     <button type="button" onclick="addrow(` + table_id + `, ` + i + `, true)"
                                             class="btn-sm btn-info add-new addAssessmentButton">
-                                            <i class="fa fa-plus"></i> Add Assessement</button>
+                                            <i class="fa fa-plus"></i> Add Row</button>
                                 </div>
                             </div>
                             <div class="row">
@@ -416,7 +416,7 @@ function insert_tables(num_files, assessement_obj, prof_obj)
         else finalMark = Math.round(100 * markTotal) / 100;
 
         $('.'+weightTotal_id).append(`Weight Total = ` + weightTotal + `%`);
-        $('.'+markTotal_id).append(`Mark Total = ` + finalMark + '%');
+        $('.'+markTotal_id).append(`Final Grade = ` + finalMark + '%');
 
         //if the total weight of the table does not == 100 display an error message
         if (weightTotal < 100 || weightTotal > 100)
@@ -430,7 +430,11 @@ function insert_tables(num_files, assessement_obj, prof_obj)
 
 function deleteTable(tableId)
 {
-      $.ajax({
+    var result = confirm("Are you sure you want to delete table " + tableId);
+    if (result == false) {
+        return;
+    }
+    $.ajax({
         type: 'get',            //Request type
         dataType: 'json',       //Data type - we will use JSON for almost everything 
         url: '/deleteTable',   //The server endpoint we are connecting to
@@ -805,7 +809,7 @@ function updateTotalMark(tableId, user)
                 else finalMark = Math.round(100 * markTotal) / 100;
                 //updating the new mark
                 $('.markTotal' + tableId).empty();//clear original data
-                $('.markTotal' + tableId).append(`Mark Total = ` + finalMark + `%`);
+                $('.markTotal' + tableId).append(`Final Mark = ` + finalMark + `%`);
             },
             fail: function(error) {
                 console.log(error); 
@@ -865,7 +869,7 @@ function updateWeightMarkNonloggedInUser()
     else finalMark = Math.round(100 * totalMark) / 100;
 
     $('.markTotal').empty();
-    $('.markTotal').append(`Mark Total = ` + finalMark + `%`);
+    $('.markTotal').append(`Final Grade = ` + finalMark + `%`);
 
     $('.weightTotal').empty();
     $('.weightTotal').append(`Weight Total = ` + totalWeight + `%`);
@@ -910,7 +914,7 @@ function createTableFromScratch()
                                 <div class="col-sm-8">
                                     <button type="button" onclick="addrow(` + table_id + `, ` + number_files + `, true)"
                                             class="btn-sm btn-info add-new addAssessmentButton">
-                                            <i class="fa fa-plus"></i> Add Assessement</button>
+                                            <i class="fa fa-plus"></i> Add Row</button>
                                 </div>
                             </div>
                             <div class="row">
@@ -956,7 +960,7 @@ function createTableFromScratch()
                                     <div class="col-sm-8">
                                         <button type="button" onclick="addrow(` + table_id + `, ` + number_files + `, true)"
                                                 class="btn-sm btn-info add-new addAssessmentButton">
-                                                <i class="fa fa-plus"></i> Add Assessement</button>
+                                                <i class="fa fa-plus"></i> Add Row</button>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -1025,7 +1029,7 @@ function createTableFromScratch()
                         $('#' + table_id).append(row);		
 
                         $('.'+weightTotal_id).append(`Weight Total = 0%`);
-                        $('.'+markTotal_id).append(`Mark Total = 0.00%`);
+                        $('.'+markTotal_id).append(`Final Grade = 0.00%`);
                         $('.'+errorMsg_id).append(`*note: weight does not add up to 100%`);
                     }
                     else
@@ -1059,7 +1063,7 @@ function createTableNotLogggedIn()
                 <div class="col-sm-8">
                     <button type="button" onclick="addrow(tempTableBody, 0, false)"
                             class="btn-sm btn-info add-new addAssessmentButton">
-                            <i class="fa fa-plus"></i> Add Assessement</button>
+                            <i class="fa fa-plus"></i> Add Row</button>
                 </div>
             </div>
             <div class="row prof_name_email"></div>
@@ -1126,7 +1130,7 @@ function createTableNotLogggedIn()
     $('#tempTableBody').append(row);		
 
     $('.weightTotal').append(`Weight Total = 0%`);
-    $('.markTotal').append(`Mark Total = 0.00%`);
+    $('.markTotal').append(`Final Mark = 0.00%`);
     $('.weightErrorMsg').append(`*note: weight does not add up to 100%`);
 }
 
@@ -1140,7 +1144,7 @@ function createTableNotLogggedInWithOutline(number_assessements, Assessement, co
                 <div class="col-sm-8">
                     <button type="button" onclick="addrow(tempTableBody, 0, false)"
                             class="btn-sm btn-info add-new addAssessmentButton">
-                            <i class="fa fa-plus"></i> Add Assessement</button>
+                            <i class="fa fa-plus"></i> Add Row</button>
                 </div>
             </div>
             <div class="row prof_name_email">
@@ -1238,6 +1242,11 @@ function clearTable()
     $('.weightErrorMsg').empty();
 
     $('.weightTotal').append(`Weight Total = 0%`);
-    $('.markTotal').append(`Mark Total = 0.00%`);
+    $('.markTotal').append(`Final Grade = 0.00%`);
     $('.weightErrorMsg').append(`*note: weight does not add up to 100%`);
+}
+
+function addSemesteronClick()
+{
+    alert("This feature will be added soon!! :(");
 }

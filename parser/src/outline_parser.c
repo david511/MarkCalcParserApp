@@ -19,9 +19,9 @@
 #define WORD_LEN 1024
 #define TRUE 1
 #define FALSE 0
-#define NUM_PROGRAMS 9//number of program names listed in the header file
+#define NUM_PROGRAMS 44//number of program names listed in the header file
 #define DIGIT_SIZE 3
-#define NUM_KEYWORDS 68
+#define NUM_KEYWORDS 79//number of keywords to help identify assessements
 
 #define MIDTERM 0
 #define ASSIGNMENT 1
@@ -275,8 +275,9 @@ int is_digit_test(char* str, Is_digit_type type)
 
     for (int i = 0 ; i < length; i++)
     {
+        // printf("digit %c\n", str[i]);
         if (isdigit(str[i]) || str[i] == ':' || str[i] == '#' || str[i] == '(' ||
-            str[i] == ')' || str[i] == '%') 
+            str[i] == ')' || str[i] == '%' || str[i] == ',') 
             count++;
     }
     if (count == length) return TRUE;
@@ -302,6 +303,17 @@ int count_space(char* str)
         if (str[i] == ' ') { count++; }   
     }
     return count;
+}
+
+int count_space_of_double_pointer(char** doc_str, int index)
+{
+    int count_space = 1;
+    for (int j = index; j < index + 7; j++)
+    {
+        printf("'%s'\n", doc_str[j]);
+        if (strcmp(doc_str[j], "") == 0) count_space++;
+    }
+    return count_space;
 }
 
 int all_characters(char* str)
@@ -373,7 +385,6 @@ char* remove_second_space(char* str)
 
 int checkIfNextStructExists(Professor* prof, int type)
 {
-    printf("in checkifgenericassemseemebt function\n\n");
     void* grading_elem_generic;
     ListIterator iterator_2 = createIterator(prof->grading_schema);
     while ((grading_elem_generic = nextElement(&iterator_2)) != NULL)
@@ -762,12 +773,23 @@ Professor* parse_prof_info(char** doc_str, char** doc_str_title, char* original_
     {
         // printf("{%s}", doc_str[i]);
         if (strcmp(doc_str[i], "Instructor:") == 0 || strcmp(doc_str[i], "Professor") == 0 ||
-                strcmp(doc_str[i], "Instructor") == 0 || strcmp(doc_str[i], "Instructors:") == 0)
+                strcmp(doc_str[i], "Instructor") == 0 || strcmp(doc_str[i], "Instructors:") == 0 ||
+                    strcmp(doc_str[i], "INSTRUCTORS") == 0 || strcmp(doc_str[i], "INSTRUCTOR") == 0) 
         {   
             printf("prof->prof_name = %s\n", prof->prof_name);
             if (strlen(prof->prof_name) == 0)
             {
                 printf("prof->name is greater than 0\n\n");
+                int num_space = count_space_of_double_pointer(doc_str, i);
+                if (num_space > 2)
+                {
+                    printf("name at %d name '%s'", num_space, doc_str[i + num_space]);
+                    strcat(prof_name, doc_str[i + num_space]);
+                    strcat(prof_name, " ");
+                    strcat(prof_name, doc_str[i + (num_space + 1)]);
+                    strcpy(prof->prof_name, prof_name);
+                }
+
                 if (strlen(doc_str[i + 1]) > 0 && strlen(doc_str[i + 2]) > 0)
                 {
                     printf("in if statement\n\n");
@@ -854,6 +876,7 @@ Professor* parse_prof_info(char** doc_str, char** doc_str_title, char* original_
             {
                 if (strcmp(doc_str[i], _program_name[j]) == 0)
                 {
+                    printf("Using program %s\n", doc_str[i]);
                     if (is_digit_test(doc_str[i + 1], NON_PERCENT) == TRUE)
                     {
                         strcat(course_title, doc_str[i]);
@@ -924,26 +947,35 @@ char* parser_percentage(char* prev_str, char* next_str)
             return number_str_prev;
         }
     }
-
-    printf(" prev = %s, next_str = %s\n", prev_str, next_str);
+    int flag = 0;
+    int length = 0;
+    printf(" prev = '%s' , next_str = '%s'\n", prev_str, next_str);
     for (int i = 0; i < length_prev; i++)
     {
+        printf("gg = %c\n", prev_str[i]);
         if (prev_str[i] == '%')
         {
+            flag = 1;
             for(int j = i; j != i - length_prev; j--)
             {
                 isdigit(prev_str[j]) || prev_str[j] == '.' 
                     ? number_str_prev[x++] = prev_str[j] : 0;
             }
         }
+        if (flag == 0 && isdigit(prev_str[i]))//case where 15 %, the % is seperated from the number
+        {
+            length += 1;
+        }
     }
+    if (flag == 0 && length == strlen(prev_str) && strlen(prev_str) > 0) return prev_str;
+
+    // if (is_digit_test(prev_str, NON_PERCENT) == TRUE) return prev_str;// 15 % case study, example why i put this here
     x = 0;
     if (is_digit_test(number_str_prev, PERCENT) == FALSE)
     {
         //make sure there is a percent apart of the number
         char* number_str_next = calloc(1, sizeof(char) * DIGIT_SIZE);
         number_str_next[0] = '\0';
-        printf("NOT a NUMBER\n");
         for (int i = 0; i != '%'; i++)
         {
             if (next_str[i] == '%') break; 
@@ -954,13 +986,41 @@ char* parser_percentage(char* prev_str, char* next_str)
         if (strcmp(number_str_next, number_str_prev) == 0) return number_str_prev;
         return number_str_next;
     }
+    printf("AFTER\n\n");
     strrevstr(number_str_prev);
-    printf("number string prev = %s\n", number_str_prev);
+
+    // printf("number string prev = %s\n", number_str_prev);
 
     /*Another % parser if there is an extra space between the assessment and the % */
 
     return number_str_prev;
 }
+
+int count_space_until_percentage(char** split_file, int index)
+{
+    for (int j = index; j < index + 7; j++)
+    {
+        printf(" HH '%s'\n", split_file[j]);
+        if (strcmp(split_file[j], " ") == 0) break;
+        // if (is_digit_test(split_file[j], PERCENT) == TRUE && strcmp(split_file[j], "*") != 0)
+        if (is_digit_test(split_file[j], PERCENT) == TRUE && strcmp(split_file[j], "*") != 0)
+        {
+            return j;
+        }
+    }
+
+    for (int j = index; j > index - 6; j--) 
+    {
+        if (strcmp(split_file[j], " ") == 0) break;
+        // if (is_digit_test(split_file[j], PERCENT) == TRUE && strcmp(split_file[j], "*") != 0)
+        if (is_digit_test(split_file[j], PERCENT) == TRUE && strcmp(split_file[j], "*") != 0)
+        {
+            return j;
+        }
+    }   
+    return -10;//i know the value will never reach -10
+}
+
 
 Generic_assesement* parser_generic_assesement(char** split_file, int i)
 {
@@ -1018,11 +1078,31 @@ Generic_assesement* parser_generic_assesement(char** split_file, int i)
                     }
                 }
                 printf("\ngenric = %s\n", generic->generic_assesement_name);
-                char* percentage = parser_percentage("", split_file[j]);
-                printf("PERCENTAn\n");
-                generic->weight = strtod(percentage, NULL);
-                printf("percentage for projects exam = %s %.1f\n", generic->generic_assesement_name, generic->weight);
-                free(percentage);
+                char* percentage = calloc(1, sizeof(char) * 12);
+
+                if (strcmp(split_file[j], "%") == 0)
+                {
+                    printf("+++ \n");
+                    strcpy(percentage, parser_percentage(split_file[j - 1], split_file[j + 1]));
+                    generic->weight = strtod(percentage, NULL);
+                    printf("percentage for projects exam = %s %.1f\n", generic->generic_assesement_name, generic->weight);
+                    printf("PERCENTAn if  %s\n", percentage);
+
+                    free(percentage);
+                }
+                else
+                {
+                    strcpy(percentage, parser_percentage("", split_file[j]));
+                    generic->weight = strtod(percentage, NULL);
+                    printf("percentage for projects exam = %s %.1f\n", generic->generic_assesement_name, generic->weight);
+                    printf("PERCENTAn else  %s\n", percentage);
+
+                    free(percentage);
+
+                }
+                // generic->weight = strtod(percentage, NULL);
+                // printf("percentage for projects exam = %s %.1f\n", generic->generic_assesement_name, generic->weight);
+                // free(percentage);
                 break;
             }
         }
@@ -1249,12 +1329,29 @@ Professor* parse_document(char* doc_str)
                     strcmp(split_file[i + 1], "Exam:") == 0 || strcmp(split_file[i + 1], "exam:") == 0 || 
                         strcmp(split_file[i + 1], "examination") == 0 || strcmp(split_file[i + 1], "examination:") == 0))
         {
-            if (contains_percent(split_file[i - 1]) == TRUE || contains_percent(split_file[i + 2]) == TRUE)
+                printf("FINAL: EXAM '%s' '%s'\n", split_file[i + 1], split_file[i +  2]);
+            
+            if (contains_percent(split_file[i - 1]) == TRUE || contains_percent(split_file[i + 2]) == TRUE ||
+                    contains_percent(split_file[i + 3]) == TRUE)
             {
-                printf("FINAL: EXAM\n");
+                printf("YESSS HH\n");
                 char* percentage = parser_percentage(split_file[i - 1], split_file[i + 1]);
                 grade->weight = strtod(percentage, NULL); 
+                printf("percentage %f\n", grade->weight);
+
                 free(percentage);
+            }
+            else
+            {
+                int indexOfPercentage = count_space_until_percentage(split_file, i);
+                printf("index of = %d\n", indexOfPercentage);
+                if (indexOfPercentage != -10)
+                {
+                    char* percentage = parser_percentage(split_file[indexOfPercentage], " ");
+                    grade->weight = strtod(percentage, NULL); 
+                }
+ 
+                // printf("in ELSE indexof percentage is %d %s\n", indexOfPercentage, split_file[indexOfPercentage]);
             }
         }
         if (strcmp(split_file[i], "Midterm:") == 0 && is_digit_test(split_file[i + 1], NON_PERCENT))
@@ -1264,7 +1361,9 @@ Professor* parse_document(char* doc_str)
             if (midterm->weight > 0.0) insertBack(grade->midterms, midterm);//inserting into the linked list
         }
 
-        if (strcmp(split_file[i], "Midterm:") == 0 || (strcmp(split_file[i], "Exam") == 0 &&
+        if (strcmp(split_file[i], "Midterm:") == 0 || (strcmp(split_file[i], "Mid") == 0 &&
+                strcmp(split_file[i + 1], "Term") == 0 && (strcmp(split_file[i + 3], "Exam") == 0)) ||
+                    (strcmp(split_file[i], "Exam") == 0 &&
                 is_digit_test(split_file[i + 1], NON_PERCENT) == TRUE && strcmp(split_file[i - 1], "Term") != 0) ||
                     (strcmp(split_file[i], "Mid-term") == 0 && strcmp(split_file[i + 1], "exam") == 0) ||
                 (strcmp(split_file[i], "Mid-term") == 0 && strcmp(split_file[i + 1], "Exam:") == 0) ||
@@ -1272,7 +1371,8 @@ Professor* parse_document(char* doc_str)
                     (strcmp(split_file[i + 1], "Exam") == 0 || strcmp(split_file[i + 1], "Exam:") == 0 ||
                 strcmp(split_file[i + 1], "Test") == 0 || strcmp(split_file[i + 1], "examination:") == 0 ||
                     strcmp(split_file[i + 1], "Examination:") == 0  || strcmp(split_file[i + 1], "Examination") == 0 || 
-                strcmp(split_file[i + 1], "examination") == 0  )))
+                strcmp(split_file[i + 1], "examination") == 0 || strcmp(split_file[i + 1], "exam") == 0 ||
+                    strcmp(split_file[i + 1], "exam:") == 0)))
         {
            printf("MIDTERM2 '%s' '%s'\n\n", split_file[i + 2], split_file[i + 3]);
             if (is_digit_test(split_file[i - 1], PERCENT) == TRUE ||
@@ -1678,7 +1778,19 @@ int main(int argc, char *argv[])
     // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/W20 CIS3750 Course Outline.txt";
     // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/syllabusW20.txt";
     // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/POLS_3140.txt";
-    char* path = "/Users/david/Documents/MarkCalcParserApp/files/FRHD2100DE_S20_FINAL.txt";
+    // char* path = "/Users/david/Documents/MarkCalcParserApp/files/FRHD2100DE_S20_FINAL.txt";
+    // char* path = "/Users/david/Documents/MarkCalcParserApp/files/RSM321+COURSE+OULTINE+F19+revised.txt";
+    // char* path = "/Users/david/Documents/MarkCalcParserApp/files/GDipPA+Course+Outline+Advanced+Financial+Reporting+RSM+7201+Summer+2020+v3.txt";
+
+    // char* path = "/Users/david/Documents/MarkCalcParserApp/files/acct_4220.txt";
+    // char* path = "/Users/david/Documents/MarkCalcParserApp/files/acct_4270.txt";
+    // char* path = "/Users/david/Documents/MarkCalcParserApp/files/acct_4230.txt";
+    char* path = "/Users/david/Documents/MarkCalcParserApp/files/stats_2060.txt";
+
+    // char* path = "/Users/david/Documents/MarkCalcParserApp/files/MGMT_3020.txt";//major bug
+
+
+
 
 
 
@@ -1691,7 +1803,7 @@ int main(int argc, char *argv[])
     free(str);
     doc_to_string(prof);
 
-    // printf("Total weight = %.1f\n", weight_total(prof));
+    printf("Total weight = %.1f\n", weight_total(prof));
 
     // delete_prof(prof);
 
