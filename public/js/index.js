@@ -431,29 +431,29 @@ function insert_tables(num_files, assessement_obj, prof_obj)
 function deleteTable(tableId)
 {
     var result = confirm("Are you sure you want to delete table " + tableId);
-    if (result == false) {
-        return;
+    if (result == true)
+    {
+        $.ajax({
+            type: 'get',            //Request type
+            dataType: 'json',       //Data type - we will use JSON for almost everything 
+            url: '/deleteTable',   //The server endpoint we are connecting to
+            data: {
+                tableId: tableId
+            },
+            success: function (data) {
+                if (data == true)
+                {
+                    console.log("Sucessfully deleted table " + tableId);
+                    location.reload();
+                }
+                else {
+                    console.log("Failed to delete table " + tableId);
+                }
+            },
+            fail: function(error) {
+            }
+        });
     }
-    $.ajax({
-        type: 'get',            //Request type
-        dataType: 'json',       //Data type - we will use JSON for almost everything 
-        url: '/deleteTable',   //The server endpoint we are connecting to
-        data: {
-            tableId: tableId
-        },
-        success: function (data) {
-            if (data == true)
-            {
-                console.log("Sucessfully deleted table " + tableId);
-                location.reload();
-            }
-            else {
-                console.log("Failed to delete table " + tableId);
-            }
-        },
-        fail: function(error) {
-        }
-    });
 }
 
 // Append table with add row form on add new button click
