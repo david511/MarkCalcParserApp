@@ -19,9 +19,9 @@
 #define WORD_LEN 1024
 #define TRUE 1
 #define FALSE 0
-#define NUM_PROGRAMS 44//number of program names listed in the header file
+#define NUM_PROGRAMS 45//number of program names listed in the header file
 #define DIGIT_SIZE 3
-#define NUM_KEYWORDS 79//number of keywords to help identify assessements
+#define NUM_KEYWORDS 80//number of keywords to help identify assessements
 
 #define MIDTERM 0
 #define ASSIGNMENT 1
@@ -1196,23 +1196,24 @@ Midterm* parser_midterm(char** split_file, int i)
     {
         char* percentage = parser_percentage(split_file[i + 2], split_file[i - 2]);
         mid->weight = strtod(percentage, NULL);
-        printf("percentage for midterm exam = %s %.1f\n", mid->midterm_name, mid->weight);
+        printf("percentage for midterm exam 1 = %s %.1f\n", mid->midterm_name, mid->weight);
+        free(percentage);
+    }
+    else if (contains_percent(split_file[i + 3]) == TRUE)
+    {
+        char* percentage = parser_percentage("", split_file[i + 3]);
+        mid->weight = strtod(percentage, NULL); 
+        printf("percentage for midterm exam 2 = %s %.1f\n", mid->midterm_name, mid->weight);
         free(percentage);
     }
     else if (contains_percent(split_file[i - 1]) == TRUE || contains_percent(split_file[i + 1]) == TRUE)
     {
         char* percentage = parser_percentage(split_file[i - 1], split_file[i + 1]);
         mid->weight = strtod(percentage, NULL); 
-        printf("percentage for midterm exam = %s %.1f\n", mid->midterm_name, mid->weight);
+        printf("percentage for midterm exam 3 = %s %.1f\n", mid->midterm_name, mid->weight);
         free(percentage);
     }
-    else if (contains_percent(split_file[i + 3]) == TRUE)
-    {
-        char* percentage = parser_percentage(split_file[i - 3], split_file[i + 3]);
-        mid->weight = strtod(percentage, NULL); 
-        printf("percentage for midterm exam = %s %.1f\n", mid->midterm_name, mid->weight);
-        free(percentage);
-    }
+
         
 
     // if (mid->weight > 0.0 && is_digit_test(split_file[i + 2], NON_PERCENT) == TRUE)
@@ -1329,29 +1330,43 @@ Professor* parse_document(char* doc_str)
                     strcmp(split_file[i + 1], "Exam:") == 0 || strcmp(split_file[i + 1], "exam:") == 0 || 
                         strcmp(split_file[i + 1], "examination") == 0 || strcmp(split_file[i + 1], "examination:") == 0))
         {
-                printf("FINAL: EXAM '%s' '%s'\n", split_file[i + 1], split_file[i +  2]);
-            
-            if (contains_percent(split_file[i - 1]) == TRUE || contains_percent(split_file[i + 2]) == TRUE ||
-                    contains_percent(split_file[i + 3]) == TRUE)
+            printf("FINAL: EXAM '%s' '%s'\n", split_file[i + 1], split_file[i +  2]);
+            if (grade->weight == 0.00)
             {
-                printf("YESSS HH\n");
-                char* percentage = parser_percentage(split_file[i - 1], split_file[i + 1]);
-                grade->weight = strtod(percentage, NULL); 
-                printf("percentage %f\n", grade->weight);
-
-                free(percentage);
-            }
-            else
-            {
-                int indexOfPercentage = count_space_until_percentage(split_file, i);
-                printf("index of = %d\n", indexOfPercentage);
-                if (indexOfPercentage != -10)
+                if (contains_percent(split_file[i - 1]) == TRUE)
                 {
-                    char* percentage = parser_percentage(split_file[indexOfPercentage], " ");
+                    char* percentage = parser_percentage(split_file[i - 1], split_file[i + 1]);
                     grade->weight = strtod(percentage, NULL); 
+                    printf("percentage1 %f\n", grade->weight);
+                    free(percentage);
                 }
- 
-                // printf("in ELSE indexof percentage is %d %s\n", indexOfPercentage, split_file[indexOfPercentage]);
+                else if (contains_percent(split_file[i + 2]) == TRUE)
+                {
+                    char* percentage = parser_percentage(split_file[i - 1], split_file[i + 2]);
+                    grade->weight = strtod(percentage, NULL); 
+                    printf("percentage2 %f\n", grade->weight);
+                    free(percentage);
+                }
+                else if (contains_percent(split_file[i + 3]) == TRUE)
+                {
+                    printf("YESSS HH\n");
+                    char* percentage = parser_percentage(split_file[i - 1], split_file[i + 3]);
+                    grade->weight = strtod(percentage, NULL); 
+                    printf("percentage3 %f\n", grade->weight);
+                    free(percentage);
+                }
+                else
+                {
+                    int indexOfPercentage = count_space_until_percentage(split_file, i);
+                    printf("index of = %d\n", indexOfPercentage);
+                    if (indexOfPercentage != -10)
+                    {
+                        char* percentage = parser_percentage(split_file[indexOfPercentage], " ");
+                        grade->weight = strtod(percentage, NULL); 
+                        printf("percentage4 %f\n", grade->weight);
+                        free(percentage);
+                    }
+                }
             }
         }
         if (strcmp(split_file[i], "Midterm:") == 0 && is_digit_test(split_file[i + 1], NON_PERCENT))
@@ -1380,9 +1395,19 @@ Professor* parse_document(char* doc_str)
                         is_digit_test(split_file[i - 2], PERCENT) == TRUE ||
                     is_digit_test(split_file[i + 3], PERCENT) == TRUE)
             {
-                          printf("MIDTERM2\n\n");
-
-                if (strcmp(split_file[i - 1], "Midterm") != 0)
+                printf("MIDTERM2\n\n");
+                if (strcmp(split_file[i + 2], "=") == 0 && contains_percent(split_file[i + 3]) == TRUE) 
+                {
+                    printf("In frst midterm case\n");
+                    Midterm* mid = init_midterm();
+                    strcat(mid->midterm_name, "Midterm");
+                    char* percentage = parser_percentage(split_file[i + 3], "");
+                    mid->weight = strtod(percentage, NULL);
+                    printf("percentage for midterm exam 1 = %s %.1f\n", mid->midterm_name, mid->weight);
+                    free(percentage);
+                    if (mid->weight > 0.0) insertBack(grade->midterms, mid);//inserting into the linked list
+                }
+                else if (strcmp(split_file[i - 1], "Midterm") != 0)
                 {
                     printf("\n>>>>>>midterm exam!!!!!\n");
                     Midterm* midterm = parser_midterm(split_file, i);
@@ -1417,7 +1442,7 @@ Professor* parse_document(char* doc_str)
                     generic->weight = strtod(percentage, NULL);
                     free(percentage);
                 }
-                else if (contains_percent(split_file[i + 3]) == TRUE || contains_percent(split_file[i + 3]) == TRUE)
+                else if (contains_percent(split_file[i + 3]) == TRUE)
                 {
                     char* percentage = parser_percentage(split_file[i - 2], split_file[i + 3]);
                     strcat(generic->generic_assesement_name, split_file[i + 2]);//we can asume that the word after exercise is an counter for the current exercise
@@ -1785,7 +1810,9 @@ int main(int argc, char *argv[])
     // char* path = "/Users/david/Documents/MarkCalcParserApp/files/acct_4220.txt";
     // char* path = "/Users/david/Documents/MarkCalcParserApp/files/acct_4270.txt";
     // char* path = "/Users/david/Documents/MarkCalcParserApp/files/acct_4230.txt";
-    char* path = "/Users/david/Documents/MarkCalcParserApp/files/stats_2060.txt";
+    // char* path = "/Users/david/Documents/MarkCalcParserApp/files/stats_2060.txt";
+    char* path = "/Users/david/Documents/MarkCalcParserApp/files/1022G-western.txt";
+
 
     // char* path = "/Users/david/Documents/MarkCalcParserApp/files/MGMT_3020.txt";//major bug
 
