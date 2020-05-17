@@ -59,15 +59,23 @@ $(document).ready(function()
                             and a table with all your assessements and their weight appears.</h2>
                         <h2 class="text-white-50 mx-auto mt-2 mb-5">Sign up now so you can save your marks and courses.
                         </h2>
-                        <a href="/signup" class="btn btn-primary js-scroll-trigger">Sign up here</a>
-                        <a href="#createTableHomePage" onclick="createTableNotLogggedIn()"
-                                class="btn btn-primary scroll js-scroll-trigger">Create Table</a>
+                        <div id="homepageButtonDiv">
+                            <a href="/signup" class="btn btn-primary js-scroll-trigger">Sign up here</a>
+                            <a href="#createTableHomePage" onclick="createTableNotLogggedIn()"
+                                    class="btn btn-primary scroll js-scroll-trigger">Create Table</a>
+                        </div>
                         <div class="modal fade" id="tableWithOrWithoutOutline" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                         </div>
                     </div>
                 </div>
             </header>`);
+            var mobile = window.matchMedia("(min-width: 992px)")
+
+            if (!mobile.matches)
+            {
+                $("#homepageButtonDiv").css("float", "left");
+            }
 
             $.ajax({
                 type: 'get',            //Request type
@@ -126,7 +134,7 @@ $(document).ready(function()
                             <h6 style="color: white;" align="center">
                                 Please upload your University course outline here to generate table (.pdf only):
                             </h6><br>
-                            <div class="row justify-content-center">
+                            <div id="uploadDiv" class="row justify-content-center">
                                 <form style="color: white;" ref="upload" id="upload" enctype="multipart/form-data" method="post" action="/upload" >
                                     Select a file:   <input id="file_input" name="file_input" type="file" accept="application/pdf">
                                     <button data-toggle="modal" data-target="#progressWindow" onclick="progressBar()"
@@ -134,11 +142,11 @@ $(document).ready(function()
                                                 <i class="fa fa-plus"></i> Create Table With Outline
                                     </button></div>
                                     <br>
-                                    <div class="row justify-content-center">
+                                    <div id="orDiv" class="row justify-content-center">
                                             <h5 style="color: white;">OR</h5>
                                     </div>
                                     <br>
-                                    <div class="row">
+                                    <div id="TableNoOutlineDiv" class="row">
                                         <div class="col-sm-7" style="padding-top: 6px; padding-right: 0px;">
                                             <h6 style="color: white;" align="right">
                                                 Don't have a Course outline? Create one without it!</h6>
@@ -165,6 +173,27 @@ $(document).ready(function()
                     <p>Created by: David Eastwood</p>
                 </div>
             </footer>`);
+
+            var mobile = window.matchMedia("(min-width: 992px)")
+
+            if (!mobile.matches)
+            {
+                $("#uploadDiv").empty();
+                $("#orDiv").empty();
+                $('#TableNoOutlineDiv').empty();
+
+                $("#uploadDiv").html(`
+                <div class="row">
+                    <div class="col-sm-7" style="padding-top: 6px; padding-right: 0px;">
+                        <h6 style="color: white; font-size: 80%;" align="center">
+                            Don't have a Course outline? Create one without it!</h6>
+                    </div>
+                    <div class="col-sm-5">
+                        <button type="button" onclick="createTableFromScratch()" class="btn-sm btn-info addSemester">
+                            <i class="fa fa-plus"></i> Create Table From Scratch</button>
+                    </div>
+                </div>`);
+            }
 
             let current_user = data.id;
             $.ajax({
@@ -263,61 +292,64 @@ function insert_tables(num_files, assessement_obj, prof_obj)
         let weightTotal_id = "weightTotal" + i;
         let markTotal_id = "markTotal" + i;
         let errorMsg_id = "errorMgs" + i;
-        
-        //if file number is odd start a new row
-        if (i % 2 == 0)
+        var mobile = window.matchMedia("(min-width: 992px)")
+
+        if (!mobile.matches)
         {
-            $('#row-' + (i - 1) + '').append(`
-            <div class="col">
-                <div class="table-wrapper">
-                    <div class="table-title">
-                        <div class="row">
-                            <div id="tableName`+i+`" style="text-align: left;" class="col-sm-4">` + prof_obj[i - 1].course_code + `</div>
-                            <div class="col-sm-8">
-                                <button type="button" onclick="addrow(` + table_id + `, ` + i + `, true)"
-                                        class="btn-sm btn-info add-new addAssessmentButton">
-                                        <i class="fa fa-plus"></i> Add Row</button>
+            $('.table_s1').append(`
+            <div class="row" id="row-` + i + `">
+                <div class="col col-width">
+                    <div class="table-wrapper-mobile">
+                        <div class="table-title">
+                            <div class="row">
+                                <div id="tableName`+i+`" style="text-align: left;" class="col-sm-4">` + prof_obj[i - 1].course_code + `</div>
+                                <div class="col-sm-8">
+                                    <button type="button" onclick="addrow(` + table_id + `, ` + i + `, true)"
+                                            class="btn-sm btn-info add-new addAssessmentButton">
+                                            <i class="fa fa-plus"></i> Add Row</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="prof_name`+i+`" style="text-align: left;" class="prof_info col-sm-6">Prof: ` +
+                                        prof_obj[i - 1].prof_name + `</div>
+                                <div id="prof_email`+i+`" style="text-align: right;" class="prof_info_email col-sm-6">Email:` +
+                                        prof_obj[i - 1].prof_email + `</div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div id="prof_name`+i+`" style="text-align: left;" class="prof_info col-sm-6">Prof: ` +
-                                    prof_obj[i - 1].prof_name + `</div>
-                            <div style="text-align: right;" class="prof_info_email col-sm-6">` +
-                                    prof_obj[i - 1].prof_email + `</div>
-                        </div>
+                        <table class="table table-bordered ` + tableClass + `" id="` + num_table_id + `">
+                            <thead>
+                                <tr style="font-size: 80%;">
+                                    <th class="assessementTH">Assessements</th>
+                                    <th>Weight</th>
+                                    <th>Your Mark (%)</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="` + table_id + `" id='` + table_id + `'></tbody>
+                            <tfoot>
+                                <tr>
+                                    <td class="` + weightTotal_id + `" style="border: 0;"></td>
+                                    <td class="` + markTotal_id + `" style="border: 0;"></td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 0;" class="` + errorMsg_id + ` weightErrorMsg"></td>
+                                    <td style="border: 0;" class="deleteButtonTD">
+                                        <button type="button" onclick="deleteTable(`+i+`)" class="btn-sm deleteTableButton">Delete Table</button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
-                    <table class="table table-bordered ` + tableClass + `" id="` + num_table_id + `">
-                        <thead>
-                            <tr>
-                                <th class="assessementTH">Assessements</th>
-                                <th>Weight</th>
-                                <th>Your Mark (%)</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody class="`+table_id+`" id='` + table_id + `'></tbody>   
-                        <tfoot>
-                            <tr>
-                                <td class="` + weightTotal_id + `" style="border: 0;"></td>
-                                <td class="` + markTotal_id + `" style="border: 0;"></td>
-                            </tr>
-                            <tr style="border: 0;" >
-                                <td style="border: 0;" class="` + errorMsg_id + ` weightErrorMsg"></td>
-                                <td style="border: 0;" class="deleteButtonTD">
-                                    <button type="button" onclick="deleteTable(`+i+`)" class="btn-sm deleteTableButton">Delete Table</button>
-                                </td>
-                            </tr>
-                        </tfoot>
-                    </table>
                 </div>
             </div>`);
         }
         else
         {
-            //prof_obj index by -1 because the iterations start at 1
-            $('.table_s1').append(`
-            <div class="row" id="row-` + i + `">
-                <div class="col col-width">
+            //if file number is odd start a new row
+            if (i % 2 == 0)
+            {
+                $('#row-' + (i - 1) + '').append(`
+                <div class="col">
                     <div class="table-wrapper">
                         <div class="table-title">
                             <div class="row">
@@ -344,13 +376,13 @@ function insert_tables(num_files, assessement_obj, prof_obj)
                                     <th>Actions</th>
                                 </tr>
                             </thead>
-                            <tbody class="` + table_id + `" id='` + table_id + `'></tbody>
+                            <tbody class="`+table_id+`" id='` + table_id + `'></tbody>   
                             <tfoot>
                                 <tr>
                                     <td class="` + weightTotal_id + `" style="border: 0;"></td>
                                     <td class="` + markTotal_id + `" style="border: 0;"></td>
                                 </tr>
-                                <tr>
+                                <tr style="border: 0;" >
                                     <td style="border: 0;" class="` + errorMsg_id + ` weightErrorMsg"></td>
                                     <td style="border: 0;" class="deleteButtonTD">
                                         <button type="button" onclick="deleteTable(`+i+`)" class="btn-sm deleteTableButton">Delete Table</button>
@@ -359,14 +391,66 @@ function insert_tables(num_files, assessement_obj, prof_obj)
                             </tfoot>
                         </table>
                     </div>
-                </div>
-            </div>`);
+                </div>`);
+            }
+            else
+            {
+                //prof_obj index by -1 because the iterations start at 1
+                $('.table_s1').append(`
+                <div class="row" id="row-` + i + `">
+                    <div class="col col-width">
+                        <div class="table-wrapper">
+                            <div class="table-title">
+                                <div class="row">
+                                    <div id="tableName`+i+`" style="text-align: left;" class="col-sm-4">` + prof_obj[i - 1].course_code + `</div>
+                                    <div class="col-sm-8">
+                                        <button type="button" onclick="addrow(` + table_id + `, ` + i + `, true)"
+                                                class="btn-sm btn-info add-new addAssessmentButton">
+                                                <i class="fa fa-plus"></i> Add Row</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="prof_name`+i+`" style="text-align: left;" class="prof_info col-sm-6">Prof: ` +
+                                            prof_obj[i - 1].prof_name + `</div>
+                                    <div style="text-align: right;" class="prof_info_email col-sm-6">` +
+                                            prof_obj[i - 1].prof_email + `</div>
+                                </div>
+                            </div>
+                            <table class="table table-bordered ` + tableClass + `" id="` + num_table_id + `">
+                                <thead>
+                                    <tr>
+                                        <th class="assessementTH">Assessements</th>
+                                        <th>Weight</th>
+                                        <th>Your Mark (%)</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="` + table_id + `" id='` + table_id + `'></tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td class="` + weightTotal_id + `" style="border: 0;"></td>
+                                        <td class="` + markTotal_id + `" style="border: 0;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 0;" class="` + errorMsg_id + ` weightErrorMsg"></td>
+                                        <td style="border: 0;" class="deleteButtonTD">
+                                            <button type="button" onclick="deleteTable(`+i+`)" class="btn-sm deleteTableButton">Delete Table</button>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>`);
+            }
+            if (i % 2 != 0) $('.table_s1').append('</div>');
         }
-        if (i % 2 != 0) $('.table_s1').append('</div>');
 
         if (prof_obj[i - 1].prof_name.length == 0) $("#prof_name" + i).empty();
         if (prof_obj[i - 1].course_code.length == 0)
             $('#tableName' + i).html("Course table " + i);
+        if (prof_obj[i - 1].prof_email.length == 0) $("#prof_email" + i).empty();
+
 
         let weightTotal = 0;
         let markTotal = 0;
@@ -903,57 +987,14 @@ function createTableFromScratch()
             let markTotal_id = "markTotal" + number_files;
             let errorMsg_id = "errorMgs" + number_files;
 
-            if (number_files % 2 == 0)
-            {
-                $('#row-' + (number_files - 1) + '').append(`
-                <div class="col">
-                    <div class="table-wrapper">
-                        <div class="table-title">
-                            <div class="row">
-                                <div style="text-align: left;" class="col-sm-4">Course Table ` + number_files + `</div>
-                                <div class="col-sm-8">
-                                    <button type="button" onclick="addrow(` + table_id + `, ` + number_files + `, true)"
-                                            class="btn-sm btn-info add-new addAssessmentButton">
-                                            <i class="fa fa-plus"></i> Add Row</button>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div style="text-align: left;" class="prof_info col-sm-6"></div>
-                                <div style="text-align: right;" class="prof_info_email col-sm-6"></div>
-                            </div>
-                        </div>
-                        <table class="table table-bordered ` + tableClass + `" id="` + num_table_id + `">
-                            <thead>
-                                <tr>
-                                    <th class="assessementTH">Assessements</th>
-                                    <th>Weight</th>
-                                    <th>Your Mark (%)</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody class="`+table_id+`" id='` + table_id + `'></tbody>   
-                            <tfoot>
-                                <tr>
-                                    <td class="` + weightTotal_id + `" style="border: 0;"></td>
-                                    <td class="` + markTotal_id + `" style="border: 0;"></td>
-                                </tr>
-                                <tr style="border: 0;" >
-                                    <td style="border: 0;" class="` + errorMsg_id + ` weightErrorMsg"></td>
-                                    <td style="border: 0;" class="deleteButtonTD">
-                                        <button type="button" onclick="deleteTable(`+number_files+`)" class="btn-sm deleteTableButton">Delete Table</button>
-                                    </td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                </div>`);
-            }
-            else
+            var mobile = window.matchMedia("(min-width: 992px)")
+
+            if (!mobile.matches)
             {
                 $('.table_s1').append(`
                 <div class="row" id="row-` + number_files + `">
                     <div class="col col-width">
-                        <div class="table-wrapper">
+                        <div class="table-wrapper-mobile">
                             <div class="table-title">
                                 <div class="row">
                                     <div style="text-align: left;" class="col-sm-4">Course Table ` + number_files + `</div>
@@ -970,7 +1011,7 @@ function createTableFromScratch()
                             </div>
                             <table class="table table-bordered ` + tableClass + `" id="` + num_table_id + `">
                                 <thead>
-                                    <tr>
+                                    <tr style="font-size: 80%;">
                                         <th class="assessementTH">Assessements</th>
                                         <th>Weight</th>
                                         <th>Your Mark (%)</th>
@@ -995,7 +1036,102 @@ function createTableFromScratch()
                     </div>
                 </div>`);
             }
-            if (number_files % 2 != 0) $('.table_s1').append('</div>');
+            else
+            {
+                if (number_files % 2 == 0)
+                {
+                    $('#row-' + (number_files - 1) + '').append(`
+                    <div class="col">
+                        <div class="table-wrapper">
+                            <div class="table-title">
+                                <div class="row">
+                                    <div style="text-align: left;" class="col-sm-4">Course Table ` + number_files + `</div>
+                                    <div class="col-sm-8">
+                                        <button type="button" onclick="addrow(` + table_id + `, ` + number_files + `, true)"
+                                                class="btn-sm btn-info add-new addAssessmentButton">
+                                                <i class="fa fa-plus"></i> Add Row</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div style="text-align: left;" class="prof_info col-sm-6"></div>
+                                    <div style="text-align: right;" class="prof_info_email col-sm-6"></div>
+                                </div>
+                            </div>
+                            <table class="table table-bordered ` + tableClass + `" id="` + num_table_id + `">
+                                <thead>
+                                    <tr>
+                                        <th class="assessementTH">Assessements</th>
+                                        <th>Weight</th>
+                                        <th>Your Mark (%)</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="`+table_id+`" id='` + table_id + `'></tbody>   
+                                <tfoot>
+                                    <tr>
+                                        <td class="` + weightTotal_id + `" style="border: 0;"></td>
+                                        <td class="` + markTotal_id + `" style="border: 0;"></td>
+                                    </tr>
+                                    <tr style="border: 0;" >
+                                        <td style="border: 0;" class="` + errorMsg_id + ` weightErrorMsg"></td>
+                                        <td style="border: 0;" class="deleteButtonTD">
+                                            <button type="button" onclick="deleteTable(`+number_files+`)" class="btn-sm deleteTableButton">Delete Table</button>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>`);
+                }
+                else
+                {
+                    $('.table_s1').append(`
+                    <div class="row" id="row-` + number_files + `">
+                        <div class="col col-width">
+                            <div class="table-wrapper">
+                                <div class="table-title">
+                                    <div class="row">
+                                        <div style="text-align: left;" class="col-sm-4">Course Table ` + number_files + `</div>
+                                        <div class="col-sm-8">
+                                            <button type="button" onclick="addrow(` + table_id + `, ` + number_files + `, true)"
+                                                    class="btn-sm btn-info add-new addAssessmentButton">
+                                                    <i class="fa fa-plus"></i> Add Row</button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div style="text-align: left;" class="prof_info col-sm-6"></div>
+                                        <div style="text-align: right;" class="prof_info_email col-sm-6"></div>
+                                    </div>
+                                </div>
+                                <table class="table table-bordered ` + tableClass + `" id="` + num_table_id + `">
+                                    <thead>
+                                        <tr>
+                                            <th class="assessementTH">Assessements</th>
+                                            <th>Weight</th>
+                                            <th>Your Mark (%)</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="` + table_id + `" id='` + table_id + `'></tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td class="` + weightTotal_id + `" style="border: 0;"></td>
+                                            <td class="` + markTotal_id + `" style="border: 0;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 0;" class="` + errorMsg_id + ` weightErrorMsg"></td>
+                                            <td style="border: 0;" class="deleteButtonTD">
+                                                <button type="button" onclick="deleteTable(`+number_files+`)" class="btn-sm deleteTableButton">Delete Table</button>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>`);
+                }
+                if (number_files % 2 != 0) $('.table_s1').append('</div>');
+            }
             //add a file id to the course file table
             $.ajax({
                 type: 'get',
@@ -1055,60 +1191,125 @@ function createTableFromScratch()
  */
 function createTableNotLogggedIn()
 {
-    $(".tableNotLoggedInDiv").html(`
-    <div class="table_wrapper_not_logged_in">
-        <div class="table-title">
+    var mobile = window.matchMedia("(min-width: 992px)")
+
+    if (!mobile.matches)
+    {
+        $(".tableNotLoggedInDiv").css("width", "100%");
+
+        $(".tableNotLoggedInDiv").html(`
+        <div class="table_wrapper_not_logged_in">
+            <div class="table-title">
+                <div class="row">
+                    <div style="text-align: left;" class="col-sm-4"></div>
+                    <div class="col-sm-8">
+                        <button type="button" onclick="addrow(tempTableBody, 0, false)"
+                                class="btn-sm btn-info add-new addAssessmentButton">
+                                <i class="fa fa-plus"></i> Add Row</button>
+                    </div>
+                </div>
+                <div class="row prof_name_email"></div>
+            </div>
+            <table id="nonLoggedInTable" class="table table-bordered tableNumber0">
+                <thead>
+                    <tr id="tableheader">
+                        <th class="assessementTH">Assessements</th>
+                        <th>Weight</th>
+                        <th>Your Mark (%)</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tempTableBody"></tbody>   
+                <tfoot>
+                    <tr>
+                        <td class="weightTotal" style="border: 0;"></td>
+                        <td class="markTotal" style="border: 0;"></td>
+                    </tr>
+                    <tr style="border: 0;" >
+                        <td style="border: 0;" class="weightErrorMsg "></td>
+                        <td style="border: 0;" class="deleteButtonTD">
+                            <button type="button" onclick="clearTable()"
+                                class="btn-sm clearTableButton">Clear Table</button>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+            Try Populating the table with your course outline!
             <div class="row">
-                <div style="text-align: left;" class="col-sm-4"></div>
-                <div class="col-sm-8">
-                    <button type="button" onclick="addrow(tempTableBody, 0, false)"
-                            class="btn-sm btn-info add-new addAssessmentButton">
-                            <i class="fa fa-plus"></i> Add Row</button>
+                <div class="col-sm-12" style="padding-top: 4px;">
+                    <form style="font-size: 14px;" ref="upload" id="upload"
+                            enctype="multipart/form-data" method="post" action="/uploadFromHomepage" >
+                        <input id="file_input" name="file_input" type="file" accept="application/pdf">
+                        <button data-toggle="modal" data-target="#progressWindow" onclick="progressBar()"
+                            type="submit" id="upload" class="btn-sm btn-info uploadButton">
+                                    <i class="fa fa-plus"></i> Upload Outline
+                    </button></div>
+                    </form>
                 </div>
             </div>
-            <div class="row prof_name_email"></div>
-        </div>
-        <table id="nonLoggedInTable" class="table table-bordered tableNumber0">
-            <thead>
-                <tr>
-                    <th class="assessementTH">Assessements</th>
-                    <th>Weight</th>
-                    <th>Your Mark (%)</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="tempTableBody"></tbody>   
-            <tfoot>
-                <tr>
-                    <td class="weightTotal" style="border: 0;"></td>
-                    <td class="markTotal" style="border: 0;"></td>
-                </tr>
-                <tr style="border: 0;" >
-                    <td style="border: 0;" class="weightErrorMsg "></td>
-                    <td style="border: 0;" class="deleteButtonTD">
-                        <button type="button" onclick="clearTable()"
-                            class="btn-sm clearTableButton">Clear Table</button>
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
-        Try Populating the table with your course outline!
-        <div class="row">
-            <div class="col-sm-12" style="padding-top: 4px;">
-                <form style="font-size: 14px;" ref="upload" id="upload"
-                        enctype="multipart/form-data" method="post" action="/uploadFromHomepage" >
-                    <input id="file_input" name="file_input" type="file" accept="application/pdf">
-                    <button data-toggle="modal" data-target="#progressWindow" onclick="progressBar()"
-                        type="submit" id="upload" class="btn-sm btn-info uploadButton">
-                                <i class="fa fa-plus"></i> Upload Outline
-                </button></div>
-                </form>
+            <div class="modal fade" id="progressWindow" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
             </div>
-        </div>
-        <div class="modal fade" id="progressWindow" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-        </div>
-    </div>`);
+        </div>`);
+    }
+    else
+    {
+        $(".tableNotLoggedInDiv").html(`
+        <div class="table_wrapper_not_logged_in">
+            <div class="table-title">
+                <div class="row">
+                    <div style="text-align: left;" class="col-sm-4"></div>
+                    <div class="col-sm-8">
+                        <button type="button" onclick="addrow(tempTableBody, 0, false)"
+                                class="btn-sm btn-info add-new addAssessmentButton">
+                                <i class="fa fa-plus"></i> Add Row</button>
+                    </div>
+                </div>
+                <div class="row prof_name_email"></div>
+            </div>
+            <table id="nonLoggedInTable" class="table table-bordered tableNumber0">
+                <thead>
+                    <tr style="font-size: 80%;">
+                        <th class="assessementTH">Assessements</th>
+                        <th>Weight</th>
+                        <th>Your Mark (%)</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tempTableBody"></tbody>   
+                <tfoot>
+                    <tr>
+                        <td class="weightTotal" style="border: 0;"></td>
+                        <td class="markTotal" style="border: 0;"></td>
+                    </tr>
+                    <tr style="border: 0;" >
+                        <td style="border: 0;" class="weightErrorMsg "></td>
+                        <td style="border: 0;" class="deleteButtonTD">
+                            <button type="button" onclick="clearTable()"
+                                class="btn-sm clearTableButton">Clear Table</button>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+            Try Populating the table with your course outline!
+            <div class="row">
+                <div class="col-sm-12" style="padding-top: 4px;">
+                    <form style="font-size: 14px;" ref="upload" id="upload"
+                            enctype="multipart/form-data" method="post" action="/uploadFromHomepage" >
+                        <input id="file_input" name="file_input" type="file" accept="application/pdf">
+                        <button data-toggle="modal" data-target="#progressWindow" onclick="progressBar()"
+                            type="submit" id="upload" class="btn-sm btn-info uploadButton">
+                                    <i class="fa fa-plus"></i> Upload Outline
+                    </button></div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal fade" id="progressWindow" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+            </div>
+        </div>`);
+    }
+
 
     $('[data-toggle="tooltip"]').tooltip();
     $(this).attr("disabled", "disabled");
@@ -1136,6 +1337,8 @@ function createTableNotLogggedIn()
 
 function createTableNotLogggedInWithOutline(number_assessements, Assessement, course_information)
 {
+    var mobile = window.matchMedia("(min-width: 992px)")
+
     $(".tableNotLoggedInDiv").html(`
     <div class="table_wrapper_not_logged_in">
         <div class="table-title">
@@ -1156,7 +1359,7 @@ function createTableNotLogggedInWithOutline(number_assessements, Assessement, co
         </div>
         <table id="nonLoggedInTable" class="table table-bordered tableNumber0">
             <thead>
-                <tr>
+                <tr id="tableheader">
                     <th class="assessementTH">Assessements</th>
                     <th>Weight</th>
                     <th>Your Mark (%)</th>
@@ -1212,6 +1415,11 @@ function createTableNotLogggedInWithOutline(number_assessements, Assessement, co
                             <i class="material-icons">&#xE872;</i></a>
             </td>
         </tr>`);
+    }
+
+    if (!mobile.matches)
+    {
+        $("#tableheader").css("font-size", "80%");
     }
 
     updateWeightMarkNonloggedInUser();
