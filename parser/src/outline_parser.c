@@ -861,7 +861,16 @@ Professor* parse_prof_info(char** doc_str, char** doc_str_title, char* original_
                     count = 1;
                     strrevstr(temp_str_front);//reverse the string
                     strcat(prof->email, temp_str_front);
-                    strcat(prof->email, "@uoguelph.ca");
+                    if (strstr(temp_str_back, "guelph") != NULL)
+                    {
+                        strcat(prof->email, "@uoguelph.ca");
+
+                    }
+                    else
+                    {
+                        strcat(prof->email, "@");
+                        strcat(prof->email, temp_str_back);
+                    }
                 }
             }
         }
@@ -891,6 +900,10 @@ Professor* parse_prof_info(char** doc_str, char** doc_str_title, char* original_
                         strcat(course_title, doc_str[i + 2]);
                         strcpy(prof->course_title, course_title);
                     }
+                }
+                else if (strstr(doc_str[i], _program_name[j]) != NULL)//substring checker
+                {
+                    strcpy(prof->course_title, doc_str[i]);
                 }
             }
         }
@@ -1063,6 +1076,7 @@ Generic_assesement* parser_generic_assesement(char** split_file, int i)
         for (int j = i; j > i - 6; j--) 
         {   
             printf("back split_file = %s\n", split_file[j]);
+            if (strcmp(split_file[j], "of") == 0) break;
             if (strcmp(split_file[j - 1], "x") == 0 || strcmp(split_file[j + 1], "x") == 0) break;
             count++;
             if (contains_percent(split_file[j]) == TRUE && strcmp(split_file[j - 1], "@") != 0 &&
@@ -1328,7 +1342,8 @@ Professor* parse_document(char* doc_str)
         if ((strcmp(split_file[i], "Final") == 0 || strcmp(split_file[i], "final") == 0) && (strcmp(split_file[i + 1], "exam") == 0 ||
                 strcmp(split_file[i + 1], "Examination") == 0 || strcmp(split_file[i + 1], "Exam") == 0 ||
                     strcmp(split_file[i + 1], "Exam:") == 0 || strcmp(split_file[i + 1], "exam:") == 0 || 
-                        strcmp(split_file[i + 1], "examination") == 0 || strcmp(split_file[i + 1], "examination:") == 0))
+                        strcmp(split_file[i + 1], "examination") == 0 || strcmp(split_file[i + 1], "examination:") == 0 ||
+                    strcmp(split_file[i + 1], "Exam*") == 0))
         {
             printf("FINAL: EXAM '%s' '%s'\n", split_file[i + 1], split_file[i +  2]);
             if (grade->weight == 0.00)
@@ -1551,6 +1566,25 @@ char* total_weight_to_JSON(char* filename)
     return total_weight_str;
 }
 
+char* clean_str(char* str)
+{
+    int length = strlen(str) + 1;
+    char* newString = calloc(1, sizeof(char) + length);
+    newString[0] = '\0';
+    printf("str ============= '%s' %d\n\n", str, length);
+    int x = 0;
+    for (int i = 0; i < length; i++)
+    {
+        if (str[i] != '*' && str[i] != '=')
+        {
+            newString[x] = str[i];
+            x++;
+        }
+    }
+    return newString;
+}
+
+
 char* JSON_midterm(const Midterm* mid)
 {
     if (mid == NULL) 
@@ -1560,7 +1594,8 @@ char* JSON_midterm(const Midterm* mid)
         return empty_str; 
     }
     char* midterm_str = calloc(1, sizeof(char) * WORD_LEN);
-    sprintf(midterm_str, "{\"%s\":%.1f}", mid->midterm_name, mid->weight);
+    char* clean_midterm_str = clean_str(mid->midterm_name);
+    sprintf(midterm_str, "{\"%s\":%.1f}", clean_midterm_str, mid->weight);
     return midterm_str;
 }
 
@@ -1573,7 +1608,9 @@ char* JSON_assignment(const Assignment* assign)
         return empty_str; 
     }
     char* assign_str = calloc(1, sizeof(char) * WORD_LEN);
-    sprintf(assign_str, "{\"%s\":%.1f}", assign->assignment_name, assign->weight);
+    char* clean_assign_str = clean_str(assign->assignment_name);
+
+    sprintf(assign_str, "{\"%s\":%.1f}", clean_assign_str, assign->weight);
     return assign_str;
 }
 
@@ -1586,7 +1623,9 @@ char* JSON_generic(const Generic_assesement* generic)
         return empty_str; 
     }
     char* generic_str = calloc(1, sizeof(char) * WORD_LEN);
-    sprintf(generic_str, "{\"%s\":%.1f}", generic->generic_assesement_name, generic->weight);
+    char* clean_generic_str = clean_str(generic->generic_assesement_name);
+
+    sprintf(generic_str, "{\"%s\":%.1f}", clean_generic_str, generic->weight);
     return generic_str;
 }
 
@@ -1771,7 +1810,7 @@ char* professor_to_JSON(char* file_name)
 }
 
 
-
+/*
 int main(int argc, char *argv[])
 {
     // char* filename = "POLS_3140.pdf";
@@ -1811,7 +1850,11 @@ int main(int argc, char *argv[])
     // char* path = "/Users/david/Documents/MarkCalcParserApp/files/acct_4270.txt";
     // char* path = "/Users/david/Documents/MarkCalcParserApp/files/acct_4230.txt";
     // char* path = "/Users/david/Documents/MarkCalcParserApp/files/stats_2060.txt";
-    char* path = "/Users/david/Documents/MarkCalcParserApp/files/1022G-western.txt";
+    // char* path = "/Users/david/Documents/MarkCalcParserApp/files/1022G-western.txt";
+    // char* path = "/Users/david/Documents/MarkCalcParserApp/files/RSM*7203.txt";
+    // char* path = "/Users/david/Documents/MarkCalcParserApp/files/RSM7201.txt";
+    char* path = "/Users/david/Documents/MarkCalcParserApp/files/ACCT_4290.txt";
+
 
 
     // char* path = "/Users/david/Documents/MarkCalcParserApp/files/MGMT_3020.txt";//major bug
@@ -1832,7 +1875,7 @@ int main(int argc, char *argv[])
 
     printf("Total weight = %.1f\n", weight_total(prof));
 
-    // delete_prof(prof);
+    delete_prof(prof);
 
     // printf("%s\n", JSON_assessement_list(path));
     // printf("%s\n", professor_to_JSON(path));
@@ -1843,8 +1886,7 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-
-
+*/
 
 
 /*Possible token function*/
