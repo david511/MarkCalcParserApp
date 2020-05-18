@@ -19,9 +19,9 @@
 #define WORD_LEN 1024
 #define TRUE 1
 #define FALSE 0
-#define NUM_PROGRAMS 45//number of program names listed in the header file
+#define NUM_PROGRAMS 46//number of program names listed in the header file
 #define DIGIT_SIZE 3
-#define NUM_KEYWORDS 80//number of keywords to help identify assessements
+#define NUM_KEYWORDS 81//number of keywords to help identify assessements
 
 #define MIDTERM 0
 #define ASSIGNMENT 1
@@ -209,7 +209,10 @@ void free_parser(char** str, int num_words)
     if (str == NULL) return;
     for(int i = 0; i < num_words; i++)
     {
-        free(str[i]);
+        if  (str[i] != NULL)
+        {
+            // free(str[i]);
+        }
     }    
     free(str);
 }
@@ -257,7 +260,7 @@ int new_line_test(char* doc_str)
  */
 int contains_percent(char* doc_str)
 {
-    int length = strlen(doc_str);
+    int length = strlen(doc_str) + 1;
     for (int i = 0; i < length; i++)
     {
         if (doc_str[i] == 'x') return FALSE;
@@ -758,7 +761,7 @@ char** split(char* line, char* delm, Parse_type type, int check_space)
 			strings[row] = calloc(memsize2, sizeof(char) + 1);
 		}
 	}
-	strings[row + 1] = NULL;//end of the string
+	// strings[row + 1] = NULL;//end of the string
 	return strings;
 }
 
@@ -780,16 +783,8 @@ Professor* parse_prof_info(char** doc_str, char** doc_str_title, char* original_
             if (strlen(prof->prof_name) == 0)
             {
                 printf("prof->name is greater than 0\n\n");
-                int num_space = count_space_of_double_pointer(doc_str, i);
-                if (num_space > 2)
-                {
-                    printf("name at %d name '%s'", num_space, doc_str[i + num_space]);
-                    strcat(prof_name, doc_str[i + num_space]);
-                    strcat(prof_name, " ");
-                    strcat(prof_name, doc_str[i + (num_space + 1)]);
-                    strcpy(prof->prof_name, prof_name);
-                }
-
+                 int num_space = count_space_of_double_pointer(doc_str, i);
+               
                 if (strlen(doc_str[i + 1]) > 0 && strlen(doc_str[i + 2]) > 0)
                 {
                     printf("in if statement\n\n");
@@ -801,7 +796,8 @@ Professor* parse_prof_info(char** doc_str, char** doc_str_title, char* original_
                             strcmp(doc_str[i + 3], "Office") != 0 && strcmp(doc_str[i + 3], "PhD,") != 0 &&
                                 strcmp(doc_str[i + 3], "PhD") != 0 && strcmp(doc_str[i + 3], "Ph.D.,") != 0 &&
                                     strcmp(doc_str[i + 3], "Ph.D,") != 0  && strcmp(doc_str[i + 3], "MA,") != 0 &&
-                                        strcmp(doc_str[i + 3], "MA") != 0 && strcmp(doc_str[i + 3], "MEd,") != 0)
+                                        strcmp(doc_str[i + 3], "MA") != 0 && strcmp(doc_str[i + 3], "MEd,") != 0 &&
+                                    strcmp(doc_str[i + 3], "Section") != 0)
                     {                    
                         strcat(prof_name, " ");
                         strcat(prof_name, doc_str[i + 3]);
@@ -822,6 +818,15 @@ Professor* parse_prof_info(char** doc_str, char** doc_str_title, char* original_
                     }
                     strcpy(prof->prof_name, prof_name);
                 }
+                else if (num_space > 2)
+                {
+                    printf("name at %d name '%s'", num_space, doc_str[i + num_space]);
+                    strcat(prof_name, doc_str[i + num_space]);
+                    strcat(prof_name, " ");
+                    strcat(prof_name, doc_str[i + (num_space + 1)]);
+                    strcpy(prof->prof_name, prof_name);
+                }
+
             }
         }
     }
@@ -1092,10 +1097,11 @@ Generic_assesement* parser_generic_assesement(char** split_file, int i)
                     }
                 }
                 printf("\ngenric = %s\n", generic->generic_assesement_name);
-                char* percentage = calloc(1, sizeof(char) * 12);
 
                 if (strcmp(split_file[j], "%") == 0)
                 {
+                    char* percentage = calloc(1, sizeof(char) * 12);
+
                     printf("+++ \n");
                     strcpy(percentage, parser_percentage(split_file[j - 1], split_file[j + 1]));
                     generic->weight = strtod(percentage, NULL);
@@ -1106,6 +1112,8 @@ Generic_assesement* parser_generic_assesement(char** split_file, int i)
                 }
                 else
                 {
+                    char* percentage = calloc(1, sizeof(char) * 12);
+
                     strcpy(percentage, parser_percentage("", split_file[j]));
                     generic->weight = strtod(percentage, NULL);
                     printf("percentage for projects exam = %s %.1f\n", generic->generic_assesement_name, generic->weight);
@@ -1345,11 +1353,13 @@ Professor* parse_document(char* doc_str)
                         strcmp(split_file[i + 1], "examination") == 0 || strcmp(split_file[i + 1], "examination:") == 0 ||
                     strcmp(split_file[i + 1], "Exam*") == 0))
         {
-            printf("FINAL: EXAM '%s' '%s'\n", split_file[i + 1], split_file[i +  2]);
             if (grade->weight == 0.00)
             {
-                if (contains_percent(split_file[i - 1]) == TRUE)
+            printf("FINAL: EXAM '%s' '%s'\n", split_file[i - 1], split_file[i +  2]);
+
+                if (contains_percent(split_file[i - 1]) == TRUE || contains_percent(split_file[i + 1]) == TRUE)
                 {
+                    printf("percentage1\n");
                     char* percentage = parser_percentage(split_file[i - 1], split_file[i + 1]);
                     grade->weight = strtod(percentage, NULL); 
                     printf("percentage1 %f\n", grade->weight);
@@ -1357,7 +1367,7 @@ Professor* parse_document(char* doc_str)
                 }
                 else if (contains_percent(split_file[i + 2]) == TRUE)
                 {
-                    char* percentage = parser_percentage(split_file[i - 1], split_file[i + 2]);
+                    char* percentage = parser_percentage("", split_file[i + 2]);
                     grade->weight = strtod(percentage, NULL); 
                     printf("percentage2 %f\n", grade->weight);
                     free(percentage);
@@ -1365,7 +1375,7 @@ Professor* parse_document(char* doc_str)
                 else if (contains_percent(split_file[i + 3]) == TRUE)
                 {
                     printf("YESSS HH\n");
-                    char* percentage = parser_percentage(split_file[i - 1], split_file[i + 3]);
+                    char* percentage = parser_percentage("", split_file[i + 3]);
                     grade->weight = strtod(percentage, NULL); 
                     printf("percentage3 %f\n", grade->weight);
                     free(percentage);
@@ -1377,9 +1387,12 @@ Professor* parse_document(char* doc_str)
                     if (indexOfPercentage != -10)
                     {
                         char* percentage = parser_percentage(split_file[indexOfPercentage], " ");
-                        grade->weight = strtod(percentage, NULL); 
-                        printf("percentage4 %f\n", grade->weight);
-                        free(percentage);
+                        if (atof(percentage) > 10 && atof(percentage) < 100)
+                        {
+                            grade->weight = strtod(percentage, NULL); 
+                            printf("percentage4 %f\n", grade->weight);
+                        }
+                        if (percentage != NULL) free(percentage);
                     }
                 }
             }
@@ -1402,9 +1415,9 @@ Professor* parse_document(char* doc_str)
                 strcmp(split_file[i + 1], "Test") == 0 || strcmp(split_file[i + 1], "examination:") == 0 ||
                     strcmp(split_file[i + 1], "Examination:") == 0  || strcmp(split_file[i + 1], "Examination") == 0 || 
                 strcmp(split_file[i + 1], "examination") == 0 || strcmp(split_file[i + 1], "exam") == 0 ||
-                    strcmp(split_file[i + 1], "exam:") == 0)))
+                    strcmp(split_file[i + 1], "exam:") == 0)) || strcmp(split_file[i], "Midterm") == 0)
         {
-           printf("MIDTERM2 '%s' '%s'\n\n", split_file[i + 2], split_file[i + 3]);
+           printf("MIDTERM2 '%s' '%s'\n\n", split_file[i - 1], split_file[i + 3]);
             if (is_digit_test(split_file[i - 1], PERCENT) == TRUE ||
                     is_digit_test(split_file[i + 2], PERCENT) == TRUE ||
                         is_digit_test(split_file[i - 2], PERCENT) == TRUE ||
@@ -1522,9 +1535,10 @@ Professor* parse_document(char* doc_str)
     }
 
     remove_after_100(prof);
-
-    free_parser(split_file, _num_words_space);
-    free_parser(split_file_title, _num_words_email_at);
+    if (_num_words_space > 0) 
+        free_parser(split_file, _num_words_space);
+    if (_num_words_email_at > 0)
+        free_parser(split_file_title, _num_words_email_at);
     return prof;
 }
 
@@ -1575,7 +1589,7 @@ char* clean_str(char* str)
     int x = 0;
     for (int i = 0; i < length; i++)
     {
-        if (str[i] != '*' && str[i] != '=')
+        if (str[i] != '*' && str[i] != '=' && str[i] != ',')
         {
             newString[x] = str[i];
             x++;
@@ -1596,6 +1610,7 @@ char* JSON_midterm(const Midterm* mid)
     char* midterm_str = calloc(1, sizeof(char) * WORD_LEN);
     char* clean_midterm_str = clean_str(mid->midterm_name);
     sprintf(midterm_str, "{\"%s\":%.1f}", clean_midterm_str, mid->weight);
+    free(clean_midterm_str);
     return midterm_str;
 }
 
@@ -1611,6 +1626,7 @@ char* JSON_assignment(const Assignment* assign)
     char* clean_assign_str = clean_str(assign->assignment_name);
 
     sprintf(assign_str, "{\"%s\":%.1f}", clean_assign_str, assign->weight);
+    free(clean_assign_str);
     return assign_str;
 }
 
@@ -1626,6 +1642,7 @@ char* JSON_generic(const Generic_assesement* generic)
     char* clean_generic_str = clean_str(generic->generic_assesement_name);
 
     sprintf(generic_str, "{\"%s\":%.1f}", clean_generic_str, generic->weight);
+    free(clean_generic_str);
     return generic_str;
 }
 
@@ -1797,8 +1814,13 @@ char* professor_to_JSON(char* file_name)
     /*Gets the professors info email, name and name of the courese*/
     Professor* prof = parse_prof_info(split_file, split_file_title, doc_str);
 
+    char* clean_prof_name = clean_str(prof->prof_name);
+    char* clean_course_code = clean_str(prof->course_title);
+
     sprintf(prof_json_str, "{\"professor\":\"%s\",\"email\":\"%s\",\"course_code\":\"%s\"}",
-            prof->prof_name, prof->email, prof->course_title);
+            clean_prof_name, prof->email, clean_course_code);
+    free(clean_prof_name);
+    free(clean_course_code);
 
     /* Resetting all word count global variables*/
     _num_words_space = 0;
@@ -1823,7 +1845,7 @@ int main(int argc, char *argv[])
     // char* path = "/Users/david/Documents/Mark_Calc_App/files/outline.txt";
     // char* path = "/Users/david/Documents/Mark_Calc_App/files/acct3280.txt";
     // char* path = "/Users/david/Documents/Mark_Calc_App/files/acct_2230.txt";
-    // char* path = "/Users/david/Documents/Mark_Calc_App/files/mcs_2000.txt";
+    // char* path = "/Users/david/Documents/Mark_Calc_App/files/mcs_200/0.txt";
     // char* path = "/Users/david/Documents/Mark_Calc_App/files/hist_1150.txt";
     // char* path = "/Users/david/Documents/Mark_Calc_App/files/stats_2060.txt";
     // char* path = "/Users/david/Documents/Mark_Calc_App/files/acct3340.txt";
@@ -1842,7 +1864,7 @@ int main(int argc, char *argv[])
     // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/W20 CIS3750 Course Outline.txt";
     // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/syllabusW20.txt";
     // char* path = "/Users/david/Documents/Guelph_dev/Mark_Calc_App/files/POLS_3140.txt";
-    // char* path = "/Users/david/Documents/MarkCalcParserApp/files/FRHD2100DE_S20_FINAL.txt";
+    char* path = "/Users/david/Documents/MarkCalcParserApp/files/FRHD2100DE_S20_FINAL.txt";
     // char* path = "/Users/david/Documents/MarkCalcParserApp/files/RSM321+COURSE+OULTINE+F19+revised.txt";
     // char* path = "/Users/david/Documents/MarkCalcParserApp/files/GDipPA+Course+Outline+Advanced+Financial+Reporting+RSM+7201+Summer+2020+v3.txt";
 
@@ -1853,19 +1875,14 @@ int main(int argc, char *argv[])
     // char* path = "/Users/david/Documents/MarkCalcParserApp/files/1022G-western.txt";
     // char* path = "/Users/david/Documents/MarkCalcParserApp/files/RSM*7203.txt";
     // char* path = "/Users/david/Documents/MarkCalcParserApp/files/RSM7201.txt";
-    char* path = "/Users/david/Documents/MarkCalcParserApp/files/ACCT_4290.txt";
+    // char* path = "/Users/david/Documents/MarkCalcParserApp/files/ACCT_4290.txt";
+    // char* path = "/Users/david/Documents/MarkCalcParserApp/files/3210-outline-F19_v8.txt";
+    // char* path = "/Users/david/Documents/Mark_Calc_App/files/acct3280.txt";
+
 
 
 
     // char* path = "/Users/david/Documents/MarkCalcParserApp/files/MGMT_3020.txt";//major bug
-
-
-
-
-
-
-
-
 
 
     char* str = read_file(path);
@@ -1885,8 +1902,8 @@ int main(int argc, char *argv[])
     printf("done\n");
     return 0;
 }
-
 */
+
 
 
 /*Possible token function*/
