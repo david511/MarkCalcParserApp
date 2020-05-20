@@ -85,11 +85,18 @@ app.get('/index.js',function(req,res) {
       res.send(minimizedContents._obfuscatedCode);
     });
 });
-
+//adding route for sitemap
 app.get('/sitemap.xml',function(req,res) {
     res.contentType('application/xml');
     res.sendFile(path.join(__dirname , 'sitemap.xml'));
 });
+//adding route for ssl certification
+app.get('/public/.well-known/pki-validation/2A9E3EEA35F4062470A43DAA3C12BE5D.txt',function(req,res) {
+    res.contentType('application/txt');
+    res.sendFile(path.join(__dirname ,
+            '/public/.well-known/pki-validation/2A9E3EEA35F4062470A43DAA3C12BE5D.txt'));
+});
+
 /**
  * Respond to POST requests that upload files to the S3 bucket. Also parses
  * the course outline and adds info the the users database
