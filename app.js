@@ -86,6 +86,10 @@ app.get('/index.js',function(req,res) {
     });
 });
 
+app.get('/sitemap.xml',function(req,res) {
+    res.contentType('application/xml');
+    res.sendFile(path.join(__dirname , 'sitemap.xml'));
+});
 /**
  * Respond to POST requests that upload files to the S3 bucket. Also parses
  * the course outline and adds info the the users database
