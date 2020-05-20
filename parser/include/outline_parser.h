@@ -75,7 +75,7 @@ char* grade_to_string(void* data);
 
 char** split(char* line, char* delm, Parse_type type, int check_space);
 
-char* _program_name[46] = {
+char* _program_name[47] = {
     "ACCT",// GUELPH course code >>
     "AGR",
     "ANSC",
@@ -122,10 +122,11 @@ char* _program_name[46] = {
     "HROB",
     "POLS",
     "RSM",// UofT course code >>
-    "MOS"// western course code >>
+    "MOS",// western course code >>
+    "BU"//Laurier course code >>
 };
 
-char _key_words[81][32] = {
+char _key_words[93][32] = {
     "Presentation",
     "Presentation:",
     "presentation",
@@ -178,6 +179,7 @@ char _key_words[81][32] = {
     "abstract",
     "Client:",
     "Client",
+    "Connect",
     "Case:",
     "Case",
     "case",
@@ -207,7 +209,18 @@ char _key_words[81][32] = {
     "poster",
     "Poster:",
     "poster:",
-    "Professionalism"
+    "Professionalism",
+    "Tutorial",
+    "Tutorial:",
+    "Labs",
+    "Proposal",
+    "Process",
+    "Clicker:",
+    "clicker",
+    "clicker:",
+    "Contribution",
+    "Contribution:",
+    "Memo"
 };
 
 #endif

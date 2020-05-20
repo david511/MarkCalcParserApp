@@ -139,7 +139,7 @@ $(document).ready(function()
                                     Select a file:   <input id="file_input" name="file_input" type="file" accept="application/pdf">
                                     <button data-toggle="modal" data-target="#progressWindow" onclick="progressBar()"
                                         type="submit" id="upload" class="btn-sm btn-info addSemester">
-                                                <i class="fa fa-plus"></i> Create Table With Outline
+                                            <i class="fa fa-cloud-upload"></i> Upload
                                     </button></div>
                                     <br>
                                     <div id="orDiv" class="row justify-content-center">
@@ -1299,7 +1299,7 @@ function createTableNotLogggedIn()
                         <input id="file_input" name="file_input" type="file" accept="application/pdf">
                         <button data-toggle="modal" data-target="#progressWindow" onclick="progressBar()"
                             type="submit" id="upload" class="btn-sm btn-info uploadButton">
-                                    <i class="fa fa-plus"></i> Upload Outline
+                                <i class="fa fa-cloud-upload"></i> Upload
                     </button></div>
                     </form>
                 </div>
@@ -1389,7 +1389,7 @@ function createTableNotLogggedInWithOutline(number_assessements, Assessement, co
                     <input id="file_input" name="file_input" type="file" accept="application/pdf">
                     <button data-toggle="modal" data-target="#progressWindow" onclick="progressBar()"
                         type="submit" id="upload" class="btn-sm btn-info uploadButton">
-                                <i class="fa fa-plus"></i> Upload Outline
+                            <i class="fa fa-cloud-upload"></i> Upload
                 </button></div>
                 </form>
             </div>
