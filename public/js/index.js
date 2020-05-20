@@ -893,7 +893,7 @@ function updateTotalMark(tableId, user)
                 else finalMark = Math.round(100 * markTotal) / 100;
                 //updating the new mark
                 $('.markTotal' + tableId).empty();//clear original data
-                $('.markTotal' + tableId).append(`Final Mark = ` + finalMark + `%`);
+                $('.markTotal' + tableId).append(`Final Grade = ` + finalMark + `%`);
             },
             fail: function(error) {
                 console.log(error); 
@@ -1242,7 +1242,7 @@ function createTableNotLogggedIn()
                         <input id="file_input" name="file_input" type="file" accept="application/pdf">
                         <button data-toggle="modal" data-target="#progressWindow" onclick="progressBar()"
                             type="submit" id="upload" class="btn-sm btn-info uploadButton">
-                                    <i class="fa fa-plus"></i> Upload Outline
+                                <i class="fa fa-cloud-upload"></i> Upload
                     </button></div>
                     </form>
                 </div>
